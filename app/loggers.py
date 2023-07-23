@@ -3,6 +3,7 @@ __docformat__ = "numpy"
 
 # IMPORTATION STANDARD
 import logging
+from logging.handlers import TimedRotatingFileHandler
 from typing import Optional
 
 # IMPORTATION INTERNAL
@@ -10,27 +11,32 @@ from app.core.log.generation.directories import get_log_dir
 from app.core.session.current_system import get_current_system
 from app.core.log.generation.settings import Settings, LogSettings
 
-logger = logging.getLogger(__name__)
 logging_verbosity = get_current_system().LOGGING_VERBOSITY
+
+logger = logging.getLogger(__name__)
 
 #logging.getLogger("requests").setLevel(logging_verbosity)
 #logging.getLogger("urllib3").setLevel(logging_verbosity)
+#logging.getLogger("sqlalchemy").setLevel(logging_verbosity)
 
 def add_console_handler(settings: Settings):
-    handler = logging.StreamHandler()
-    formatter = logging.Formatter("%(asctime)s|%(name)s|%(funcName)s|%(lineno)s|%(message)s")
+    handler = logging.StreamHandler(level=settings.log_settings.verbosity)
+    formatter = logging.Formatter("%(asctime)s|%(levelname)s|%(name)s|%(funcName)s|%(lineno)s|%(message)s")
     handler.setFormatter(formatter)
     logging.getLogger().addHandler(handler)
 
 def add_noop_handler(settings: Settings):
-    handler = logging.NullHandler()
-    formatter = logging.Formatter("%(asctime)s|%(name)s|%(funcName)s|%(lineno)s|%(message)s")
+    handler = logging.NullHandler(level=settings.log_settings.verbosity)
+    formatter = logging.Formatter("%(asctime)s|%(levelname)s|%(name)s|%(funcName)s|%(lineno)s|%(message)s")
     handler.setFormatter(formatter)
     logging.getLogger().addHandler(handler)
 
 def add_file_handler(settings: Settings):
-    handler = logging.FileHandler(filename=settings.log_settings.directory / "app.log" )
-    formatter = logging.Formatter("%(asctime)s|%(name)s|%(funcName)s|%(lineno)s|%(message)s")
+    filename=settings.log_settings.directory / "app"
+    frequency = settings.log_settings.frequency
+    
+    handler = TimedRotatingFileHandler(filename=filename, frequency=frequency, when=frequency)
+    formatter = logging.Formatter("%(asctime)s|%(levelname)s|%(name)s|%(funcName)s|%(lineno)s|%(message)s")
     handler.setFormatter(formatter)
     logging.getLogger().addHandler(handler)
 
@@ -42,7 +48,7 @@ def setup_handlers(settings: Settings):
 
     logging.basicConfig(
         level=verbosity,
-        format="%(asctime)s|%(name)s|%(funcName)s|%(lineno)s|%(message)s",
+        format="%(asctime)s|%(levelname)s|%(name)s|%(funcName)s|%(lineno)s|%(message)s",
         datefmt="%Y-%m-%dT%H:%M:%S%z",
         handlers=[],
     )

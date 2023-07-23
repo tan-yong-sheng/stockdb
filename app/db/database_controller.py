@@ -55,6 +55,9 @@ def insert_db(sql_model: MasterSQLModel = NullDB,
                 # logging here
                 session.rollback()
 
+
+
+
 def main():
     create_db_and_tables()
     #insert_db(CompanyDB, get_company_info())
@@ -76,4 +79,6 @@ def main():
     """
 
 if __name__ == "__main__":
+    from app.loggers import setup_logging
+    setup_logging()
     main()

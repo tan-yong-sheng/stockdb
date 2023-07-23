@@ -17,9 +17,9 @@ class SystemModel(BaseModel):
 
     # Logging section
     LOGGING_FREQUENCY: Literal["D", "H", "M", "S"] = "H"
-    LOGGING_HANDLERS: List[str] = Field(default_factory=lambda: ["file"])
+    LOGGING_HANDLERS: List[str] = Field(default_factory=lambda: ["file","stream"])
     LOGGING_ROLLING_CLOCK: bool = False
-    LOGGING_VERBOSITY: int = 200
+    LOGGING_VERBOSITY: int = 50 # 0 - Not set, 10 - Debug, 20 - Info, 30 - Warning, 40 - Error, 50 - Critical
     LOGGING_SUPPRESS: bool = False
     LOG_COLLECT: bool = True
 
