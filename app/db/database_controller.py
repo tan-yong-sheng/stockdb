@@ -55,28 +55,23 @@ def insert_db(sql_model: MasterSQLModel = NullDB,
                 # logging here
                 session.rollback()
 
-
-
-
 def main():
     create_db_and_tables()
-    #insert_db(CompanyDB, get_company_info())
+    
+    insert_db(CompanyDB, get_company_info())
 
-    """
     stock_price_df = get_stock_price("MSFT GOOGL")
     insert_db(PriceDB, stock_price_df)
-    """
+    
     #news_df = pd.read_csv("./tests/csv_sample_output/newsdb.csv")
-    #news_df = get_news("TSLA") # question: why set to PLTR, it breaks?
-    #insert_db(NewsDB, news_df)
+    news_df = get_news("TSLA") # question: why set to PLTR, it breaks?
+    insert_db(NewsDB, news_df)
 
-    """
+    
     fundamentals_data_df=get_fundamentals_data("MSFT AAPL GOOGL NVDA TSLA")
     #fundamentals_data_df.to_csv("./tests/csv_sample_output/fundamentalsdatadb.csv")
-    #fundamentals_data_df = pd.read_csv("./tests/csv_sample_output/fundamentalsdatadb.csv")
-    #fundamentals_data_df.to_csv("./test.csv")
     insert_db(FundamentalsDB, fundamentals_data_df)
-    """
+
 
 if __name__ == "__main__":
     from app.loggers import setup_logging

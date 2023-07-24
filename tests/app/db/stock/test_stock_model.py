@@ -7,7 +7,6 @@ from app.db.stocks.stock_model import (
     get_news,
 )
 
-
 @pytest.fixture
 def stock_price():
     result = get_stock_price(
