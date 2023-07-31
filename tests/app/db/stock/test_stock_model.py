@@ -7,6 +7,7 @@ from app.db.stocks.stock_model import (
     get_news,
 )
 
+
 @pytest.fixture
 def stock_price():
     result = get_stock_price(
@@ -19,6 +20,7 @@ def stock_price():
 def fundamentals_data():
     result = get_fundamentals_data("MSFT")
     yield result
+
 
 def test_get_stock_price(stock_price):
     # Test get_stock_price

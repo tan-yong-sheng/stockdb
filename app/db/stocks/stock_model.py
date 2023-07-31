@@ -29,11 +29,13 @@ _ = load_dotenv(find_dotenv())
 NEWSAPI_API_KEY = os.getenv("NEWSAPI_API_KEY", None)
 DATABASE_URI = os.getenv("DATABASE_URI", None)
 
+
+
 ############################# CREATE (OR FETCH) DATA #################################
 
 ## stock price query date
 end_date = datetime.now().strftime("%Y-%m-%d")
-start_date = (datetime.now() - relativedelta(years=10)).strftime(
+start_date = (datetime.now() - relativedelta(years=20)).strftime(
     "%Y-%m-%d"
 )  # 10 years ago
 # news query date
@@ -42,23 +44,31 @@ news_start_date = (datetime.now() - relativedelta(months=1)).strftime(
     "%Y-%m-%d"
 )  # 1 month ago
 
+
 @log_start_end(log=logger)
 def get_company_info(
     country: str = "United States",
-    sector: str="",
+    sector: str = "",
     industry_group: str = "",
     industry: str = "",
-    exchange: str = "NYQ"
+    exchange: str = "NYQ",
+) -> pd.DataFrame:
 
-) -> pd.DataFrame: 
     eq = fd.Equities()
-    equities_info: pd.DataFrame = eq.search(country=country,
-                              sector=sector,
-                              industry_group=industry_group,
-                              industry=industry,
-                              exchange=exchange
-                              )
+    
+    equities_info: pd.DataFrame = eq.search(
+        country=country,
+        sector=sector,
+        industry_group=industry_group,
+        industry=industry,
+        exchange=exchange,
+    )
+    equities_info.reset_index(inplace=True)
+    equities_info.rename(columns={col: col.lower().strip().replace(" ","_") for col in 
+                                equities_info.columns}, inplace=True)
+    #equities_info.set_index(["symbol"], inplace=True)
     return equities_info
+
 
 @log_start_end(log=logger)
 def get_stock_price(
@@ -83,18 +93,20 @@ def get_stock_price(
         pd.DataFrame: A DataFrame containing historical stock price data with columns:
                        ['Date', 'Symbol', 'Open', 'High', 'Low', 'Close', 'Volume'].
     """
-    if isinstance(symbols, list):
-        symbols = " ".join(symbols)
-    stock_price = yf.download(symbols, start=start, end=end, interval="1d")
-    if isinstance(symbols, str):
-        if len(symbols.split(" ")) == 1:
-            stock_price = stock_price.reset_index()
-            stock_price["Symbol"] = symbols
-            stock_price.set_index(["Date", "Symbol"], inplace=True)
-            return stock_price
-    stock_price = stock_price.stack()
-    stock_price.index.names = ["Date", "Symbol"]
+    symbols = " ".join(symbols) if isinstance(symbols,list) else symbols
+    stock_price = yf.download(symbols, start=start, end=end, interval=interval)
+    if len(symbols.split(" ")) == 1:
+        stock_price["symbol"] = symbols
+    else:
+        stock_price = stock_price.stack()   
+    stock_price.reset_index(inplace=True)
+    # lower case for the column name
+    stock_price.rename(columns={col: col.lower().strip().replace(" ","_") for col in 
+                                stock_price.columns}, inplace=True)
+    stock_price.rename(columns={"level_1":"symbol"}, inplace=True)
+    #stock_price.set_index(["date","symbol"], inplace=True)
     return stock_price
+
 
 @log_start_end(log=logger)
 def get_fundamentals_data(symbols: Union[str, list] = "MSFT") -> pd.DataFrame:
@@ -117,7 +129,11 @@ def get_fundamentals_data(symbols: Union[str, list] = "MSFT") -> pd.DataFrame:
         # normalize JSON / dict data into a flat table / dataframe
         info = pd.json_normalize(stock.info)
         fundamentals_data = pd.concat([fundamentals_data, info], ignore_index=True)
-    #fundamentals_data = fundamentals_data.replace(np.nan, "empty")
+    # fundamentals_data = fundamentals_data.replace(np.nan, "empty")
+    fundamentals_data.reset_index(inplace=True)
+    fundamentals_data.rename(columns={col: col.lower().strip().replace(" ","_") for col in 
+                                fundamentals_data.columns}, inplace=True)
+    #fundamentals_data.set_index(["date","symbol"], inplace=True)
     return fundamentals_data
 
 
@@ -159,4 +175,8 @@ def get_news(
         news = pd.json_normalize(news.explode())
         news["Symbol"] = symbol
         news_data = pd.concat([news_data, news], ignore_index=True)
+    news_data.reset_index(inplace=True)
+    news_data.rename(columns={col: col.lower().strip().replace(" ","_") for col in 
+                                news_data.columns}, inplace=True)
+    #news_data.set_index(["date","name"], inplace=True)
     return news_data

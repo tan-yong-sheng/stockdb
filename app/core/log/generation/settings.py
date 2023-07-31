@@ -57,7 +57,7 @@ class Settings:
     @property
     def log_settings(self) -> LogSettings:
         return deepcopy(self.__log_settings)
-    
+
     def __init__(
         self,
         log_settings: LogSettings,

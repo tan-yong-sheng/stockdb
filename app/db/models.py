@@ -1,22 +1,28 @@
 from datetime import datetime
 from typing import Optional
-from sqlmodel import Field, SQLModel
-from sqlalchemy import UniqueConstraint
-from sqlalchemy import Column
+from sqlmodel import Field, SQLModel, Relationship
+from sqlmodel import UniqueConstraint
+from sqlmodel import Column
 from sqlalchemy.dialects.mysql import BIGINT, LONGTEXT, TEXT
+from typing import List
 
 class MasterSQLModel(SQLModel):
     created_at: datetime = Field(default=datetime.utcnow(), nullable=False)
     updated_at: datetime = Field(default_factory=datetime.utcnow, nullable=False)
-    
 
-class CompanyDB(MasterSQLModel,table=True):
-    __tablename__ = "Company"
-    __table_args__ = (
-        dict(comment="List of public listed companies"),
-    )
-    id: Optional[int] = Field(primary_key=True, nullable=False)
-    symbol: Optional[str]
+
+class CountriesDB(MasterSQLModel, table=True):
+    __tablename__ = "dim_countries"
+    id: Optional[int] = Field(primary_key=True, default=None)
+    country: Optional[str] = Field(index=True) #Field(index=True)
+    code: Optional[str] = Field(alias="Code")
+  
+
+class CompanyDB(MasterSQLModel, table=True):
+    __tablename__ = "dim_companies"
+    __table_args__ = (dict(comment="List of public listed companies"),)
+    id: Optional[int] = Field(default=None, primary_key=True)
+    symbol: Optional[str] = Field(index=True)
     name: Optional[str]
     summary: Optional[str] = Field(sa_column=Column(TEXT))
     currency: Optional[str]
@@ -25,7 +31,8 @@ class CompanyDB(MasterSQLModel,table=True):
     industry: Optional[str]
     exchange: Optional[str]
     market: Optional[str]
-    country: Optional[str]
+    #country_id: Optional[int] = Field(default=None, foreign_key="dim_countries.id")
+    country: Optional[str] #Optional[CountriesDB] = Relationship(back_populates="company_links")
     state: Optional[str]
     city: Optional[str]
     zipcode: Optional[int]
@@ -36,51 +43,92 @@ class CompanyDB(MasterSQLModel,table=True):
     figi: Optional[str]
     composite_figi: Optional[str]
     shareclass_figi: Optional[str]
+    historical_prices: List["HistoricalPriceDB"] = Relationship(back_populates="company")
+    #price_links: List["HistoricalPriceDB"] = Relationship(back_populates="symbol")
+    #news_links: List["NewsDB"] = Relationship(back_populates="symbol")
 
-    
-class PriceDB(MasterSQLModel, table=True):
-    __tablename__ = "Price"
+
+class HistoricalPriceDB(MasterSQLModel, table=True):
+    __tablename__ = "fact_historical_price"
     __table_args__ = (
-        UniqueConstraint("Date", "Symbol", name="date_symbol"),
-        dict(comment="Historical stock price of public listed companies")
+        #UniqueConstraint("date", "symbol", name="date_symbol"),
+        dict(comment="Historical stock price of public listed companies"),
     )
-    id: Optional[int] = Field(primary_key=True, nullable=False) 
-    Date: datetime
-    Symbol: str = Field(alias="Symbol",foreign_key="CompanyDB.id")
-    Open: Optional[float]
-    High: Optional[float]
-    Low: Optional[float]
-    Close: Optional[float]
-    Adj_Close: Optional[float] = Field(alias="Adj Close")
-    Volume: Optional[int]
+    id: Optional[int] = Field(default=None, primary_key=True)
+    date: datetime
+    symbol: Optional[str] = Field(foreign_key='dim_companies.symbol')
+    company: Optional[CompanyDB] = Relationship(back_populates="historical_prices")
+    open: Optional[float]
+    high: Optional[float]
+    low: Optional[float]
+    close: Optional[float]
+    adj_close: Optional[float]
+    volume: Optional[int] = Field(sa_column=Field(Column(BIGINT)))
 
 
 class NewsDB(MasterSQLModel, table=True):
-    __tablename__ = "News"
+    __tablename__ = "fact_news"
     __table_args__ = (
-        UniqueConstraint("title","author", name="title_author_date"),
+        #UniqueConstraint("title", "author", name="title_author"),
         dict(comment="List of news of public listed companies"),
     )
     id: Optional[int] = Field(primary_key=True, nullable=False)
-    Symbol: Optional[str] 
+    #symbol_id: Optional[int] = Field(default=None, foreign_key="dim_companies.id")
+    symbol: Optional[str] #"CompanyDB" = Relationship(back_populates="news_links")
     title: Optional[str]
     author: Optional[str]
     description: Optional[str] = Field(sa_column=Column(LONGTEXT))
     url: Optional[str] = Field(sa_column=Column(TEXT))
-    urlToImage: Optional[str]
-    publishedAt: Optional[datetime]
+    urlToImage: Optional[str] = Field(alias="urltoimage")
+    publishedAt: Optional[datetime] = Field(alias="publishedat")
     content: Optional[str] = Field(sa_column=Column(LONGTEXT))
     source_id: Optional[str]
     source_name: Optional[str]
+    
 
+class MacroParametersDB(MasterSQLModel, table=True):
+    __tablename__ = "dim_macro_parameters"
+    id: int = Field(primary_key=True, default=None)
+    name: str
+    period: str
+    description: str = Field(sa_column=Column(TEXT))
+
+
+class EconomicCalendarDB(MasterSQLModel, table=True):
+    __tablename__ = "fact_economic_calendar"
+    id: Optional[int] = Field(primary_key=True, default=None)
+    date: Optional[datetime] = Field(alias="date")
+    time: Optional[datetime] = Field(alias="time_(et)")
+    #country_id: Optional[int] = Field(default=None, foreign_key="dim_countries.id")
+    country: Optional[str] #"CountriesDB" = Relationship(back_populates="economic_calendar_links")
+    event: Optional[str]
+    actual: Optional[str]
+    consensus: Optional[str]
+    previous: Optional[str]
+
+
+class MacroIndicatorsDB(MasterSQLModel, table=True):
+    __tablename__ = "fact_macro_indicators"
+    id: Optional[int] = Field(primary_key=True, default=None)
+    date: Optional[datetime]
+    #country_id: Optional[int] = Field(default=None, foreign_key="dim_countries.id")
+    country: Optional[str]#[CountriesDB] = Relationship(back_populates="macro_indicators_links")
+    variable: Optional[str]
+    value: Optional[int]
+    unit: Optional[str]
+    currency_or_measurement: Optional[str]
+    
+
+class NullDB(MasterSQLModel, table=True):
+    # an empty database for testing purpose
+    __tablename__ = "test"
+    id: int = Field(default=None, primary_key=True)
 
 class FundamentalsDB(MasterSQLModel, table=True):
-    __tablename__ = "Fundamentals"
-    __table_args__ = (
-        UniqueConstraint("Symbol", name="symbol"),
-    )
+    __tablename__ = "fundamentals"
+    __table_args__ = (UniqueConstraint("symbol", name="symbol"),)
     id: Optional[int] = Field(primary_key=True, nullable=False)
-    Symbol: str = Field(alias="symbol")
+    symbol: str
     address1: Optional[str]
     city: Optional[str]
     state: Optional[str]
@@ -210,9 +258,3 @@ class FundamentalsDB(MasterSQLModel, table=True):
     financialCurrency: Optional[str]
     trailingPegRatio: Optional[str] = Field(nullable=True)
     fax: Optional[str] = Field(nullable=True)
-
-
-class NullDB(MasterSQLModel, table=True):
-    # an empty database for testing purpose
-    __tablename__ = "test"
-    id: int = Field(default=None, primary_key=True)

@@ -15,28 +15,36 @@ logging_verbosity = get_current_system().LOGGING_VERBOSITY
 
 logger = logging.getLogger(__name__)
 
-#logging.getLogger("requests").setLevel(logging_verbosity)
-#logging.getLogger("urllib3").setLevel(logging_verbosity)
-#logging.getLogger("sqlalchemy").setLevel(logging_verbosity)
+# logging.getLogger("requests").setLevel(logging_verbosity)
+# logging.getLogger("urllib3").setLevel(logging_verbosity)
+# logging.getLogger("sqlalchemy").setLevel(logging_verbosity)
+
 
 def add_console_handler(settings: Settings):
     handler = logging.StreamHandler(level=settings.log_settings.verbosity)
-    formatter = logging.Formatter("%(asctime)s|%(levelname)s|%(name)s|%(funcName)s|%(lineno)s|%(message)s")
+    formatter = logging.Formatter(
+        "%(asctime)s|%(levelname)s|%(name)s|%(funcName)s|%(lineno)s|%(message)s"
+    )
     handler.setFormatter(formatter)
     logging.getLogger().addHandler(handler)
+
 
 def add_noop_handler(settings: Settings):
     handler = logging.NullHandler(level=settings.log_settings.verbosity)
-    formatter = logging.Formatter("%(asctime)s|%(levelname)s|%(name)s|%(funcName)s|%(lineno)s|%(message)s")
+    formatter = logging.Formatter(
+        "%(asctime)s|%(levelname)s|%(name)s|%(funcName)s|%(lineno)s|%(message)s"
+    )
     handler.setFormatter(formatter)
     logging.getLogger().addHandler(handler)
 
+
 def add_file_handler(settings: Settings):
-    filename=settings.log_settings.directory / "app"
-    frequency = settings.log_settings.frequency
-    
-    handler = TimedRotatingFileHandler(filename=filename, frequency=frequency, when=frequency)
-    formatter = logging.Formatter("%(asctime)s|%(levelname)s|%(name)s|%(funcName)s|%(lineno)s|%(message)s")
+    filename = settings.log_settings.directory / "app"
+
+    handler = TimedRotatingFileHandler(filename=filename)
+    formatter = logging.Formatter(
+        "%(asctime)s|%(levelname)s|%(name)s|%(funcName)s|%(lineno)s|%(message)s"
+    )
     handler.setFormatter(formatter)
     logging.getLogger().addHandler(handler)
 
@@ -91,5 +99,5 @@ def setup_logging(
             verbosity=verbosity,
         ),
     )
-    
+
     setup_handlers(settings=settings)

@@ -4,6 +4,7 @@ from pydantic.dataclasses import dataclass
 
 # pylint: disable=too-many-instance-attributes, disable=no-member
 
+
 @dataclass
 class BaseModel:
     def __repr__(self) -> str:
