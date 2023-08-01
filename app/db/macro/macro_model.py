@@ -1,14 +1,15 @@
-import pandas as pd
-from openbb_terminal.sdk import openbb
 from datetime import datetime
-from typing import Dict, List
+from typing import Dict
+import pandas
+from openbb_terminal.sdk import openbb
+from app.helpers import standardize_dataframe_column
 
 
 def get_macro_parameters() -> Dict[str, Dict[str, str]]:
     return openbb.economy.macro_parameters()
 
 
-def get_macro_countries() -> Dict[str, str]:
+def get_countries_with_currencies() -> Dict[str, str]:
     """_summary_
     This function returns the available countries and respective currencies.
 
@@ -19,7 +20,7 @@ def get_macro_countries() -> Dict[str, str]:
     return openbb.economy.macro_countries()
 
 
-def get_countries_code() -> List[str]:
+def get_countries_code() -> pandas.DataFrame:
     """_summary_
     Get available country codes for Bigmac index
 
@@ -27,7 +28,21 @@ def get_countries_code() -> List[str]:
     List[str]
         List of ISO-3 letter country codes.
     """
-    return openbb.economy.country_codes()
+    return standardize_dataframe_column(openbb.economy.country_codes())
+
+def get_countries() -> pandas.DataFrame:
+    countries_with_currencies = pandas.DataFrame.from_dict(
+                                    get_countries_with_currencies(),
+                                    orient="index").reset_index()
+    countries_with_currencies.columns = ["country", "currency"]
+    countries_code = get_countries_code()
+    countries = pandas.merge(countries_code, countries_with_currencies, 
+                             on="country", how="outer")
+    test_df = standardize_dataframe_column(countries,
+                                        drop_columns=["level_0","index"])
+    print(test_df.columns)
+    return test_df
+    
 
 def get_macro_indicators_data(
     parameters: list = ["RGDP","HOU", "CORE"],
@@ -35,7 +50,7 @@ def get_macro_indicators_data(
     start_date="2022-01-01",
     end_date=datetime.now(),
     symbol: str = "USD",
-) -> pd.DataFrame:
+) -> pandas.DataFrame:
     """_summary_
 
     Parameters
@@ -63,7 +78,7 @@ def get_macro_indicators_data(
         start_date=start_date,
         end_date=end_date,
     )
-    macro_df = pd.melt(
+    macro_df = pandas.melt(
         macro_data.reset_index(),
         id_vars=["date"],
         var_name=["countries", "variable"],
@@ -75,7 +90,7 @@ def get_macro_indicators_data(
     for data_type in metadata[0].values():
         data_type_dict.update(**data_type)
     macro_df["currency_or_measurement"] = macro_df["variable"].replace(data_type_dict)
-    return macro_df
+    return standardize_dataframe_column(macro_df)
 
 
 def get_economic_calendar(
@@ -96,16 +111,16 @@ def get_economic_calendar(
 
     Returns
     -------
-    pd.DataFrame
+    pandas.DataFrame
         Economic calendar
     """
     calendar = openbb.economy.events(
         countries=countries, start_date=start_date, end_date=end_date
     )
-    return calendar
+    return standardize_dataframe_column(calendar)
 
 
 if __name__ == "__main__":
     # df = get_macro_indicators_data()
-    df = get_economic_calendar()
+    df = get_countries()
     print(df)

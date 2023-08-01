@@ -3,7 +3,7 @@ from typing import Optional
 from sqlmodel import Field, SQLModel, Relationship
 from sqlmodel import UniqueConstraint
 from sqlmodel import Column
-from sqlalchemy.dialects.mysql import BIGINT, LONGTEXT, TEXT
+from sqlalchemy.dialects.mysql import BIGINT, LONGTEXT, TEXT, VARCHAR
 from typing import List
 
 class MasterSQLModel(SQLModel):
@@ -11,18 +11,50 @@ class MasterSQLModel(SQLModel):
     updated_at: datetime = Field(default_factory=datetime.utcnow, nullable=False)
 
 
+class DailyPriceVendorLink(MasterSQLModel,table=True):
+    data_vendor_id: Optional[int] = Field(
+        default=None,foreign_key="fact_daily_price.id", primary_key=True,
+    )
+    daily_price_id: Optional[int] = Field(
+        default=None, foreign_key="dim_data_vendor.id",primary_key=True
+    )
+
+
+class CountryCompanyLink(MasterSQLModel, table=True):
+    # Link Model
+    # To link up 2 tables with Many-to-Many relationship
+    country_id: Optional[int] = Field(
+        default=None, foreign_key="dim_countries.id", primary_key=True,
+    )
+    company_id: Optional[int] = Field(
+        default=None, foreign_key="dim_companies.id", primary_key=True
+    )
+
+
+class DataVendorDB(MasterSQLModel, table=True):
+    __tablename__ = "dim_data_vendor"
+    id: Optional[int] = Field(default=None, primary_key=True)
+    name: Optional[str] = Field(default=None, nullable=False)
+    website_url: Optional[str] = Field(default=None)
+    support_email: Optional[str] = Field(default=None)
+    daily_prices: List["DailyPriceDB"] = Relationship(back_populates="data_vendors",
+                                                     link_model=DailyPriceVendorLink)
+
 class CountriesDB(MasterSQLModel, table=True):
     __tablename__ = "dim_countries"
-    id: Optional[int] = Field(primary_key=True, default=None)
-    country: Optional[str] = Field(index=True) #Field(index=True)
-    code: Optional[str] = Field(alias="Code")
-  
+    id: Optional[int] = Field(default=None, primary_key=True)
+    country: Optional[str] = Field(index=True)
+    code: Optional[str]
+    currency: Optional[str]
+    companies: List["CompaniesDB"] = Relationship(back_populates="countries", 
+                                                  link_model=CountryCompanyLink)
 
-class CompanyDB(MasterSQLModel, table=True):
+
+class CompaniesDB(MasterSQLModel, table=True):
     __tablename__ = "dim_companies"
     __table_args__ = (dict(comment="List of public listed companies"),)
     id: Optional[int] = Field(default=None, primary_key=True)
-    symbol: Optional[str] = Field(index=True)
+    symbol: Optional[str] = Field(index=True, nullable=False)
     name: Optional[str]
     summary: Optional[str] = Field(sa_column=Column(TEXT))
     currency: Optional[str]
@@ -31,39 +63,41 @@ class CompanyDB(MasterSQLModel, table=True):
     industry: Optional[str]
     exchange: Optional[str]
     market: Optional[str]
-    #country_id: Optional[int] = Field(default=None, foreign_key="dim_countries.id")
-    country: Optional[str] #Optional[CountriesDB] = Relationship(back_populates="company_links")
+    country: Optional[str] = Field(foreign_key="dim_countries.country")
+    countries: List["CountriesDB"] = Relationship(back_populates="companies",
+                                                  link_model=CountryCompanyLink)
     state: Optional[str]
     city: Optional[str]
     zipcode: Optional[int]
     website: Optional[str] = Field(sa_column=Column(TEXT))
-    market_cap: Optional[int] = Field(sa_column=Column(BIGINT))
+    market_cap: Optional[str] = Field(sa_column=Column(VARCHAR(255)))
     isin: Optional[str]
     cusip: Optional[str]
     figi: Optional[str]
     composite_figi: Optional[str]
     shareclass_figi: Optional[str]
-    historical_prices: List["HistoricalPriceDB"] = Relationship(back_populates="company")
-    #price_links: List["HistoricalPriceDB"] = Relationship(back_populates="symbol")
-    #news_links: List["NewsDB"] = Relationship(back_populates="symbol")
+    daily_prices: List["DailyPriceDB"] = Relationship(back_populates="company")
 
-
-class HistoricalPriceDB(MasterSQLModel, table=True):
-    __tablename__ = "fact_historical_price"
+class DailyPriceDB(MasterSQLModel, table=True):
+    __tablename__ = "fact_daily_price"
     __table_args__ = (
-        #UniqueConstraint("date", "symbol", name="date_symbol"),
-        dict(comment="Historical stock price of public listed companies"),
+        dict(comment="Daily stock price of public listed companies"),
     )
     id: Optional[int] = Field(default=None, primary_key=True)
+    #data_vendor_id: Optional[int] = Field(foreign_key="dim_data_vendor.name")
+    data_vendors: List["DataVendorDB"] = Relationship(back_populates="daily_prices",
+                                                     link_model=DailyPriceVendorLink)
     date: datetime
-    symbol: Optional[str] = Field(foreign_key='dim_companies.symbol')
-    company: Optional[CompanyDB] = Relationship(back_populates="historical_prices")
+    symbol: Optional[str] = Field(foreign_key='dim_companies.symbol', nullable=False)
+    company: Optional[CompaniesDB] = Relationship(back_populates="daily_prices")
     open: Optional[float]
     high: Optional[float]
     low: Optional[float]
     close: Optional[float]
     adj_close: Optional[float]
     volume: Optional[int] = Field(sa_column=Field(Column(BIGINT)))
+    
+    
 
 
 class NewsDB(MasterSQLModel, table=True):
@@ -74,7 +108,7 @@ class NewsDB(MasterSQLModel, table=True):
     )
     id: Optional[int] = Field(primary_key=True, nullable=False)
     #symbol_id: Optional[int] = Field(default=None, foreign_key="dim_companies.id")
-    symbol: Optional[str] #"CompanyDB" = Relationship(back_populates="news_links")
+    symbol: Optional[str] #"CompaniesDB" = Relationship(back_populates="news_links")
     title: Optional[str]
     author: Optional[str]
     description: Optional[str] = Field(sa_column=Column(LONGTEXT))

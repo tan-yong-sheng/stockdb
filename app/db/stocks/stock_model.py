@@ -5,7 +5,7 @@ extracting stock data, fundamentals data, and news data, as well as
 storing data into a MySQL database.
 
 Functions:
-- get_stock_price
+- get_daily_price
 - get_fundamentals_data
 - get_news
 - store_data_in_mysql
@@ -22,14 +22,13 @@ from newsapi import NewsApiClient
 import financedatabase as fd
 from dotenv import load_dotenv, find_dotenv
 from app.decorators import log_start_end, check_api_key
+from app.helpers import standardize_dataframe_column
 
 logger = logging.getLogger(__name__)
 
 _ = load_dotenv(find_dotenv())
 NEWSAPI_API_KEY = os.getenv("NEWSAPI_API_KEY", None)
 DATABASE_URI = os.getenv("DATABASE_URI", None)
-
-
 
 ############################# CREATE (OR FETCH) DATA #################################
 
@@ -63,22 +62,17 @@ def get_company_info(
         industry=industry,
         exchange=exchange,
     )
-    equities_info.reset_index(inplace=True)
-    equities_info.rename(columns={col: col.lower().strip().replace(" ","_") for col in 
-                                equities_info.columns}, inplace=True)
-    #equities_info.set_index(["symbol"], inplace=True)
-    return equities_info
-
+    return standardize_dataframe_column(equities_info)
 
 @log_start_end(log=logger)
-def get_stock_price(
+def get_daily_price(
     symbols: Union[str, list] = "MSFT",
     start: str = start_date,
     end: str = end_date,
     interval="1d",
 ) -> pd.DataFrame:
     """
-    Extracts historical stock price data for the given stock symbols.
+    Extracts daily stock price data for the given stock symbols.
 
     Parameters:
         symbols (Union[list, str], optional): A list of stock symbols or
@@ -99,13 +93,7 @@ def get_stock_price(
         stock_price["symbol"] = symbols
     else:
         stock_price = stock_price.stack()   
-    stock_price.reset_index(inplace=True)
-    # lower case for the column name
-    stock_price.rename(columns={col: col.lower().strip().replace(" ","_") for col in 
-                                stock_price.columns}, inplace=True)
-    stock_price.rename(columns={"level_1":"symbol"}, inplace=True)
-    #stock_price.set_index(["date","symbol"], inplace=True)
-    return stock_price
+    return standardize_dataframe_column(stock_price, {"level_1":"symbol"})
 
 
 @log_start_end(log=logger)
@@ -129,12 +117,7 @@ def get_fundamentals_data(symbols: Union[str, list] = "MSFT") -> pd.DataFrame:
         # normalize JSON / dict data into a flat table / dataframe
         info = pd.json_normalize(stock.info)
         fundamentals_data = pd.concat([fundamentals_data, info], ignore_index=True)
-    # fundamentals_data = fundamentals_data.replace(np.nan, "empty")
-    fundamentals_data.reset_index(inplace=True)
-    fundamentals_data.rename(columns={col: col.lower().strip().replace(" ","_") for col in 
-                                fundamentals_data.columns}, inplace=True)
-    #fundamentals_data.set_index(["date","symbol"], inplace=True)
-    return fundamentals_data
+    return standardize_dataframe_column(fundamentals_data)
 
 
 @log_start_end(log=logger)
@@ -175,8 +158,5 @@ def get_news(
         news = pd.json_normalize(news.explode())
         news["Symbol"] = symbol
         news_data = pd.concat([news_data, news], ignore_index=True)
-    news_data.reset_index(inplace=True)
-    news_data.rename(columns={col: col.lower().strip().replace(" ","_") for col in 
-                                news_data.columns}, inplace=True)
-    #news_data.set_index(["date","name"], inplace=True)
-    return news_data
+    return standardize_dataframe_column(news_data)
+

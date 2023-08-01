@@ -1,37 +1,34 @@
 import os
+import numpy
+import pandas
 import logging
-import json
 from dotenv import load_dotenv, find_dotenv
 import sqlalchemy
 from sqlmodel import SQLModel, create_engine, Session
-import pandas as pd
-import numpy as np
-from sqlalchemy.orm.exc import UnmappedClassError
+
 from app.decorators import log_start_end
 from app.db.stocks.stock_model import (
     get_company_info,
-    get_stock_price,
+    get_daily_price,
     get_fundamentals_data,
     get_news,
 )
 
 from app.db.macro.macro_model import (
-    get_countries_code,
     get_economic_calendar,
-    get_macro_countries,
+    get_countries,
     get_macro_parameters,
     get_macro_indicators_data
 )
 
 from app.db.models import (
-    MasterSQLModel,
-    CompanyDB,
-    HistoricalPriceDB,
+    CountriesDB,    
+    CompaniesDB,
+    DailyPriceDB,
     FundamentalsDB,
     NewsDB,
     NullDB,
 )
-
 
 _ = load_dotenv(find_dotenv())
 logger = logging.getLogger(__name__)
@@ -51,13 +48,13 @@ def create_db_and_tables(engine=None):
 # Reference: https://sqlmodel.tiangolo.com/tutorial/insert/
 
 @log_start_end(log=logger)
-def insert_db(sql_model: MasterSQLModel = NullDB, 
-              data_frame: pd.DataFrame=pd.DataFrame(), engine=None):
+def insert_db(sql_model: SQLModel = NullDB, 
+              data_frame: pandas.DataFrame=pandas.DataFrame(), engine=None):
     if engine is None:
         engine = create_engine(DATABASE_URI, echo=True)
     # remove null values in the dictionary
-    result_list = [{k: v for k, v in row.items() if v is not None} for row in \
-        data_frame.replace(np.nan, None).reset_index().to_dict("records")]
+    result_list = [{k: v for k, v in row.items() if v is not None or not numpy.nan} for row in \
+        data_frame.reset_index().to_dict("records")]
     #Convert a pandas DataFrame into a a list of SQLModel objects.
     sql_model_objs = [sql_model(**row) for row in result_list]
 
@@ -67,7 +64,6 @@ def insert_db(sql_model: MasterSQLModel = NullDB,
             try:
                 session.commit()
             except sqlalchemy.exc.IntegrityError as error:
-                # logging here
                 session.rollback()
 
 
@@ -76,15 +72,17 @@ def run_db_operation(engine=None):
         engine = create_engine(DATABASE_URI, echo=True)
     create_db_and_tables(engine=engine)
     
-    #insert_db(CompanyDB, get_company_info(exchange=""), engine=engine)
+    insert_db(CountriesDB, get_countries(), engine=engine)
+    
+    #insert_db(CompaniesDB, get_company_info(exchange="NYQ"), engine=engine)
 
     #get stock price
     #tickers = " ".join(get_company_info()["symbol"].tolist())
-    stock_price_df = get_stock_price("MSFT AAC AAIC")
-    insert_db(HistoricalPriceDB, stock_price_df, engine=engine)
+    #stock_price_df = get_daily_price("MSFT AAC AAIC")
+    #insert_db(DailyPriceDB, stock_price_df, engine=engine)
     
     # get news
-    # news_df = pd.read_csv("./tests/csv_sample_output/newsdb.csv")
+    # news_df = pandas.read_csv("./tests/csv_sample_output/newsdb.csv")
     # news_df = get_news("TSLA") # question: why set to PLTR, it breaks?
     # insert_db(NewsDB, news_df)
 

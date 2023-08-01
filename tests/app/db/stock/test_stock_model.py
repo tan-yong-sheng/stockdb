@@ -2,7 +2,7 @@ from unittest.mock import patch
 import pytest
 import pandas as pd
 from app.db.stocks.stock_model import (
-    get_stock_price,
+    get_daily_price,
     get_fundamentals_data,
     get_news,
 )
@@ -10,7 +10,7 @@ from app.db.stocks.stock_model import (
 
 @pytest.fixture
 def stock_price():
-    result = get_stock_price(
+    result = get_daily_price(
         "MSFT", start="2023-07-12", end="2023-07-15", interval="1d"
     )
     yield result
@@ -22,8 +22,8 @@ def fundamentals_data():
     yield result
 
 
-def test_get_stock_price(stock_price):
-    # Test get_stock_price
+def test_get_daily_price(stock_price):
+    # Test get_daily_price
     assert isinstance(stock_price, pd.DataFrame)
     assert len(stock_price) == 3  # 3 days of data
     assert stock_price.index.names == ["Date", "Symbol"]
