@@ -59,7 +59,7 @@ def setup_handlers(settings: Settings):
         format="%(asctime)s|%(levelname)s|%(name)s|%(funcName)s|%(lineno)s|%(message)s",
         datefmt="%Y-%m-%dT%H:%M:%S%z",
         handlers=[],
-        encoding="utf-8-sig"
+        encoding="utf-8"
     )
 
     for handler_type in handler_list:

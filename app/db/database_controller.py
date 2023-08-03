@@ -27,6 +27,7 @@ from app.db.models import (
     DailyPriceDB,
     FundamentalsDB,
     NewsDB,
+    DataVendorDB,
     NullDB,
 )
 
@@ -53,34 +54,44 @@ def insert_db(sql_model: SQLModel = NullDB,
     if engine is None:
         engine = create_engine(DATABASE_URI, echo=True)
     # remove null values in the dictionary
-    result_list = [{k: v for k, v in row.items() if v is not None or not numpy.nan} for row in \
-        data_frame.reset_index().to_dict("records")]
-    #Convert a pandas DataFrame into a a list of SQLModel objects.
-    sql_model_objs = [sql_model(**row) for row in result_list]
+    if isinstance(data_frame, pandas.DataFrame):
+        result_list = [{k: v for k, v in row.items() if v is not None or not numpy.nan} for row in \
+            data_frame.reset_index().to_dict("records")]
+        #Convert a pandas DataFrame into a a list of SQLModel objects.
+        sql_model_objs = [sql_model(**row) for row in result_list]
 
-    with Session(engine) as session:
-        for obj in sql_model_objs:
-            session.add(obj)
-            try:
-                session.commit()
-            except sqlalchemy.exc.IntegrityError as error:
-                session.rollback()
-
+        with Session(engine) as session:
+            for obj in sql_model_objs:
+                session.add(obj)
+                try:
+                    session.commit()
+                except sqlalchemy.exc.IntegrityError as error:
+                    session.rollback()
+    else:
+        print(data_frame)
+        raise ValueError("=============== The data type is wrong===========")     
 
 def run_db_operation(engine=None):
     if engine is None:
         engine = create_engine(DATABASE_URI, echo=True)
     create_db_and_tables(engine=engine)
     
-    insert_db(CountriesDB, get_countries(), engine=engine)
+    #insert_db(CountriesDB, get_countries(), engine=engine)
     
     #insert_db(CompaniesDB, get_company_info(exchange="NYQ"), engine=engine)
 
+    data_vendor_df = pandas.read_csv("app/db/input/data_vendor.csv")
+    # print(data_vendor_df)
+    print(data_vendor_df)
+    insert_db(DataVendorDB,data_vendor_df,engine=engine)
+
     #get stock price
     #tickers = " ".join(get_company_info()["symbol"].tolist())
-    #stock_price_df = get_daily_price("MSFT AAC AAIC")
-    #insert_db(DailyPriceDB, stock_price_df, engine=engine)
-    
+    stock_price_df = get_daily_price("AAPL AAIC AAC")
+    print(stock_price_df)
+    insert_db(DailyPriceDB, stock_price_df, engine=engine)
+
+
     # get news
     # news_df = pandas.read_csv("./tests/csv_sample_output/newsdb.csv")
     # news_df = get_news("TSLA") # question: why set to PLTR, it breaks?

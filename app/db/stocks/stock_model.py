@@ -70,6 +70,7 @@ def get_daily_price(
     start: str = start_date,
     end: str = end_date,
     interval="1d",
+    data_source="yahoo finance"
 ) -> pd.DataFrame:
     """
     Extracts daily stock price data for the given stock symbols.
@@ -82,18 +83,23 @@ def get_daily_price(
                                     Defaults to 10 years ago from the current date.
         end_date (str, optional): The end date in the format "YYYY-MM-DD".
                                     Defaults to the current date.
+        data_source: The place where we get the data.
+                        Defaults to yahoo finance
 
     Returns:
         pd.DataFrame: A DataFrame containing historical stock price data with columns:
                        ['Date', 'Symbol', 'Open', 'High', 'Low', 'Close', 'Volume'].
-    """
-    symbols = " ".join(symbols) if isinstance(symbols,list) else symbols
-    stock_price = yf.download(symbols, start=start, end=end, interval=interval)
-    if len(symbols.split(" ")) == 1:
-        stock_price["symbol"] = symbols
-    else:
-        stock_price = stock_price.stack()   
-    return standardize_dataframe_column(stock_price, {"level_1":"symbol"})
+    """    
+    if data_source == "yahoo finance":
+        symbols = " ".join(symbols) if isinstance(symbols,list) else symbols
+        stock_price = yf.download(symbols, start=start, end=end, interval=interval)
+        if len(symbols.split(" ")) == 1:
+            stock_price["symbol"] = symbols
+        else:
+            stock_price = stock_price.stack()
+        stock_price = standardize_dataframe_column(stock_price, {"level_1":"symbol"})
+        stock_price["vendor_name"] = data_source
+    return stock_price
 
 
 @log_start_end(log=logger)
@@ -159,4 +165,3 @@ def get_news(
         news["Symbol"] = symbol
         news_data = pd.concat([news_data, news], ignore_index=True)
     return standardize_dataframe_column(news_data)
-

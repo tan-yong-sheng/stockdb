@@ -10,16 +10,7 @@ class MasterSQLModel(SQLModel):
     created_at: datetime = Field(default=datetime.utcnow(), nullable=False)
     updated_at: datetime = Field(default_factory=datetime.utcnow, nullable=False)
 
-
-class DailyPriceVendorLink(MasterSQLModel,table=True):
-    data_vendor_id: Optional[int] = Field(
-        default=None,foreign_key="fact_daily_price.id", primary_key=True,
-    )
-    daily_price_id: Optional[int] = Field(
-        default=None, foreign_key="dim_data_vendor.id",primary_key=True
-    )
-
-
+"""
 class CountryCompanyLink(MasterSQLModel, table=True):
     # Link Model
     # To link up 2 tables with Many-to-Many relationship
@@ -29,25 +20,28 @@ class CountryCompanyLink(MasterSQLModel, table=True):
     company_id: Optional[int] = Field(
         default=None, foreign_key="dim_companies.id", primary_key=True
     )
+"""
 
 
 class DataVendorDB(MasterSQLModel, table=True):
     __tablename__ = "dim_data_vendor"
+    __table_args__ = (
+        UniqueConstraint("vendor_name", name="vendor_name"),
+        dict(comment="List of data vendor sources"),
+    )
     id: Optional[int] = Field(default=None, primary_key=True)
-    name: Optional[str] = Field(default=None, nullable=False)
+    vendor_name: Optional[str] = Field(default=None, index=True, nullable=False)
     website_url: Optional[str] = Field(default=None)
     support_email: Optional[str] = Field(default=None)
-    daily_prices: List["DailyPriceDB"] = Relationship(back_populates="data_vendors",
-                                                     link_model=DailyPriceVendorLink)
+    daily_prices: List["DailyPriceDB"] = Relationship(back_populates="data_vendor")
 
 class CountriesDB(MasterSQLModel, table=True):
     __tablename__ = "dim_countries"
-    id: Optional[int] = Field(default=None, primary_key=True)
+    country_id: Optional[int] = Field(default=None, primary_key=True)
     country: Optional[str] = Field(index=True)
     code: Optional[str]
     currency: Optional[str]
-    companies: List["CompaniesDB"] = Relationship(back_populates="countries", 
-                                                  link_model=CountryCompanyLink)
+    companies: List["CompaniesDB"] = Relationship(back_populates="countries")
 
 
 class CompaniesDB(MasterSQLModel, table=True):
@@ -64,8 +58,7 @@ class CompaniesDB(MasterSQLModel, table=True):
     exchange: Optional[str]
     market: Optional[str]
     country: Optional[str] = Field(foreign_key="dim_countries.country")
-    countries: List["CountriesDB"] = Relationship(back_populates="companies",
-                                                  link_model=CountryCompanyLink)
+    countries: Optional["CountriesDB"] = Relationship(back_populates="companies")
     state: Optional[str]
     city: Optional[str]
     zipcode: Optional[int]
@@ -78,15 +71,15 @@ class CompaniesDB(MasterSQLModel, table=True):
     shareclass_figi: Optional[str]
     daily_prices: List["DailyPriceDB"] = Relationship(back_populates="company")
 
+
 class DailyPriceDB(MasterSQLModel, table=True):
     __tablename__ = "fact_daily_price"
     __table_args__ = (
         dict(comment="Daily stock price of public listed companies"),
     )
     id: Optional[int] = Field(default=None, primary_key=True)
-    #data_vendor_id: Optional[int] = Field(foreign_key="dim_data_vendor.name")
-    data_vendors: List["DataVendorDB"] = Relationship(back_populates="daily_prices",
-                                                     link_model=DailyPriceVendorLink)
+    vendor_name: Optional[str] = Field(foreign_key="dim_data_vendor.vendor_name")
+    data_vendor: Optional["DataVendorDB"] = Relationship(back_populates="daily_prices")
     date: datetime
     symbol: Optional[str] = Field(foreign_key='dim_companies.symbol', nullable=False)
     company: Optional[CompaniesDB] = Relationship(back_populates="daily_prices")
@@ -96,8 +89,6 @@ class DailyPriceDB(MasterSQLModel, table=True):
     close: Optional[float]
     adj_close: Optional[float]
     volume: Optional[int] = Field(sa_column=Field(Column(BIGINT)))
-    
-    
 
 
 class NewsDB(MasterSQLModel, table=True):
@@ -151,16 +142,19 @@ class MacroIndicatorsDB(MasterSQLModel, table=True):
     value: Optional[int]
     unit: Optional[str]
     currency_or_measurement: Optional[str]
-    
+
 
 class NullDB(MasterSQLModel, table=True):
     # an empty database for testing purpose
     __tablename__ = "test"
     id: int = Field(default=None, primary_key=True)
 
+
 class FundamentalsDB(MasterSQLModel, table=True):
     __tablename__ = "fundamentals"
-    __table_args__ = (UniqueConstraint("symbol", name="symbol"),)
+    __table_args__ = (
+        UniqueConstraint("symbol", name="symbol"),
+    )
     id: Optional[int] = Field(primary_key=True, nullable=False)
     symbol: str
     address1: Optional[str]
