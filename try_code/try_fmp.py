@@ -4,9 +4,9 @@ from dotenv import load_dotenv, find_dotenv
 
 _ = load_dotenv(find_dotenv())
 
-FMP_API = os.getenv("FINANCIAL_MODELLING_PREP")
+FMP_API = os.getenv("FINANCIAL_MODELING_PREP")
 
-companies = Toolkit(["AAPL","MSFT"], api_key=FMP_API) #quarterly=True)
+companies = Toolkit(["AAPL", "MSFT"], api_key=FMP_API)  # quarterly=True)
 
 
 """
@@ -50,9 +50,14 @@ print(valuation_ratios)
 
 """
 print(help(companies.get_income_statement))
-income_statement = companies.get_income_statement().unstack().stack(level=0).\
-                        reset_index().rename(columns={'level_0':"Symbol"})
-#income_statement.to_csv("income_statement.csv")
+income_statement = (
+    companies.get_income_statement()
+    .unstack()
+    .stack(level=0)
+    .reset_index()
+    .rename(columns={"level_0": "Symbol"})
+)
+# income_statement.to_csv("income_statement.csv")
 print(income_statement.columns)
 print(income_statement)
 

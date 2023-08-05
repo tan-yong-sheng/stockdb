@@ -1,8 +1,10 @@
 import pandas
 import numpy
 
-def standardize_dataframe_column(data_frame: pandas.DataFrame, replace_mapper: dict={},
-                                 drop_columns: list=[]) -> pandas.DataFrame:
+
+def standardize_dataframe_column(
+    data_frame: pandas.DataFrame, replace_mapper: dict = {}, drop_columns: list = []
+) -> pandas.DataFrame:
     """
     Standardizes the column names of a pandas DataFrame and allows for custom renaming.
 
@@ -22,13 +24,20 @@ def standardize_dataframe_column(data_frame: pandas.DataFrame, replace_mapper: d
     """
     data_frame.reset_index(inplace=True)
     data_frame.rename(columns=replace_mapper, inplace=True)
-    data_frame.rename(columns={col: col.lower().strip().replace(" ","_") for col in 
-                                data_frame.columns}, inplace=True)
+    data_frame.rename(
+        columns={
+            col: col.lower().strip().replace(" ", "_") for col in data_frame.columns
+        },
+        inplace=True,
+    )
     data_frame.drop(columns=drop_columns, inplace=True)
     return data_frame
 
+
 def remove_null_values_in_dict(data_frame: pandas.DataFrame) -> list:
     # remove null values in the dictionary
-    result = [{k: v for k, v in row.items() if v is not None} for row in \
-        data_frame.replace(numpy.nan, None).reset_index().to_dict("records")]
+    result = [
+        {k: v for k, v in row.items() if v is not None}
+        for row in data_frame.replace(numpy.nan, None).reset_index().to_dict("records")
+    ]
     return result

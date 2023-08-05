@@ -30,22 +30,23 @@ def get_countries_code() -> pandas.DataFrame:
     """
     return standardize_dataframe_column(openbb.economy.country_codes())
 
+
 def get_countries() -> pandas.DataFrame:
     countries_with_currencies = pandas.DataFrame.from_dict(
-                                    get_countries_with_currencies(),
-                                    orient="index").reset_index()
+        get_countries_with_currencies(), orient="index"
+    ).reset_index()
     countries_with_currencies.columns = ["country", "currency"]
     countries_code = get_countries_code()
-    countries = pandas.merge(countries_code, countries_with_currencies, 
-                             on="country", how="outer")
-    test_df = standardize_dataframe_column(countries,
-                                        drop_columns=["level_0","index"])
+    countries = pandas.merge(
+        countries_code, countries_with_currencies, on="country", how="outer"
+    )
+    test_df = standardize_dataframe_column(countries, drop_columns=["level_0", "index"])
     print(test_df.columns)
     return test_df
-    
+
 
 def get_macro_indicators_data(
-    parameters: list = ["RGDP","HOU", "CORE"],
+    parameters: list = ["RGDP", "HOU", "CORE"],
     countries: list = ["United States", "China"],
     start_date="2022-01-01",
     end_date=datetime.now(),

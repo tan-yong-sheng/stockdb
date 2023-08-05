@@ -27,7 +27,7 @@ def log_start_end(func=None, log=None):
                 return []
             except sqlalchemy.exc.IntegrityError as error:
                 log.exception(error)
-            
+
             except Exception as e:
                 log.exception(
                     "Exception: %s",
