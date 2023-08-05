@@ -336,7 +336,6 @@ def get_financial_ratio(
     )
     return standardize_dataframe_column(all_ratios)
 
-
 if __name__ == "__main__":
     symbols = "AAC AAIC"
     df1 = get_price(symbols, interval="1d")

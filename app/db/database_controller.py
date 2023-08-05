@@ -27,6 +27,7 @@ from app.db.models import (
     CountriesDB,
     CompaniesDB,
     DailyPriceDB,
+    OneMinPriceDB,
     NewsDB,
     DataVendorDB,
     NullDB,
@@ -81,32 +82,38 @@ def insert_db(
 def run_db_operation(engine=None):
     if engine is None:
         engine = create_engine(DATABASE_URI, echo=True)
-    """
+
     create_db_and_tables(engine=engine)
-    
+
+    companies_info = get_company_info(exchange="")
     insert_db(CountriesDB, get_countries(), engine=engine)
-    insert_db(CompaniesDB, get_company_info(), engine=engine)
+    insert_db(CompaniesDB, companies_info, engine=engine)
 
     data_vendor_df = pandas.read_csv("app/db/input/data_vendor.csv")
     print(data_vendor_df)
     insert_db(DataVendorDB,data_vendor_df,engine=engine)
-    """
+
     # get stock price
-    # tickers = " ".join(get_company_info()["symbol"].tolist())
-    stock_price_df = get_price("FICO", data_source="financial modeling prep")
-    # stock_price_df = get_price("FICO", data_source="yahoo finance")
-    insert_db(DailyPriceDB, stock_price_df, engine=engine)
+    tickers = " ".join(companies_info["symbol"].tolist())
+    daily_stock_price_df = get_price(tickers, data_source="yahoo finance")
+    insert_db(DailyPriceDB, daily_stock_price_df, engine=engine)
+    
+    intraday_stock_price_df = get_price(tickers, interval="1m", data_source="yahoo finance")
+    insert_db(OneMinPriceDB, intraday_stock_price_df, engine=engine)
+    
+    daily_stock_price_df_fmp = get_price(tickers, data_source="financial modeling prep")
+    insert_db(DailyPriceDB, daily_stock_price_df_fmp, engine=engine)
+    
+    intraday_stock_price_df_fmp = get_price(tickers, interval="1m", data_source="financial modeling prep")
+    insert_db(OneMinPriceDB, intraday_stock_price_df_fmp, engine=engine)
 
     # get news
     # news_df = pandas.read_csv("./tests/csv_sample_output/newsdb.csv")
     # news_df = get_news("TSLA") # question: why set to PLTR, it breaks?
     # insert_db(NewsDB, news_df)
 
-
 if __name__ == "__main__":
     from app.loggers import setup_logging
-
     engine = create_engine(DATABASE_URI, echo=True)
-
     setup_logging()
     run_db_operation(engine=engine)
