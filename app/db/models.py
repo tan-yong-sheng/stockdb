@@ -24,6 +24,7 @@ class DataVendorDB(MasterSQLModel, table=True):
     support_email: Optional[str] = Field(default=None)
     companies: List["CompaniesDB"] = Relationship(back_populates="data_vendor")
     daily_prices: List["DailyPriceDB"] = Relationship(back_populates="data_vendor")
+    one_min_prices: List["OneMinPriceDB"] = Relationship(back_populates="data_vendor")
 
 
 class CountriesDB(MasterSQLModel, table=True):
@@ -61,6 +62,7 @@ class CompaniesDB(MasterSQLModel, table=True):
     composite_figi: Optional[str]
     shareclass_figi: Optional[str]
     daily_prices: List["DailyPriceDB"] = Relationship(back_populates="company")
+    one_min_prices: List["OneMinPriceDB"] = Relationship(back_populates="company")
     vendor_name: Optional[str] = Field(foreign_key="dim_data_vendor.vendor_name")
     data_vendor: Optional["DataVendorDB"] = Relationship(back_populates="companies")
 
@@ -76,7 +78,6 @@ class PriceDB(MasterSQLModel):
     high: Optional[float]
     low: Optional[float]
     close: Optional[float]
-    adj_close: Optional[float]
     volume: Optional[int] = Field(sa_column=Field(Column(BIGINT)))
 
 
@@ -86,6 +87,15 @@ class DailyPriceDB(PriceDB, table=True):
     id: Optional[int] = Field(default=None, primary_key=True)
     data_vendor: Optional["DataVendorDB"] = Relationship(back_populates="daily_prices")
     company: Optional[CompaniesDB] = Relationship(back_populates="daily_prices")
+    adj_close: Optional[float]
+
+
+class OneMinPriceDB(PriceDB, table=True):
+    __tablename__ = "fact_one_min_price"
+    __table_args__ = (dict(comment="Daily stock price of public listed companies"),)
+    id: Optional[int] = Field(default=None, primary_key=True)
+    data_vendor: Optional["DataVendorDB"] = Relationship(back_populates="one_min_prices")
+    company: Optional[CompaniesDB] = Relationship(back_populates="one_min_prices")
 
 
 class NewsDB(MasterSQLModel, table=True):
@@ -95,8 +105,7 @@ class NewsDB(MasterSQLModel, table=True):
         dict(comment="List of news of public listed companies"),
     )
     id: Optional[int] = Field(primary_key=True, nullable=False)
-    # symbol_id: Optional[int] = Field(default=None, foreign_key="dim_companies.id")
-    symbol: Optional[str]  # "CompaniesDB" = Relationship(back_populates="news_links")
+    symbol: Optional[str]
     title: Optional[str]
     author: Optional[str]
     description: Optional[str] = Field(sa_column=Column(LONGTEXT))
@@ -121,10 +130,7 @@ class EconomicCalendarDB(MasterSQLModel, table=True):
     id: Optional[int] = Field(primary_key=True, default=None)
     date: Optional[datetime] = Field(alias="date")
     time: Optional[datetime] = Field(alias="time_(et)")
-    # country_id: Optional[int] = Field(default=None, foreign_key="dim_countries.id")
-    country: Optional[
-        str
-    ]  # "CountriesDB" = Relationship(back_populates="economic_calendar_links")
+    country: Optional[str]
     event: Optional[str]
     actual: Optional[str]
     consensus: Optional[str]
@@ -135,10 +141,7 @@ class MacroIndicatorsDB(MasterSQLModel, table=True):
     __tablename__ = "fact_macro_indicators"
     id: Optional[int] = Field(primary_key=True, default=None)
     date: Optional[datetime]
-    # country_id: Optional[int] = Field(default=None, foreign_key="dim_countries.id")
-    country: Optional[
-        str
-    ]  # [CountriesDB] = Relationship(back_populates="macro_indicators_links")
+    country: Optional[str]
     variable: Optional[str]
     value: Optional[int]
     unit: Optional[str]

@@ -9,7 +9,7 @@ from sqlmodel import SQLModel, create_engine, Session
 from app.decorators import log_start_end
 from app.db.stocks.stock_model import (
     get_company_info,
-    get_daily_price,
+    get_price,
     get_news,
 )
 
@@ -91,8 +91,8 @@ def run_db_operation(engine=None):
     """
     # get stock price
     # tickers = " ".join(get_company_info()["symbol"].tolist())
-    stock_price_df = get_daily_price("FICO", data_source="financial modeling prep")
-    # stock_price_df = get_daily_price("FICO", data_source="yahoo finance")
+    stock_price_df = get_price("FICO", data_source="financial modeling prep")
+    # stock_price_df = get_price("FICO", data_source="yahoo finance")
     print(stock_price_df)
     insert_db(DailyPriceDB, stock_price_df, engine=engine)
 

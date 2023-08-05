@@ -30,7 +30,7 @@ def standardize_dataframe_column(
         },
         inplace=True,
     )
-    data_frame.drop(columns=drop_columns, inplace=True)
+    data_frame.drop(columns=drop_columns, inplace=True, errors="ignore")
     return data_frame
 
 

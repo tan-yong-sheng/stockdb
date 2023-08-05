@@ -6,13 +6,13 @@ storing data into a MySQL database.
 
 Functions:
 - get_company_info
-- get_daily_price
+- get_price
 - get_news
 - get_financial_statement
 - get_financial_ratio
 """
 
-__doc__ = "numpy"
+__docformat__ = "numpy"
 
 import os
 import logging
@@ -33,7 +33,7 @@ from financetoolkit import Toolkit
 
 from app.decorators import log_start_end, check_api_key
 from app.helpers import standardize_dataframe_column
-
+from app.db.stocks.base.price_module import PriceFetcher
 
 logger = logging.getLogger(__name__)
 
@@ -45,6 +45,7 @@ FINANCIAL_MODELLING_PREP = os.getenv("FINANCIAL_MODELING_PREP", None)
 ############################# CREATE (OR FETCH) DATA #################################
 
 ## stock price query date
+"""
 end_date = datetime.now().strftime("%Y-%m-%d")
 start_date = (datetime.now() - relativedelta(years=20)).strftime(
     "%Y-%m-%d"
@@ -54,7 +55,7 @@ news_end_date = end_date
 news_start_date = (datetime.now() - relativedelta(months=1)).strftime(
     "%Y-%m-%d"
 )  # 1 month ago
-
+"""
 
 @log_start_end(log=logger)
 def get_company_info(
@@ -65,6 +66,35 @@ def get_company_info(
     exchange: str = "NYQ",
     data_source: str = "yahoo finance",
 ) -> pandas.DataFrame:
+    """Retrieves information of individual public-listed companies
+    for given stock symbols
+
+    Parameters
+    ----------
+    country : str, optional
+        The country in which the companies are located, by default 
+        "United States".
+    sector : str, optional
+        The sector to which the companies belong.
+    industry_group : str, optional
+        The industry group to which the companies belong, by default ""
+    industry : str, optional
+       The specific industry to which the companies belong, by default ""
+    exchange : str, optional
+        The stock exchange where the companies are listed, by default 
+        "NYQ" (New York Stock Exchange)
+    data_source : str, optional
+        The data source from which the information is obtained, 
+        by default "yahoo finance".
+
+    Returns
+    -------
+    pandas.DataFrame
+        A DataFrame containing list of public listed companies, with columns:
+        ["symbol","name","currency","sector","industry_group","industry",
+        "exchange","market","country","state","city","zipcode","website",
+        "market_cap"]
+    """
     eq = fd.Equities()
 
     equities_info: pandas.DataFrame = eq.search(
@@ -78,12 +108,11 @@ def get_company_info(
     equities_info["vendor_name"] = data_source
     return equities_info
 
-
 @log_start_end(log=logger)
-def get_daily_price(
+def get_price(
     symbols: Union[str, list] = "MSFT",
-    start: Optional[str] = start_date,
-    end: Optional[str] = end_date,
+    start: Optional[str] = None,
+    end: Optional[str] = None,
     interval="1d",
     data_source="yahoo finance",
 ) -> pandas.DataFrame:
@@ -97,9 +126,12 @@ def get_daily_price(
         start: Optional[str], optional:
             The start date in the format "YYYY-MM-DD", by default 10
             years ago from the current date.
-        Optional[str], optional:
+        end: Optional[str], optional:
             The end date in the format "YYYY-MM-DD", by default the
             current date.
+        interval: Valid intervals are "1m", "5m", "15m", "30m", "1h","1d",
+                 which represents 1 minute, 5 minutes, 15 minutes, 30 minutes, 
+                 1 hour, and 1 day respectively
         data_source : str, optional:
             The data source, such as "yahoo finance", "financial modeling prep",
             by default yahoo finance
@@ -110,42 +142,38 @@ def get_daily_price(
         with columns: ['date', 'symbol', 'open', 'high', 'low', 'close',
                     'adj_close', 'volume'].
     """
-    daily_prices = pandas.DataFrame()
-    if data_source == "yahoo finance":
-        symbols = " ".join(symbols) if isinstance(symbols, list) else symbols
-        daily_prices = yfinance.download(
-            symbols, start=start, end=end, interval=interval
-        )
-        if len(symbols.split(" ")) == 1:
-            daily_prices["symbol"] = symbols
-        else:
-            daily_prices = daily_prices.stack()
-            print(daily_prices)
-        daily_prices = standardize_dataframe_column(daily_prices, {"level_1": "symbol"})
-    elif data_source == "financial modeling prep":
-        symbols = symbols.split(" ") if isinstance(symbols, str) else symbols
-        companies = Toolkit(
-            symbols, api_key=FINANCIAL_MODELLING_PREP, start_date=start, end_date=end
-        )
-        daily_prices = companies.get_historical_data()
-        if len(symbols) == 1:
-            daily_prices["symbol"] = symbols
-        else:
-            daily_prices = daily_prices.stack()
-        daily_prices = standardize_dataframe_column(
-            daily_prices, {"level_1": "symbol", "adjClose": "adj_close"}
-        )
+    daily_prices = PriceFetcher._get_price(symbols=symbols, start=start, end=end,
+                                            interval=interval,
+                                            data_source=data_source)
+    #daily_prices = pandas.DataFrame()    
+    #if data_source == "yahoo finance":
+        #symbols = " ".join(symbols) if isinstance(symbols, list) else symbols
+        #daily_prices = yfinance.download(
+        #    symbols, start=start, end=end, interval=interval
+        #)
+        #if len(symbols.split(" ")) == 1:
+        #    daily_prices["symbol"] = symbols
+        #else:
+        #    daily_prices = daily_prices.stack()
+        #daily_prices = standardize_dataframe_column(daily_prices, {"level_1": "symbol"})
+        
+        
+    #elif data_source == "financial modeling prep":
+    #    daily_prices = PriceFetcher.get_price(symbols=symbols,start=start,end=end,
+    #                                            interval=interval, 
+    #                                            data_source="financial modeling prep")
     daily_prices["date"] = pandas.to_datetime(daily_prices["date"])
     daily_prices["vendor_name"] = data_source
     return daily_prices
+
 
 
 @log_start_end(log=logger)
 @check_api_key(["NEWSAPI_API_KEY", "FINANCIAL_MODELING_PREP"])
 def get_news(
     symbols: Union[str, list] = "MSFT",
-    start: str = news_start_date,
-    end: str = news_end_date,
+    start: str = None,
+    end: str = None,
     data_source: str = "news api",
 ):
     """
@@ -153,10 +181,8 @@ def get_news(
 
     Parameters:
         symbols (list, optional): A list of stock symbols. Defaults to "MSFT".
-        start_date (str, optional): The start date in the format "YYYY-MM-DD".
-                                    Defaults to 10 years ago from the current date.
-        end_date (str, optional): The end date in the format "YYYY-MM-DD".
-                                  Defaults to the current date.
+        start (str, optional): The start date in the format "YYYY-MM-DD".
+        end (str, optional): The end date in the format "YYYY-MM-DD".
         data_source (str): The data source, such as "news api",
                             by default "news api"
     Returns:
@@ -221,8 +247,8 @@ def get_news(
 @check_api_key(["FINANCIAL_MODELING_PREP"])
 def get_financial_statement(
     symbols: Union[str, list] = "MSFT",
-    start: str = start_date,
-    end: str = end_date,
+    start: str = None,
+    end: str = None,
     report: str = "income statement",
     data_source="financial modeling prep",
 ) -> pandas.DataFrame:
@@ -235,15 +261,11 @@ def get_financial_statement(
                                     Defaults to 10 years ago from the current date.
         end_date (str, optional): The end date in the format "YYYY-MM-DD".
                                   Defaults to the current date.
-        data_source (str): The data source, such as "yahoo finance",
-                     "news api"
-                        Defaults to yahoo finance
+        data_source (str): The data source, such as "news api", by default "news api"
+    
     Returns:
-        pandas.DataFrame: A DataFrame containing news data for the given stock symbols,
-                            where the columns includes:
-                            ["title", "author", "publisher", "content",
-                            "providerpublishdate", "url", "urltoimage",
-                            "source_name", "vendor_name", "symbol", "relatedtickers"]
+        pandas.DataFrame: A DataFrame containing financial statement data for 
+                        the given stock symbols.
     """
     if isinstance(symbols, str):
         symbols = symbols.split(" ")
@@ -276,8 +298,8 @@ def get_financial_statement(
 @check_api_key(["FINANCIAL_MODELING_PREP"])
 def get_financial_ratio(
     symbols: Union[str, list] = "MSFT",
-    start: str = start_date,
-    end: str = end_date,
+    start: Optional[str] = None,
+    end: Optional[str] = None,
     include_dividends: bool = False,
     diluted: bool = True,
     days: int = 365,
@@ -326,25 +348,11 @@ def get_financial_ratio(
     )
     return standardize_dataframe_column(all_ratios)
 
-
-@log_start_end(log=logger)
-@check_api_key(["FINANCIAL_MODELING_PREP"])
-def get_intraday_data(
-    symbols: Union[str, list] = "MSFT",
-    start: str = start_date,
-    end: str = end_date,
-    interval="1min",
-    data_source="financial modeling prep",
-):
-    pass
-
-
 if __name__ == "__main__":
     # all_ratios = get_financial_ratio(symbols="AAPL MSFT")
     # all_ratios.to_csv("all_ratios.csv")
     # print(all_ratios)
-
-    df = get_daily_price("AAPL MSFT", data_source="financial modeling prep")
+    df = get_price("MSFT", interval="1m",data_source="yahoo finance")
     print(df)
 
     # news = get_news("MSFT AAPL", data_source="financial modeling prep")
