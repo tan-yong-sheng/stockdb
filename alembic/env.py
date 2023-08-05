@@ -7,7 +7,7 @@ from dotenv import load_dotenv, find_dotenv
 from sqlmodel import SQLModel
 from app.db.models import *
 
-DATABASE_URI = os.getenv("DATABASE_URI")
+DATABASE_URI = os.getenv("DATABASE_URI", None)
 _ = load_dotenv(find_dotenv())
 
 # this is the Alembic Config object, which provides

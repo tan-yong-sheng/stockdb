@@ -1,0 +1,431 @@
+,index,symbol,balance_sheet_item,year,value,vendor_name
+0,0,AAC,Cash and Cash Equivalents,2018,,financial modeling prep
+1,1,AAC,Short Term Investments,2018,,financial modeling prep
+2,2,AAC,Cash and Short Term Investments,2018,,financial modeling prep
+3,3,AAC,Accounts Receivable,2018,,financial modeling prep
+4,4,AAC,Inventory,2018,,financial modeling prep
+5,5,AAC,Other Current Assets,2018,,financial modeling prep
+6,6,AAC,Total Current Assets,2018,,financial modeling prep
+7,7,AAC,"Property, Plant and Equipment",2018,,financial modeling prep
+8,8,AAC,Goodwill,2018,,financial modeling prep
+9,9,AAC,Intangible Assets,2018,,financial modeling prep
+10,10,AAC,Long Term Investments,2018,,financial modeling prep
+11,11,AAC,Tax Assets,2018,,financial modeling prep
+12,12,AAC,Other Fixed Assets,2018,,financial modeling prep
+13,13,AAC,Fixed Assets,2018,,financial modeling prep
+14,14,AAC,Other Assets,2018,,financial modeling prep
+15,15,AAC,Total Assets,2018,,financial modeling prep
+16,16,AAC,Accounts Payable,2018,,financial modeling prep
+17,17,AAC,Short Term Debt,2018,,financial modeling prep
+18,18,AAC,Tax Payables,2018,,financial modeling prep
+19,19,AAC,Deferred Revenue,2018,,financial modeling prep
+20,20,AAC,Other Current Liabilities,2018,,financial modeling prep
+21,21,AAC,Total Current Liabilities,2018,,financial modeling prep
+22,22,AAC,Long Term Debt,2018,,financial modeling prep
+23,23,AAC,Deferred Revenue Non Current,2018,,financial modeling prep
+24,24,AAC,Deferred Tax Liabilities,2018,,financial modeling prep
+25,25,AAC,Other Non Current Liabilities,2018,,financial modeling prep
+26,26,AAC,Total Non Current Liabilities,2018,,financial modeling prep
+27,27,AAC,Other Liabilities,2018,,financial modeling prep
+28,28,AAC,Capital Lease Obligations,2018,,financial modeling prep
+29,29,AAC,Total Liabilities,2018,,financial modeling prep
+30,30,AAC,Preferred Stock,2018,,financial modeling prep
+31,31,AAC,Common Stock,2018,,financial modeling prep
+32,32,AAC,Retained Earnings,2018,,financial modeling prep
+33,33,AAC,Accumulated Other Comprehensive Income,2018,,financial modeling prep
+34,34,AAC,Other Total Shareholder Equity,2018,,financial modeling prep
+35,35,AAC,Total Shareholder Equity,2018,,financial modeling prep
+36,36,AAC,Total Equity,2018,,financial modeling prep
+37,37,AAC,Total Liabilities and Shareholder Equity,2018,,financial modeling prep
+38,38,AAC,Minority Interest,2018,,financial modeling prep
+39,39,AAC,Total Liabilities and Equity,2018,,financial modeling prep
+40,40,AAC,Total Investments,2018,,financial modeling prep
+41,41,AAC,Total Debt,2018,,financial modeling prep
+42,42,AAC,Net Debt,2018,,financial modeling prep
+43,43,AAIC,Cash and Cash Equivalents,2018,87765000.0,financial modeling prep
+44,44,AAIC,Short Term Investments,2018,0.0,financial modeling prep
+45,45,AAIC,Cash and Short Term Investments,2018,87765000.0,financial modeling prep
+46,46,AAIC,Accounts Receivable,2018,13349000.0,financial modeling prep
+47,47,AAIC,Inventory,2018,0.0,financial modeling prep
+48,48,AAIC,Other Current Assets,2018,0.0,financial modeling prep
+49,49,AAIC,Total Current Assets,2018,101114000.0,financial modeling prep
+50,50,AAIC,"Property, Plant and Equipment",2018,0.0,financial modeling prep
+51,51,AAIC,Goodwill,2018,0.0,financial modeling prep
+52,52,AAIC,Intangible Assets,2018,0.0,financial modeling prep
+53,53,AAIC,Long Term Investments,2018,0.0,financial modeling prep
+54,54,AAIC,Tax Assets,2018,0.0,financial modeling prep
+55,55,AAIC,Other Fixed Assets,2018,0.0,financial modeling prep
+56,56,AAIC,Fixed Assets,2018,0.0,financial modeling prep
+57,57,AAIC,Other Assets,2018,4099450000.0,financial modeling prep
+58,58,AAIC,Total Assets,2018,4099450000.0,financial modeling prep
+59,59,AAIC,Accounts Payable,2018,4646000.0,financial modeling prep
+60,60,AAIC,Short Term Debt,2018,0.0,financial modeling prep
+61,61,AAIC,Tax Payables,2018,0.0,financial modeling prep
+62,62,AAIC,Deferred Revenue,2018,0.0,financial modeling prep
+63,63,AAIC,Other Current Liabilities,2018,-4646000.0,financial modeling prep
+64,64,AAIC,Total Current Liabilities,2018,4646000.0,financial modeling prep
+65,65,AAIC,Long Term Debt,2018,74104000.0,financial modeling prep
+66,66,AAIC,Deferred Revenue Non Current,2018,0.0,financial modeling prep
+67,67,AAIC,Deferred Tax Liabilities,2018,0.0,financial modeling prep
+68,68,AAIC,Other Non Current Liabilities,2018,0.0,financial modeling prep
+69,69,AAIC,Total Non Current Liabilities,2018,74104000.0,financial modeling prep
+70,70,AAIC,Other Liabilities,2018,3746256000.0,financial modeling prep
+71,71,AAIC,Capital Lease Obligations,2018,0.0,financial modeling prep
+72,72,AAIC,Total Liabilities,2018,3825006000.0,financial modeling prep
+73,73,AAIC,Preferred Stock,2018,8245000.0,financial modeling prep
+74,74,AAIC,Common Stock,2018,305000.0,financial modeling prep
+75,75,AAIC,Retained Earnings,2018,-1731982000.0,financial modeling prep
+76,76,AAIC,Accumulated Other Comprehensive Income,2018,0.0,financial modeling prep
+77,77,AAIC,Other Total Shareholder Equity,2018,1997876000.0,financial modeling prep
+78,78,AAIC,Total Shareholder Equity,2018,274444000.0,financial modeling prep
+79,79,AAIC,Total Equity,2018,274444000.0,financial modeling prep
+80,80,AAIC,Total Liabilities and Shareholder Equity,2018,4099450000.0,financial modeling prep
+81,81,AAIC,Minority Interest,2018,0.0,financial modeling prep
+82,82,AAIC,Total Liabilities and Equity,2018,4099450000.0,financial modeling prep
+83,83,AAIC,Total Investments,2018,0.0,financial modeling prep
+84,84,AAIC,Total Debt,2018,74104000.0,financial modeling prep
+85,85,AAIC,Net Debt,2018,-13661000.0,financial modeling prep
+86,86,AAC,Cash and Cash Equivalents,2019,,financial modeling prep
+87,87,AAC,Short Term Investments,2019,,financial modeling prep
+88,88,AAC,Cash and Short Term Investments,2019,,financial modeling prep
+89,89,AAC,Accounts Receivable,2019,,financial modeling prep
+90,90,AAC,Inventory,2019,,financial modeling prep
+91,91,AAC,Other Current Assets,2019,,financial modeling prep
+92,92,AAC,Total Current Assets,2019,,financial modeling prep
+93,93,AAC,"Property, Plant and Equipment",2019,,financial modeling prep
+94,94,AAC,Goodwill,2019,,financial modeling prep
+95,95,AAC,Intangible Assets,2019,,financial modeling prep
+96,96,AAC,Long Term Investments,2019,,financial modeling prep
+97,97,AAC,Tax Assets,2019,,financial modeling prep
+98,98,AAC,Other Fixed Assets,2019,,financial modeling prep
+99,99,AAC,Fixed Assets,2019,,financial modeling prep
+100,100,AAC,Other Assets,2019,,financial modeling prep
+101,101,AAC,Total Assets,2019,,financial modeling prep
+102,102,AAC,Accounts Payable,2019,,financial modeling prep
+103,103,AAC,Short Term Debt,2019,,financial modeling prep
+104,104,AAC,Tax Payables,2019,,financial modeling prep
+105,105,AAC,Deferred Revenue,2019,,financial modeling prep
+106,106,AAC,Other Current Liabilities,2019,,financial modeling prep
+107,107,AAC,Total Current Liabilities,2019,,financial modeling prep
+108,108,AAC,Long Term Debt,2019,,financial modeling prep
+109,109,AAC,Deferred Revenue Non Current,2019,,financial modeling prep
+110,110,AAC,Deferred Tax Liabilities,2019,,financial modeling prep
+111,111,AAC,Other Non Current Liabilities,2019,,financial modeling prep
+112,112,AAC,Total Non Current Liabilities,2019,,financial modeling prep
+113,113,AAC,Other Liabilities,2019,,financial modeling prep
+114,114,AAC,Capital Lease Obligations,2019,,financial modeling prep
+115,115,AAC,Total Liabilities,2019,,financial modeling prep
+116,116,AAC,Preferred Stock,2019,,financial modeling prep
+117,117,AAC,Common Stock,2019,,financial modeling prep
+118,118,AAC,Retained Earnings,2019,,financial modeling prep
+119,119,AAC,Accumulated Other Comprehensive Income,2019,,financial modeling prep
+120,120,AAC,Other Total Shareholder Equity,2019,,financial modeling prep
+121,121,AAC,Total Shareholder Equity,2019,,financial modeling prep
+122,122,AAC,Total Equity,2019,,financial modeling prep
+123,123,AAC,Total Liabilities and Shareholder Equity,2019,,financial modeling prep
+124,124,AAC,Minority Interest,2019,,financial modeling prep
+125,125,AAC,Total Liabilities and Equity,2019,,financial modeling prep
+126,126,AAC,Total Investments,2019,,financial modeling prep
+127,127,AAC,Total Debt,2019,,financial modeling prep
+128,128,AAC,Net Debt,2019,,financial modeling prep
+129,129,AAIC,Cash and Cash Equivalents,2019,56759000.0,financial modeling prep
+130,130,AAIC,Short Term Investments,2019,0.0,financial modeling prep
+131,131,AAIC,Cash and Short Term Investments,2019,56759000.0,financial modeling prep
+132,132,AAIC,Accounts Receivable,2019,81862000.0,financial modeling prep
+133,133,AAIC,Inventory,2019,0.0,financial modeling prep
+134,134,AAIC,Other Current Assets,2019,0.0,financial modeling prep
+135,135,AAIC,Total Current Assets,2019,138621000.0,financial modeling prep
+136,136,AAIC,"Property, Plant and Equipment",2019,0.0,financial modeling prep
+137,137,AAIC,Goodwill,2019,0.0,financial modeling prep
+138,138,AAIC,Intangible Assets,2019,0.0,financial modeling prep
+139,139,AAIC,Long Term Investments,2019,33501000.0,financial modeling prep
+140,140,AAIC,Tax Assets,2019,0.0,financial modeling prep
+141,141,AAIC,Other Fixed Assets,2019,-33501000.0,financial modeling prep
+142,142,AAIC,Fixed Assets,2019,33501000.0,financial modeling prep
+143,143,AAIC,Other Assets,2019,3827992000.0,financial modeling prep
+144,144,AAIC,Total Assets,2019,4000114000.0,financial modeling prep
+145,145,AAIC,Accounts Payable,2019,4666000.0,financial modeling prep
+146,146,AAIC,Short Term Debt,2019,0.0,financial modeling prep
+147,147,AAIC,Tax Payables,2019,0.0,financial modeling prep
+148,148,AAIC,Deferred Revenue,2019,0.0,financial modeling prep
+149,149,AAIC,Other Current Liabilities,2019,-4666000.0,financial modeling prep
+150,150,AAIC,Total Current Liabilities,2019,4666000.0,financial modeling prep
+151,151,AAIC,Long Term Debt,2019,74328000.0,financial modeling prep
+152,152,AAIC,Deferred Revenue Non Current,2019,0.0,financial modeling prep
+153,153,AAIC,Deferred Tax Liabilities,2019,0.0,financial modeling prep
+154,154,AAIC,Other Non Current Liabilities,2019,-74328000.0,financial modeling prep
+155,155,AAIC,Total Non Current Liabilities,2019,74328000.0,financial modeling prep
+156,156,AAIC,Other Liabilities,2019,3593872000.0,financial modeling prep
+157,157,AAIC,Capital Lease Obligations,2019,0.0,financial modeling prep
+158,158,AAIC,Total Liabilities,2019,3672866000.0,financial modeling prep
+159,159,AAIC,Preferred Stock,2019,37214000.0,financial modeling prep
+160,160,AAIC,Common Stock,2019,368000.0,financial modeling prep
+161,161,AAIC,Retained Earnings,2019,-1759626000.0,financial modeling prep
+162,162,AAIC,Accumulated Other Comprehensive Income,2019,0.0,financial modeling prep
+163,163,AAIC,Other Total Shareholder Equity,2019,2049292000.0,financial modeling prep
+164,164,AAIC,Total Shareholder Equity,2019,327248000.0,financial modeling prep
+165,165,AAIC,Total Equity,2019,327248000.0,financial modeling prep
+166,166,AAIC,Total Liabilities and Shareholder Equity,2019,4000114000.0,financial modeling prep
+167,167,AAIC,Minority Interest,2019,0.0,financial modeling prep
+168,168,AAIC,Total Liabilities and Equity,2019,4000114000.0,financial modeling prep
+169,169,AAIC,Total Investments,2019,33501000.0,financial modeling prep
+170,170,AAIC,Total Debt,2019,74328000.0,financial modeling prep
+171,171,AAIC,Net Debt,2019,17569000.0,financial modeling prep
+172,172,AAC,Cash and Cash Equivalents,2020,0.0,financial modeling prep
+173,173,AAC,Short Term Investments,2020,0.0,financial modeling prep
+174,174,AAC,Cash and Short Term Investments,2020,0.0,financial modeling prep
+175,175,AAC,Accounts Receivable,2020,0.0,financial modeling prep
+176,176,AAC,Inventory,2020,0.0,financial modeling prep
+177,177,AAC,Other Current Assets,2020,0.0,financial modeling prep
+178,178,AAC,Total Current Assets,2020,523475.0,financial modeling prep
+179,179,AAC,"Property, Plant and Equipment",2020,0.0,financial modeling prep
+180,180,AAC,Goodwill,2020,0.0,financial modeling prep
+181,181,AAC,Intangible Assets,2020,0.0,financial modeling prep
+182,182,AAC,Long Term Investments,2020,0.0,financial modeling prep
+183,183,AAC,Tax Assets,2020,0.0,financial modeling prep
+184,184,AAC,Other Fixed Assets,2020,0.0,financial modeling prep
+185,185,AAC,Fixed Assets,2020,0.0,financial modeling prep
+186,186,AAC,Other Assets,2020,0.0,financial modeling prep
+187,187,AAC,Total Assets,2020,523475.0,financial modeling prep
+188,188,AAC,Accounts Payable,2020,0.0,financial modeling prep
+189,189,AAC,Short Term Debt,2020,147385.0,financial modeling prep
+190,190,AAC,Tax Payables,2020,0.0,financial modeling prep
+191,191,AAC,Deferred Revenue,2020,0.0,financial modeling prep
+192,192,AAC,Other Current Liabilities,2020,364935.0,financial modeling prep
+193,193,AAC,Total Current Liabilities,2020,512320.0,financial modeling prep
+194,194,AAC,Long Term Debt,2020,0.0,financial modeling prep
+195,195,AAC,Deferred Revenue Non Current,2020,0.0,financial modeling prep
+196,196,AAC,Deferred Tax Liabilities,2020,0.0,financial modeling prep
+197,197,AAC,Other Non Current Liabilities,2020,0.0,financial modeling prep
+198,198,AAC,Total Non Current Liabilities,2020,0.0,financial modeling prep
+199,199,AAC,Other Liabilities,2020,0.0,financial modeling prep
+200,200,AAC,Capital Lease Obligations,2020,0.0,financial modeling prep
+201,201,AAC,Total Liabilities,2020,512320.0,financial modeling prep
+202,202,AAC,Preferred Stock,2020,0.0,financial modeling prep
+203,203,AAC,Common Stock,2020,2501.0,financial modeling prep
+204,204,AAC,Retained Earnings,2020,-13845.0,financial modeling prep
+205,205,AAC,Accumulated Other Comprehensive Income,2020,0.0,financial modeling prep
+206,206,AAC,Other Total Shareholder Equity,2020,22499.0,financial modeling prep
+207,207,AAC,Total Shareholder Equity,2020,11155.0,financial modeling prep
+208,208,AAC,Total Equity,2020,11155.0,financial modeling prep
+209,209,AAC,Total Liabilities and Shareholder Equity,2020,523475.0,financial modeling prep
+210,210,AAC,Minority Interest,2020,0.0,financial modeling prep
+211,211,AAC,Total Liabilities and Equity,2020,523475.0,financial modeling prep
+212,212,AAC,Total Investments,2020,0.0,financial modeling prep
+213,213,AAC,Total Debt,2020,147385.0,financial modeling prep
+214,214,AAC,Net Debt,2020,147385.0,financial modeling prep
+215,215,AAIC,Cash and Cash Equivalents,2020,35102000.0,financial modeling prep
+216,216,AAIC,Short Term Investments,2020,0.0,financial modeling prep
+217,217,AAIC,Cash and Short Term Investments,2020,35102000.0,financial modeling prep
+218,218,AAIC,Accounts Receivable,2020,11559000.0,financial modeling prep
+219,219,AAIC,Inventory,2020,0.0,financial modeling prep
+220,220,AAIC,Other Current Assets,2020,0.0,financial modeling prep
+221,221,AAIC,Total Current Assets,2020,46661000.0,financial modeling prep
+222,222,AAIC,"Property, Plant and Equipment",2020,0.0,financial modeling prep
+223,223,AAIC,Goodwill,2020,0.0,financial modeling prep
+224,224,AAIC,Intangible Assets,2020,0.0,financial modeling prep
+225,225,AAIC,Long Term Investments,2020,1042540000.0,financial modeling prep
+226,226,AAIC,Tax Assets,2020,0.0,financial modeling prep
+227,227,AAIC,Other Fixed Assets,2020,-1042540000.0,financial modeling prep
+228,228,AAIC,Fixed Assets,2020,1042540000.0,financial modeling prep
+229,229,AAIC,Other Assets,2020,123188000.0,financial modeling prep
+230,230,AAIC,Total Assets,2020,1212389000.0,financial modeling prep
+231,231,AAIC,Accounts Payable,2020,907000.0,financial modeling prep
+232,232,AAIC,Short Term Debt,2020,0.0,financial modeling prep
+233,233,AAIC,Tax Payables,2020,0.0,financial modeling prep
+234,234,AAIC,Deferred Revenue,2020,0.0,financial modeling prep
+235,235,AAIC,Other Current Liabilities,2020,-907000.0,financial modeling prep
+236,236,AAIC,Total Current Liabilities,2020,907000.0,financial modeling prep
+237,237,AAIC,Long Term Debt,2020,166654000.0,financial modeling prep
+238,238,AAIC,Deferred Revenue Non Current,2020,0.0,financial modeling prep
+239,239,AAIC,Deferred Tax Liabilities,2020,0.0,financial modeling prep
+240,240,AAIC,Other Non Current Liabilities,2020,-166654000.0,financial modeling prep
+241,241,AAIC,Total Non Current Liabilities,2020,166654000.0,financial modeling prep
+242,242,AAIC,Other Liabilities,2020,798558000.0,financial modeling prep
+243,243,AAIC,Capital Lease Obligations,2020,0.0,financial modeling prep
+244,244,AAIC,Total Liabilities,2020,966119000.0,financial modeling prep
+245,245,AAIC,Preferred Stock,2020,35289000.0,financial modeling prep
+246,246,AAIC,Common Stock,2020,335000.0,financial modeling prep
+247,247,AAIC,Retained Earnings,2020,-1830272000.0,financial modeling prep
+248,248,AAIC,Accumulated Other Comprehensive Income,2020,0.0,financial modeling prep
+249,249,AAIC,Other Total Shareholder Equity,2020,2040918000.0,financial modeling prep
+250,250,AAIC,Total Shareholder Equity,2020,246270000.0,financial modeling prep
+251,251,AAIC,Total Equity,2020,246270000.0,financial modeling prep
+252,252,AAIC,Total Liabilities and Shareholder Equity,2020,1212389000.0,financial modeling prep
+253,253,AAIC,Minority Interest,2020,0.0,financial modeling prep
+254,254,AAIC,Total Liabilities and Equity,2020,1212389000.0,financial modeling prep
+255,255,AAIC,Total Investments,2020,1042540000.0,financial modeling prep
+256,256,AAIC,Total Debt,2020,166654000.0,financial modeling prep
+257,257,AAIC,Net Debt,2020,131552000.0,financial modeling prep
+258,258,AAC,Cash and Cash Equivalents,2021,749510.0,financial modeling prep
+259,259,AAC,Short Term Investments,2021,0.0,financial modeling prep
+260,260,AAC,Cash and Short Term Investments,2021,749510.0,financial modeling prep
+261,261,AAC,Accounts Receivable,2021,0.0,financial modeling prep
+262,262,AAC,Inventory,2021,0.0,financial modeling prep
+263,263,AAC,Other Current Assets,2021,0.0,financial modeling prep
+264,264,AAC,Total Current Assets,2021,1285892.0,financial modeling prep
+265,265,AAC,"Property, Plant and Equipment",2021,0.0,financial modeling prep
+266,266,AAC,Goodwill,2021,0.0,financial modeling prep
+267,267,AAC,Intangible Assets,2021,0.0,financial modeling prep
+268,268,AAC,Long Term Investments,2021,0.0,financial modeling prep
+269,269,AAC,Tax Assets,2021,0.0,financial modeling prep
+270,270,AAC,Other Fixed Assets,2021,1000284779.0,financial modeling prep
+271,271,AAC,Fixed Assets,2021,1000284779.0,financial modeling prep
+272,272,AAC,Other Assets,2021,0.0,financial modeling prep
+273,273,AAC,Total Assets,2021,1001570671.0,financial modeling prep
+274,274,AAC,Accounts Payable,2021,0.0,financial modeling prep
+275,275,AAC,Short Term Debt,2021,0.0,financial modeling prep
+276,276,AAC,Tax Payables,2021,0.0,financial modeling prep
+277,277,AAC,Deferred Revenue,2021,0.0,financial modeling prep
+278,278,AAC,Other Current Liabilities,2021,0.0,financial modeling prep
+279,279,AAC,Total Current Liabilities,2021,3523316.0,financial modeling prep
+280,280,AAC,Long Term Debt,2021,0.0,financial modeling prep
+281,281,AAC,Deferred Revenue Non Current,2021,0.0,financial modeling prep
+282,282,AAC,Deferred Tax Liabilities,2021,0.0,financial modeling prep
+283,283,AAC,Other Non Current Liabilities,2021,0.0,financial modeling prep
+284,284,AAC,Total Non Current Liabilities,2021,66704522.0,financial modeling prep
+285,285,AAC,Other Liabilities,2021,0.0,financial modeling prep
+286,286,AAC,Capital Lease Obligations,2021,0.0,financial modeling prep
+287,287,AAC,Total Liabilities,2021,70227838.0,financial modeling prep
+288,288,AAC,Preferred Stock,2021,0.0,financial modeling prep
+289,289,AAC,Common Stock,2021,1000002500.0,financial modeling prep
+290,290,AAC,Retained Earnings,2021,-68659667.0,financial modeling prep
+291,291,AAC,Accumulated Other Comprehensive Income,2021,0.0,financial modeling prep
+292,292,AAC,Other Total Shareholder Equity,2021,0.0,financial modeling prep
+293,293,AAC,Total Shareholder Equity,2021,931342833.0,financial modeling prep
+294,294,AAC,Total Equity,2021,931342833.0,financial modeling prep
+295,295,AAC,Total Liabilities and Shareholder Equity,2021,1001570671.0,financial modeling prep
+296,296,AAC,Minority Interest,2021,0.0,financial modeling prep
+297,297,AAC,Total Liabilities and Equity,2021,1001570671.0,financial modeling prep
+298,298,AAC,Total Investments,2021,0.0,financial modeling prep
+299,299,AAC,Total Debt,2021,0.0,financial modeling prep
+300,300,AAC,Net Debt,2021,-749510.0,financial modeling prep
+301,301,AAIC,Cash and Cash Equivalents,2021,25092000.0,financial modeling prep
+302,302,AAIC,Short Term Investments,2021,0.0,financial modeling prep
+303,303,AAIC,Cash and Short Term Investments,2021,25092000.0,financial modeling prep
+304,304,AAIC,Accounts Receivable,2021,153237000.0,financial modeling prep
+305,305,AAIC,Inventory,2021,0.0,financial modeling prep
+306,306,AAIC,Other Current Assets,2021,0.0,financial modeling prep
+307,307,AAIC,Total Current Assets,2021,178329000.0,financial modeling prep
+308,308,AAIC,"Property, Plant and Equipment",2021,0.0,financial modeling prep
+309,309,AAIC,Goodwill,2021,0.0,financial modeling prep
+310,310,AAIC,Intangible Assets,2021,0.0,financial modeling prep
+311,311,AAIC,Long Term Investments,2021,539846000.0,financial modeling prep
+312,312,AAIC,Tax Assets,2021,0.0,financial modeling prep
+313,313,AAIC,Other Fixed Assets,2021,-539846000.0,financial modeling prep
+314,314,AAIC,Fixed Assets,2021,539846000.0,financial modeling prep
+315,315,AAIC,Other Assets,2021,84861000.0,financial modeling prep
+316,316,AAIC,Total Assets,2021,803036000.0,financial modeling prep
+317,317,AAIC,Accounts Payable,2021,0.0,financial modeling prep
+318,318,AAIC,Short Term Debt,2021,0.0,financial modeling prep
+319,319,AAIC,Tax Payables,2021,0.0,financial modeling prep
+320,320,AAIC,Deferred Revenue,2021,0.0,financial modeling prep
+321,321,AAIC,Other Current Liabilities,2021,0.0,financial modeling prep
+322,322,AAIC,Total Current Liabilities,2021,0.0,financial modeling prep
+323,323,AAIC,Long Term Debt,2021,125680000.0,financial modeling prep
+324,324,AAIC,Deferred Revenue Non Current,2021,0.0,financial modeling prep
+325,325,AAIC,Deferred Tax Liabilities,2021,0.0,financial modeling prep
+326,326,AAIC,Other Non Current Liabilities,2021,-125680000.0,financial modeling prep
+327,327,AAIC,Total Non Current Liabilities,2021,125680000.0,financial modeling prep
+328,328,AAIC,Other Liabilities,2021,0.0,financial modeling prep
+329,329,AAIC,Capital Lease Obligations,2021,0.0,financial modeling prep
+330,330,AAIC,Total Liabilities,2021,125680000.0,financial modeling prep
+331,331,AAIC,Preferred Stock,2021,36208000.0,financial modeling prep
+332,332,AAIC,Common Stock,2021,307000.0,financial modeling prep
+333,333,AAIC,Retained Earnings,2021,-1842703000.0,financial modeling prep
+334,334,AAIC,Accumulated Other Comprehensive Income,2021,0.0,financial modeling prep
+335,335,AAIC,Other Total Shareholder Equity,2021,2030315000.0,financial modeling prep
+336,336,AAIC,Total Shareholder Equity,2021,224127000.0,financial modeling prep
+337,337,AAIC,Total Equity,2021,224127000.0,financial modeling prep
+338,338,AAIC,Total Liabilities and Shareholder Equity,2021,803036000.0,financial modeling prep
+339,339,AAIC,Minority Interest,2021,0.0,financial modeling prep
+340,340,AAIC,Total Liabilities and Equity,2021,803036000.0,financial modeling prep
+341,341,AAIC,Total Investments,2021,539846000.0,financial modeling prep
+342,342,AAIC,Total Debt,2021,125680000.0,financial modeling prep
+343,343,AAIC,Net Debt,2021,100588000.0,financial modeling prep
+344,344,AAC,Cash and Cash Equivalents,2022,37982.0,financial modeling prep
+345,345,AAC,Short Term Investments,2022,0.0,financial modeling prep
+346,346,AAC,Cash and Short Term Investments,2022,37982.0,financial modeling prep
+347,347,AAC,Accounts Receivable,2022,0.0,financial modeling prep
+348,348,AAC,Inventory,2022,0.0,financial modeling prep
+349,349,AAC,Other Current Assets,2022,0.057576999999999004,financial modeling prep
+350,350,AAC,Total Current Assets,2022,95559.0,financial modeling prep
+351,351,AAC,"Property, Plant and Equipment",2022,0.0,financial modeling prep
+352,352,AAC,Goodwill,2022,0.0,financial modeling prep
+353,353,AAC,Intangible Assets,2022,0.0,financial modeling prep
+354,354,AAC,Long Term Investments,2022,1013.3824910000001,financial modeling prep
+355,355,AAC,Tax Assets,2022,0.0,financial modeling prep
+356,356,AAC,Other Fixed Assets,2022,1013381477.617509,financial modeling prep
+357,357,AAC,Fixed Assets,2022,1013382491.0,financial modeling prep
+358,358,AAC,Other Assets,2022,0.0,financial modeling prep
+359,359,AAC,Total Assets,2022,1013478050.0,financial modeling prep
+360,360,AAC,Accounts Payable,2022,0.0,financial modeling prep
+361,361,AAC,Short Term Debt,2022,1500000.0,financial modeling prep
+362,362,AAC,Tax Payables,2022,0.0,financial modeling prep
+363,363,AAC,Deferred Revenue,2022,0.0,financial modeling prep
+364,364,AAC,Other Current Liabilities,2022,8175694.0,financial modeling prep
+365,365,AAC,Total Current Liabilities,2022,9675694.0,financial modeling prep
+366,366,AAC,Long Term Debt,2022,0.0,financial modeling prep
+367,367,AAC,Deferred Revenue Non Current,2022,0.0,financial modeling prep
+368,368,AAC,Deferred Tax Liabilities,2022,0.0,financial modeling prep
+369,369,AAC,Other Non Current Liabilities,2022,51475933.0,financial modeling prep
+370,370,AAC,Total Non Current Liabilities,2022,51475933.0,financial modeling prep
+371,371,AAC,Other Liabilities,2022,0.0,financial modeling prep
+372,372,AAC,Capital Lease Obligations,2022,0.0,financial modeling prep
+373,373,AAC,Total Liabilities,2022,61151627.0,financial modeling prep
+374,374,AAC,Preferred Stock,2022,0.0,financial modeling prep
+375,375,AAC,Common Stock,2022,1013284991.0,financial modeling prep
+376,376,AAC,Retained Earnings,2022,-60958568.0,financial modeling prep
+377,377,AAC,Accumulated Other Comprehensive Income,2022,0.0,financial modeling prep
+378,378,AAC,Other Total Shareholder Equity,2022,0.0,financial modeling prep
+379,379,AAC,Total Shareholder Equity,2022,952326423.0,financial modeling prep
+380,380,AAC,Total Equity,2022,952326423.0,financial modeling prep
+381,381,AAC,Total Liabilities and Shareholder Equity,2022,1013478050.0,financial modeling prep
+382,382,AAC,Minority Interest,2022,0.0,financial modeling prep
+383,383,AAC,Total Liabilities and Equity,2022,1013478050.0,financial modeling prep
+384,384,AAC,Total Investments,2022,1013.3824910000001,financial modeling prep
+385,385,AAC,Total Debt,2022,1500000.0,financial modeling prep
+386,386,AAC,Net Debt,2022,1462018.0,financial modeling prep
+387,387,AAIC,Cash and Cash Equivalents,2022,29844000.0,financial modeling prep
+388,388,AAIC,Short Term Investments,2022,133701000.0,financial modeling prep
+389,389,AAIC,Cash and Short Term Investments,2022,161722000.0,financial modeling prep
+390,390,AAIC,Accounts Receivable,2022,180365000.0,financial modeling prep
+391,391,AAIC,Inventory,2022,0.0,financial modeling prep
+392,392,AAIC,Other Current Assets,2022,0.0,financial modeling prep
+393,393,AAIC,Total Current Assets,2022,342087000.0,financial modeling prep
+394,394,AAIC,"Property, Plant and Equipment",2022,0.0,financial modeling prep
+395,395,AAIC,Goodwill,2022,0.0,financial modeling prep
+396,396,AAIC,Intangible Assets,2022,0.0,financial modeling prep
+397,397,AAIC,Long Term Investments,2022,577241000.0,financial modeling prep
+398,398,AAIC,Tax Assets,2022,0.0,financial modeling prep
+399,399,AAIC,Other Fixed Assets,2022,-577241000.0,financial modeling prep
+400,400,AAIC,Fixed Assets,2022,577241000.0,financial modeling prep
+401,401,AAIC,Other Assets,2022,82990000.0,financial modeling prep
+402,402,AAIC,Total Assets,2022,1002318000.0,financial modeling prep
+403,403,AAIC,Accounts Payable,2022,0.0,financial modeling prep
+404,404,AAIC,Short Term Debt,2022,0.0,financial modeling prep
+405,405,AAIC,Tax Payables,2022,0.0,financial modeling prep
+406,406,AAIC,Deferred Revenue,2022,0.0,financial modeling prep
+407,407,AAIC,Other Current Liabilities,2022,0.0,financial modeling prep
+408,408,AAIC,Total Current Liabilities,2022,0.0,financial modeling prep
+409,409,AAIC,Long Term Debt,2022,255750000.0,financial modeling prep
+410,410,AAIC,Deferred Revenue Non Current,2022,0.0,financial modeling prep
+411,411,AAIC,Deferred Tax Liabilities,2022,0.0,financial modeling prep
+412,412,AAIC,Other Non Current Liabilities,2022,-169345000.0,financial modeling prep
+413,413,AAIC,Total Non Current Liabilities,2022,86405000.0,financial modeling prep
+414,414,AAIC,Other Liabilities,2022,0.0,financial modeling prep
+415,415,AAIC,Capital Lease Obligations,2022,0.0,financial modeling prep
+416,416,AAIC,Total Liabilities,2022,86405000.0,financial modeling prep
+417,417,AAIC,Preferred Stock,2022,32821000.0,financial modeling prep
+418,418,AAIC,Common Stock,2022,282000.0,financial modeling prep
+419,419,AAIC,Retained Earnings,2022,-1840061000.0,financial modeling prep
+420,420,AAIC,Accumulated Other Comprehensive Income,2022,0.0,financial modeling prep
+421,421,AAIC,Other Total Shareholder Equity,2022,2024298000.0,financial modeling prep
+422,422,AAIC,Total Shareholder Equity,2022,217340000.0,financial modeling prep
+423,423,AAIC,Total Equity,2022,217340000.0,financial modeling prep
+424,424,AAIC,Total Liabilities and Shareholder Equity,2022,1002318000.0,financial modeling prep
+425,425,AAIC,Minority Interest,2022,0.0,financial modeling prep
+426,426,AAIC,Total Liabilities and Equity,2022,1002318000.0,financial modeling prep
+427,427,AAIC,Total Investments,2022,710942000.0,financial modeling prep
+428,428,AAIC,Total Debt,2022,255750000.0,financial modeling prep
+429,429,AAIC,Net Debt,2022,225906000.0,financial modeling prep

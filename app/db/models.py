@@ -11,6 +11,19 @@ class MasterSQLModel(SQLModel):
     created_at: datetime = Field(default=datetime.utcnow(), nullable=False)
     updated_at: datetime = Field(default_factory=datetime.utcnow, nullable=False)
 
+class PriceDB(MasterSQLModel):
+    # id: Optional[int] = Field(default=None, primary_key=True)
+    vendor_name: Optional[str] = Field(foreign_key="dim_data_vendor.vendor_name")
+    # data_vendor: Optional["DataVendorDB"] = Relationship(back_populates="daily_prices")
+    date: datetime
+    symbol: Optional[str] = Field(foreign_key="dim_companies.symbol", nullable=False)
+    # company: Optional[CompaniesDB] = Relationship(back_populates="daily_prices")
+    open: Optional[float]
+    high: Optional[float]
+    low: Optional[float]
+    close: Optional[float]
+    volume: Optional[int] = Field(sa_column=Field(Column(BIGINT)))
+
 
 class DataVendorDB(MasterSQLModel, table=True):
     __tablename__ = "dim_data_vendor"
@@ -67,20 +80,6 @@ class CompaniesDB(MasterSQLModel, table=True):
     data_vendor: Optional["DataVendorDB"] = Relationship(back_populates="companies")
 
 
-class PriceDB(MasterSQLModel):
-    # id: Optional[int] = Field(default=None, primary_key=True)
-    vendor_name: Optional[str] = Field(foreign_key="dim_data_vendor.vendor_name")
-    # data_vendor: Optional["DataVendorDB"] = Relationship(back_populates="daily_prices")
-    date: datetime
-    symbol: Optional[str] = Field(foreign_key="dim_companies.symbol", nullable=False)
-    # company: Optional[CompaniesDB] = Relationship(back_populates="daily_prices")
-    open: Optional[float]
-    high: Optional[float]
-    low: Optional[float]
-    close: Optional[float]
-    volume: Optional[int] = Field(sa_column=Field(Column(BIGINT)))
-
-
 class DailyPriceDB(PriceDB, table=True):
     __tablename__ = "fact_daily_price"
     __table_args__ = (dict(comment="Daily stock price of public listed companies"),)
@@ -94,8 +93,20 @@ class OneMinPriceDB(PriceDB, table=True):
     __tablename__ = "fact_one_min_price"
     __table_args__ = (dict(comment="Daily stock price of public listed companies"),)
     id: Optional[int] = Field(default=None, primary_key=True)
-    data_vendor: Optional["DataVendorDB"] = Relationship(back_populates="one_min_prices")
+    data_vendor: Optional["DataVendorDB"] = Relationship(
+        back_populates="one_min_prices"
+    )
     company: Optional[CompaniesDB] = Relationship(back_populates="one_min_prices")
+   
+ 
+class IncomeStatement(MasterSQLModel, table=True):
+    __tablename__ = "fact_income_statement"
+    __table_args__ = (
+        dict(comment="Historical income statement of public listed companies"),
+    )
+    id: Optional[int] = Field(primary_key=True, nullable=False)
+    
+        
 
 
 class NewsDB(MasterSQLModel, table=True):

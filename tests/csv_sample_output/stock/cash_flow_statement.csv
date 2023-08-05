@@ -1,0 +1,301 @@
+,index,symbol,cash_flow_item,year,value,vendor_name
+0,0,AAC,Net Income,2018,,financial modeling prep
+1,1,AAC,Depreciation and Amortization,2018,,financial modeling prep
+2,2,AAC,Deferred Income Tax,2018,,financial modeling prep
+3,3,AAC,Stock Based Compensation,2018,,financial modeling prep
+4,4,AAC,Change in Working Capital,2018,,financial modeling prep
+5,5,AAC,Accounts Receivables,2018,,financial modeling prep
+6,6,AAC,Inventory,2018,,financial modeling prep
+7,7,AAC,Accounts Payables,2018,,financial modeling prep
+8,8,AAC,Other Working Capital,2018,,financial modeling prep
+9,9,AAC,Other Non Cash Items,2018,,financial modeling prep
+10,10,AAC,Cash Flow from Operations,2018,,financial modeling prep
+11,11,AAC,"Property, Plant and Equipment",2018,,financial modeling prep
+12,12,AAC,Acquisitions,2018,,financial modeling prep
+13,13,AAC,Purchases of Investments,2018,,financial modeling prep
+14,14,AAC,Sales of Investments,2018,,financial modeling prep
+15,15,AAC,Other Investing Activities,2018,,financial modeling prep
+16,16,AAC,Cash Flow from Investing,2018,,financial modeling prep
+17,17,AAC,Debt Repayment,2018,,financial modeling prep
+18,18,AAC,Common Stock Issued,2018,,financial modeling prep
+19,19,AAC,Common Stock Purchased,2018,,financial modeling prep
+20,20,AAC,Dividends Paid,2018,,financial modeling prep
+21,21,AAC,Other Financing Activities,2018,,financial modeling prep
+22,22,AAC,Cash Flow from Financing,2018,,financial modeling prep
+23,23,AAC,Forex Changes on Cash,2018,,financial modeling prep
+24,24,AAC,Net Change in Cash,2018,,financial modeling prep
+25,25,AAC,Cash End of Period,2018,,financial modeling prep
+26,26,AAC,Cash Beginning of Period,2018,,financial modeling prep
+27,27,AAC,Operating Cash Flow,2018,,financial modeling prep
+28,28,AAC,Capital Expenditure,2018,,financial modeling prep
+29,29,AAC,Free Cash Flow,2018,,financial modeling prep
+30,30,AAIC,Net Income,2018,-91797000.0,financial modeling prep
+31,31,AAIC,Depreciation and Amortization,2018,0.0,financial modeling prep
+32,32,AAIC,Deferred Income Tax,2018,733000.0,financial modeling prep
+33,33,AAIC,Stock Based Compensation,2018,0.0,financial modeling prep
+34,34,AAIC,Change in Working Capital,2018,-1675000.0,financial modeling prep
+35,35,AAIC,Accounts Receivables,2018,-803000.0,financial modeling prep
+36,36,AAIC,Inventory,2018,-116000.0,financial modeling prep
+37,37,AAIC,Accounts Payables,2018,527000.0,financial modeling prep
+38,38,AAIC,Other Working Capital,2018,-1283000.0,financial modeling prep
+39,39,AAIC,Other Non Cash Items,2018,156488000.0,financial modeling prep
+40,40,AAIC,Cash Flow from Operations,2018,63749000.0,financial modeling prep
+41,41,AAIC,"Property, Plant and Equipment",2018,0.0,financial modeling prep
+42,42,AAIC,Acquisitions,2018,0.0,financial modeling prep
+43,43,AAIC,Purchases of Investments,2018,-2954471000.0,financial modeling prep
+44,44,AAIC,Sales of Investments,2018,2387180000.0,financial modeling prep
+45,45,AAIC,Other Investing Activities,2018,484650000.0,financial modeling prep
+46,46,AAIC,Cash Flow from Investing,2018,-82641000.0,financial modeling prep
+47,47,AAIC,Debt Repayment,2018,0.0,financial modeling prep
+48,48,AAIC,Common Stock Issued,2018,22326000.0,financial modeling prep
+49,49,AAIC,Common Stock Purchased,2018,0.0,financial modeling prep
+50,50,AAIC,Dividends Paid,2018,-53920000.0,financial modeling prep
+51,51,AAIC,Other Financing Activities,2018,55585000.0,financial modeling prep
+52,52,AAIC,Cash Flow from Financing,2018,23991000.0,financial modeling prep
+53,53,AAIC,Forex Changes on Cash,2018,0.0,financial modeling prep
+54,54,AAIC,Net Change in Cash,2018,5099000.0,financial modeling prep
+55,55,AAIC,Cash End of Period,2018,26713000.0,financial modeling prep
+56,56,AAIC,Cash Beginning of Period,2018,21614000.0,financial modeling prep
+57,57,AAIC,Operating Cash Flow,2018,63749000.0,financial modeling prep
+58,58,AAIC,Capital Expenditure,2018,0.0,financial modeling prep
+59,59,AAIC,Free Cash Flow,2018,63749000.0,financial modeling prep
+60,60,AAC,Net Income,2019,,financial modeling prep
+61,61,AAC,Depreciation and Amortization,2019,,financial modeling prep
+62,62,AAC,Deferred Income Tax,2019,,financial modeling prep
+63,63,AAC,Stock Based Compensation,2019,,financial modeling prep
+64,64,AAC,Change in Working Capital,2019,,financial modeling prep
+65,65,AAC,Accounts Receivables,2019,,financial modeling prep
+66,66,AAC,Inventory,2019,,financial modeling prep
+67,67,AAC,Accounts Payables,2019,,financial modeling prep
+68,68,AAC,Other Working Capital,2019,,financial modeling prep
+69,69,AAC,Other Non Cash Items,2019,,financial modeling prep
+70,70,AAC,Cash Flow from Operations,2019,,financial modeling prep
+71,71,AAC,"Property, Plant and Equipment",2019,,financial modeling prep
+72,72,AAC,Acquisitions,2019,,financial modeling prep
+73,73,AAC,Purchases of Investments,2019,,financial modeling prep
+74,74,AAC,Sales of Investments,2019,,financial modeling prep
+75,75,AAC,Other Investing Activities,2019,,financial modeling prep
+76,76,AAC,Cash Flow from Investing,2019,,financial modeling prep
+77,77,AAC,Debt Repayment,2019,,financial modeling prep
+78,78,AAC,Common Stock Issued,2019,,financial modeling prep
+79,79,AAC,Common Stock Purchased,2019,,financial modeling prep
+80,80,AAC,Dividends Paid,2019,,financial modeling prep
+81,81,AAC,Other Financing Activities,2019,,financial modeling prep
+82,82,AAC,Cash Flow from Financing,2019,,financial modeling prep
+83,83,AAC,Forex Changes on Cash,2019,,financial modeling prep
+84,84,AAC,Net Change in Cash,2019,,financial modeling prep
+85,85,AAC,Cash End of Period,2019,,financial modeling prep
+86,86,AAC,Cash Beginning of Period,2019,,financial modeling prep
+87,87,AAC,Operating Cash Flow,2019,,financial modeling prep
+88,88,AAC,Capital Expenditure,2019,,financial modeling prep
+89,89,AAC,Free Cash Flow,2019,,financial modeling prep
+90,90,AAIC,Net Income,2019,13742000.0,financial modeling prep
+91,91,AAIC,Depreciation and Amortization,2019,0.0,financial modeling prep
+92,92,AAIC,Deferred Income Tax,2019,0.0,financial modeling prep
+93,93,AAIC,Stock Based Compensation,2019,0.0,financial modeling prep
+94,94,AAIC,Change in Working Capital,2019,5625000.0,financial modeling prep
+95,95,AAIC,Accounts Receivables,2019,2686000.0,financial modeling prep
+96,96,AAIC,Inventory,2019,4539000.0,financial modeling prep
+97,97,AAIC,Accounts Payables,2019,-1494000.0,financial modeling prep
+98,98,AAIC,Other Working Capital,2019,-106000.0,financial modeling prep
+99,99,AAIC,Other Non Cash Items,2019,27198000.0,financial modeling prep
+100,100,AAIC,Cash Flow from Operations,2019,46565000.0,financial modeling prep
+101,101,AAIC,"Property, Plant and Equipment",2019,0.0,financial modeling prep
+102,102,AAIC,Acquisitions,2019,0.0,financial modeling prep
+103,103,AAIC,Purchases of Investments,2019,-4415838000.0,financial modeling prep
+104,104,AAIC,Sales of Investments,2019,4547793000.0,financial modeling prep
+105,105,AAIC,Other Investing Activities,2019,-78451000.0,financial modeling prep
+106,106,AAIC,Cash Flow from Investing,2019,53504000.0,financial modeling prep
+107,107,AAIC,Debt Repayment,2019,0.0,financial modeling prep
+108,108,AAIC,Common Stock Issued,2019,48796000.0,financial modeling prep
+109,109,AAIC,Common Stock Purchased,2019,0.0,financial modeling prep
+110,110,AAIC,Dividends Paid,2019,-44520000.0,financial modeling prep
+111,111,AAIC,Other Financing Activities,2019,-111422000.0,financial modeling prep
+112,112,AAIC,Cash Flow from Financing,2019,-107146000.0,financial modeling prep
+113,113,AAIC,Forex Changes on Cash,2019,0.0,financial modeling prep
+114,114,AAIC,Net Change in Cash,2019,-7077000.0,financial modeling prep
+115,115,AAIC,Cash End of Period,2019,19636000.0,financial modeling prep
+116,116,AAIC,Cash Beginning of Period,2019,26713000.0,financial modeling prep
+117,117,AAIC,Operating Cash Flow,2019,46565000.0,financial modeling prep
+118,118,AAIC,Capital Expenditure,2019,0.0,financial modeling prep
+119,119,AAIC,Free Cash Flow,2019,46565000.0,financial modeling prep
+120,120,AAC,Net Income,2020,,financial modeling prep
+121,121,AAC,Depreciation and Amortization,2020,,financial modeling prep
+122,122,AAC,Deferred Income Tax,2020,,financial modeling prep
+123,123,AAC,Stock Based Compensation,2020,,financial modeling prep
+124,124,AAC,Change in Working Capital,2020,,financial modeling prep
+125,125,AAC,Accounts Receivables,2020,,financial modeling prep
+126,126,AAC,Inventory,2020,,financial modeling prep
+127,127,AAC,Accounts Payables,2020,,financial modeling prep
+128,128,AAC,Other Working Capital,2020,,financial modeling prep
+129,129,AAC,Other Non Cash Items,2020,,financial modeling prep
+130,130,AAC,Cash Flow from Operations,2020,,financial modeling prep
+131,131,AAC,"Property, Plant and Equipment",2020,,financial modeling prep
+132,132,AAC,Acquisitions,2020,,financial modeling prep
+133,133,AAC,Purchases of Investments,2020,,financial modeling prep
+134,134,AAC,Sales of Investments,2020,,financial modeling prep
+135,135,AAC,Other Investing Activities,2020,,financial modeling prep
+136,136,AAC,Cash Flow from Investing,2020,,financial modeling prep
+137,137,AAC,Debt Repayment,2020,,financial modeling prep
+138,138,AAC,Common Stock Issued,2020,,financial modeling prep
+139,139,AAC,Common Stock Purchased,2020,,financial modeling prep
+140,140,AAC,Dividends Paid,2020,,financial modeling prep
+141,141,AAC,Other Financing Activities,2020,,financial modeling prep
+142,142,AAC,Cash Flow from Financing,2020,,financial modeling prep
+143,143,AAC,Forex Changes on Cash,2020,,financial modeling prep
+144,144,AAC,Net Change in Cash,2020,,financial modeling prep
+145,145,AAC,Cash End of Period,2020,,financial modeling prep
+146,146,AAC,Cash Beginning of Period,2020,,financial modeling prep
+147,147,AAC,Operating Cash Flow,2020,,financial modeling prep
+148,148,AAC,Capital Expenditure,2020,,financial modeling prep
+149,149,AAC,Free Cash Flow,2020,,financial modeling prep
+150,150,AAIC,Net Income,2020,-67716000.0,financial modeling prep
+151,151,AAIC,Depreciation and Amortization,2020,0.0,financial modeling prep
+152,152,AAIC,Deferred Income Tax,2020,0.0,financial modeling prep
+153,153,AAIC,Stock Based Compensation,2020,0.0,financial modeling prep
+154,154,AAIC,Change in Working Capital,2020,8362000.0,financial modeling prep
+155,155,AAIC,Accounts Receivables,2020,9115000.0,financial modeling prep
+156,156,AAIC,Inventory,2020,4495000.0,financial modeling prep
+157,157,AAIC,Accounts Payables,2020,-4233000.0,financial modeling prep
+158,158,AAIC,Other Working Capital,2020,-1015000.0,financial modeling prep
+159,159,AAIC,Other Non Cash Items,2020,85268000.0,financial modeling prep
+160,160,AAIC,Cash Flow from Operations,2020,25914000.0,financial modeling prep
+161,161,AAIC,"Property, Plant and Equipment",2020,0.0,financial modeling prep
+162,162,AAIC,Acquisitions,2020,0.0,financial modeling prep
+163,163,AAIC,Purchases of Investments,2020,-1291489000.0,financial modeling prep
+164,164,AAIC,Sales of Investments,2020,4238025000.0,financial modeling prep
+165,165,AAIC,Other Investing Activities,2020,27541000.0,financial modeling prep
+166,166,AAIC,Cash Flow from Investing,2020,2974077000.0,financial modeling prep
+167,167,AAIC,Debt Repayment,2020,-29983000.0,financial modeling prep
+168,168,AAIC,Common Stock Issued,2020,-2926025000.0,financial modeling prep
+169,169,AAIC,Common Stock Purchased,2020,-12254000.0,financial modeling prep
+170,170,AAIC,Dividends Paid,2020,-11315000.0,financial modeling prep
+171,171,AAIC,Other Financing Activities,2020,-85000.0,financial modeling prep
+172,172,AAIC,Cash Flow from Financing,2020,-2979662000.0,financial modeling prep
+173,173,AAIC,Forex Changes on Cash,2020,0.0,financial modeling prep
+174,174,AAIC,Net Change in Cash,2020,20329000.0,financial modeling prep
+175,175,AAIC,Cash End of Period,2020,39965000.0,financial modeling prep
+176,176,AAIC,Cash Beginning of Period,2020,19636000.0,financial modeling prep
+177,177,AAIC,Operating Cash Flow,2020,25914000.0,financial modeling prep
+178,178,AAIC,Capital Expenditure,2020,0.0,financial modeling prep
+179,179,AAIC,Free Cash Flow,2020,25914000.0,financial modeling prep
+180,180,AAC,Net Income,2021,15849072.0,financial modeling prep
+181,181,AAC,Depreciation and Amortization,2021,0.0,financial modeling prep
+182,182,AAC,Deferred Income Tax,2021,0.0,financial modeling prep
+183,183,AAC,Stock Based Compensation,2021,0.0,financial modeling prep
+184,184,AAC,Change in Working Capital,2021,2901934.0,financial modeling prep
+185,185,AAC,Accounts Receivables,2021,0.0,financial modeling prep
+186,186,AAC,Inventory,2021,0.0,financial modeling prep
+187,187,AAC,Accounts Payables,2021,0.0,financial modeling prep
+188,188,AAC,Other Working Capital,2021,0.0,financial modeling prep
+189,189,AAC,Other Non Cash Items,2021,-20164559.0,financial modeling prep
+190,190,AAC,Cash Flow from Operations,2021,-1413553.0,financial modeling prep
+191,191,AAC,"Property, Plant and Equipment",2021,0.0,financial modeling prep
+192,192,AAC,Acquisitions,2021,0.0,financial modeling prep
+193,193,AAC,Purchases of Investments,2021,0.0,financial modeling prep
+194,194,AAC,Sales of Investments,2021,0.0,financial modeling prep
+195,195,AAC,Other Investing Activities,2021,-1000000000.0,financial modeling prep
+196,196,AAC,Cash Flow from Investing,2021,-1000000000.0,financial modeling prep
+197,197,AAC,Debt Repayment,2021,0.0,financial modeling prep
+198,198,AAC,Common Stock Issued,2021,1000000000.0,financial modeling prep
+199,199,AAC,Common Stock Purchased,2021,0.0,financial modeling prep
+200,200,AAC,Dividends Paid,2021,0.0,financial modeling prep
+201,201,AAC,Other Financing Activities,2021,2163063.0,financial modeling prep
+202,202,AAC,Cash Flow from Financing,2021,1002163063.0,financial modeling prep
+203,203,AAC,Forex Changes on Cash,2021,0.0,financial modeling prep
+204,204,AAC,Net Change in Cash,2021,749510.0,financial modeling prep
+205,205,AAC,Cash End of Period,2021,749510.0,financial modeling prep
+206,206,AAC,Cash Beginning of Period,2021,0.0,financial modeling prep
+207,207,AAC,Operating Cash Flow,2021,-1413553.0,financial modeling prep
+208,208,AAC,Capital Expenditure,2021,0.0,financial modeling prep
+209,209,AAC,Free Cash Flow,2021,-1413553.0,financial modeling prep
+210,210,AAIC,Net Income,2021,-9515000.0,financial modeling prep
+211,211,AAIC,Depreciation and Amortization,2021,0.0,financial modeling prep
+212,212,AAIC,Deferred Income Tax,2021,0.0,financial modeling prep
+213,213,AAIC,Stock Based Compensation,2021,0.0,financial modeling prep
+214,214,AAIC,Change in Working Capital,2021,3326000.0,financial modeling prep
+215,215,AAIC,Accounts Receivables,2021,1145000.0,financial modeling prep
+216,216,AAIC,Inventory,2021,0.0,financial modeling prep
+217,217,AAIC,Accounts Payables,2021,2163000.0,financial modeling prep
+218,218,AAIC,Other Working Capital,2021,18000.0,financial modeling prep
+219,219,AAIC,Other Non Cash Items,2021,10880000.0,financial modeling prep
+220,220,AAIC,Cash Flow from Operations,2021,4691000.0,financial modeling prep
+221,221,AAIC,"Property, Plant and Equipment",2021,0.0,financial modeling prep
+222,222,AAIC,Acquisitions,2021,0.0,financial modeling prep
+223,223,AAIC,Purchases of Investments,2021,-659797000.0,financial modeling prep
+224,224,AAIC,Sales of Investments,2021,950418000.0,financial modeling prep
+225,225,AAIC,Other Investing Activities,2021,-48753000.0,financial modeling prep
+226,226,AAIC,Cash Flow from Investing,2021,241868000.0,financial modeling prep
+227,227,AAIC,Debt Repayment,2021,-117147000.0,financial modeling prep
+228,228,AAIC,Common Stock Issued,2021,0.0,financial modeling prep
+229,229,AAIC,Common Stock Purchased,2021,-12475000.0,financial modeling prep
+230,230,AAIC,Dividends Paid,2021,-2916000.0,financial modeling prep
+231,231,AAIC,Other Financing Activities,2021,-132200000.0,financial modeling prep
+232,232,AAIC,Cash Flow from Financing,2021,-264738000.0,financial modeling prep
+233,233,AAIC,Forex Changes on Cash,2021,0.0,financial modeling prep
+234,234,AAIC,Net Change in Cash,2021,-18179000.0,financial modeling prep
+235,235,AAIC,Cash End of Period,2021,21786000.0,financial modeling prep
+236,236,AAIC,Cash Beginning of Period,2021,39965000.0,financial modeling prep
+237,237,AAIC,Operating Cash Flow,2021,4691000.0,financial modeling prep
+238,238,AAIC,Capital Expenditure,2021,0.0,financial modeling prep
+239,239,AAIC,Free Cash Flow,2021,4691000.0,financial modeling prep
+240,240,AAC,Net Income,2022,20983590.0,financial modeling prep
+241,241,AAC,Depreciation and Amortization,2022,0.0,financial modeling prep
+242,242,AAC,Deferred Income Tax,2022,0.0,financial modeling prep
+243,243,AAC,Stock Based Compensation,2022,0.0,financial modeling prep
+244,244,AAC,Change in Working Capital,2022,5131184.0,financial modeling prep
+245,245,AAC,Accounts Receivables,2022,0.0,financial modeling prep
+246,246,AAC,Inventory,2022,0.0,financial modeling prep
+247,247,AAC,Accounts Payables,2022,0.0,financial modeling prep
+248,248,AAC,Other Working Capital,2022,0.0,financial modeling prep
+249,249,AAC,Other Non Cash Items,2022,-28326302.0,financial modeling prep
+250,250,AAC,Cash Flow from Operations,2022,-2211528.0,financial modeling prep
+251,251,AAC,"Property, Plant and Equipment",2022,0.0,financial modeling prep
+252,252,AAC,Acquisitions,2022,0.0,financial modeling prep
+253,253,AAC,Purchases of Investments,2022,0.0,financial modeling prep
+254,254,AAC,Sales of Investments,2022,0.0,financial modeling prep
+255,255,AAC,Other Investing Activities,2022,0.0,financial modeling prep
+256,256,AAC,Cash Flow from Investing,2022,0.0,financial modeling prep
+257,257,AAC,Debt Repayment,2022,0.0,financial modeling prep
+258,258,AAC,Common Stock Issued,2022,0.0,financial modeling prep
+259,259,AAC,Common Stock Purchased,2022,0.0,financial modeling prep
+260,260,AAC,Dividends Paid,2022,0.0,financial modeling prep
+261,261,AAC,Other Financing Activities,2022,1500000.0,financial modeling prep
+262,262,AAC,Cash Flow from Financing,2022,1500000.0,financial modeling prep
+263,263,AAC,Forex Changes on Cash,2022,0.0,financial modeling prep
+264,264,AAC,Net Change in Cash,2022,-711528.0,financial modeling prep
+265,265,AAC,Cash End of Period,2022,37982.0,financial modeling prep
+266,266,AAC,Cash Beginning of Period,2022,749510.0,financial modeling prep
+267,267,AAC,Operating Cash Flow,2022,-2211528.0,financial modeling prep
+268,268,AAC,Capital Expenditure,2022,0.0,financial modeling prep
+269,269,AAC,Free Cash Flow,2022,-2211528.0,financial modeling prep
+270,270,AAIC,Net Income,2022,5426000.0,financial modeling prep
+271,271,AAIC,Depreciation and Amortization,2022,0.0,financial modeling prep
+272,272,AAIC,Deferred Income Tax,2022,0.0,financial modeling prep
+273,273,AAIC,Stock Based Compensation,2022,959000.0,financial modeling prep
+274,274,AAIC,Change in Working Capital,2022,1601000.0,financial modeling prep
+275,275,AAIC,Accounts Receivables,2022,-957000.0,financial modeling prep
+276,276,AAIC,Inventory,2022,0.0,financial modeling prep
+277,277,AAIC,Accounts Payables,2022,1562000.0,financial modeling prep
+278,278,AAIC,Other Working Capital,2022,996000.0,financial modeling prep
+279,279,AAIC,Other Non Cash Items,2022,-9361000.0,financial modeling prep
+280,280,AAIC,Cash Flow from Operations,2022,-1375000.0,financial modeling prep
+281,281,AAIC,"Property, Plant and Equipment",2022,0.0,financial modeling prep
+282,282,AAIC,Acquisitions,2022,0.0,financial modeling prep
+283,283,AAIC,Purchases of Investments,2022,-803360000.0,financial modeling prep
+284,284,AAIC,Sales of Investments,2022,718014000.0,financial modeling prep
+285,285,AAIC,Other Investing Activities,2022,67876000.0,financial modeling prep
+286,286,AAIC,Cash Flow from Investing,2022,-17470000.0,financial modeling prep
+287,287,AAIC,Debt Repayment,2022,-125501000.0,financial modeling prep
+288,288,AAIC,Common Stock Issued,2022,149000.0,financial modeling prep
+289,289,AAIC,Common Stock Purchased,2022,-12851000.0,financial modeling prep
+290,290,AAIC,Dividends Paid,2022,-2783000.0,financial modeling prep
+291,291,AAIC,Other Financing Activities,2022,168257000.0,financial modeling prep
+292,292,AAIC,Cash Flow from Financing,2022,27271000.0,financial modeling prep
+293,293,AAIC,Forex Changes on Cash,2022,0.0,financial modeling prep
+294,294,AAIC,Net Change in Cash,2022,8426000.0,financial modeling prep
+295,295,AAIC,Cash End of Period,2022,30212000.0,financial modeling prep
+296,296,AAIC,Cash Beginning of Period,2022,21786000.0,financial modeling prep
+297,297,AAIC,Operating Cash Flow,2022,-1375000.0,financial modeling prep
+298,298,AAIC,Capital Expenditure,2022,0.0,financial modeling prep
+299,299,AAIC,Free Cash Flow,2022,-1375000.0,financial modeling prep

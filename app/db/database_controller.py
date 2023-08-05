@@ -5,6 +5,8 @@ import logging
 from dotenv import load_dotenv, find_dotenv
 import sqlalchemy
 from sqlmodel import SQLModel, create_engine, Session
+from sqlalchemy.future.engine import Engine
+from typing import Optional
 
 from app.decorators import log_start_end
 from app.db.stocks.stock_model import (
@@ -12,6 +14,7 @@ from app.db.stocks.stock_model import (
     get_price,
     get_news,
 )
+
 
 from app.db.macro.macro_model import (
     get_economic_calendar,
@@ -47,12 +50,11 @@ def create_db_and_tables(engine=None):
 ############################# INSERT DATA #################################
 # Reference: https://sqlmodel.tiangolo.com/tutorial/insert/
 
-
 @log_start_end(log=logger)
 def insert_db(
     sql_model: SQLModel = NullDB,
     data_frame: pandas.DataFrame = pandas.DataFrame(),
-    engine=None,
+    engine: Optional[Engine]=None,
 ):
     if engine is None:
         engine = create_engine(DATABASE_URI, echo=True)
@@ -93,7 +95,6 @@ def run_db_operation(engine=None):
     # tickers = " ".join(get_company_info()["symbol"].tolist())
     stock_price_df = get_price("FICO", data_source="financial modeling prep")
     # stock_price_df = get_price("FICO", data_source="yahoo finance")
-    print(stock_price_df)
     insert_db(DailyPriceDB, stock_price_df, engine=engine)
 
     # get news

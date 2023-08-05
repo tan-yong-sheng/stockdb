@@ -1,34 +1,281 @@
-,,2018,2019,2020,2021,2022,2023
-AAPL,Revenue,265595000000.0,260174000000.0,274515000000.0,365817000000.0,394328000000.0,
-AAPL,Cost of Goods Sold,163756000000.0,161782000000.0,169559000000.0,212981000000.0,223546000000.0,
-AAPL,Gross Profit,101839000000.0,98392000000.0,104956000000.0,152836000000.0,170782000000.0,
-AAPL,Gross Profit Ratio,0.3834371882,0.3781776811,0.38233247730000003,0.4177935963,0.4330963056,
-AAPL,Research and Development Expenses,14236000000.0,16217000000.0,18752000000.0,21914000000.0,26251000000.0,
-AAPL,General and Administrative Expenses,0.0,0.0,0.0,0.0,0.0,
-AAPL,Selling and Marketing Expenses,0.0,0.0,0.0,0.0,0.0,
-AAPL,"Selling, General and Administrative Expenses",16705000000.0,18245000000.0,19916000000.0,21973000000.0,25094000000.0,
-AAPL,Other Expenses,2005000000.0,1807000000.0,803000000.0,258000000.0,-334000000.0,
-AAPL,Operating Expenses,30941000000.0,34462000000.0,38668000000.0,43887000000.0,51345000000.0,
-AAPL,Cost and Expenses,194697000000.0,196244000000.0,208227000000.0,256868000000.0,274891000000.0,
-AAPL,Interest Income,5686000000.0,4961000000.0,3763000000.0,2843000000.0,2825000000.0,
-AAPL,Interest Expense,3240000000.0,3576000000.0,2873000000.0,2645000000.0,2931000000.0,
-AAPL,Depreciation and Amortization,10903000000.0,12547000000.0,11056000000.0,11284000000.0,11104000000.0,
-AAPL,EBITDA,81801000000.0,76477000000.0,77344000000.0,120233000000.0,130541000000.0,
-AAPL,EBITDA Ratio,0.3079914908,0.2939455903,0.2817478098,0.3286697994,0.3310467428,
-AAPL,Operating Income,70898000000.0,63930000000.0,66288000000.0,108949000000.0,119437000000.0,
-AAPL,Operating Income Ratio,0.2669402662,0.2457201719,0.24147314350000001,0.29782377530000004,0.302887444,
-AAPL,Total Other Income,2005000000.0,1807000000.0,803000000.0,258000000.0,-334000000.0,
-AAPL,Income Before Tax,72903000000.0,65737000000.0,67091000000.0,109207000000.0,119103000000.0,
-AAPL,Income Before Tax Ratio,0.2744893541,0.2526655238,0.2443983025,0.2985290459,0.3020404333,
-AAPL,Income Tax Expense,13372000000.0,10481000000.0,9680000000.0,14527000000.0,19300000000.0,
-AAPL,Net Income,59531000000.0,55256000000.0,57411000000.0,94680000000.0,99803000000.0,
-AAPL,Net Income Ratio,0.2241420207,0.2123809451,0.2091361128,0.2588179336,0.25309640710000003,
-AAPL,EPS,3.0,2.99,3.31,5.67,6.15,
-AAPL,EPS Diluted,2.98,2.9699999999999998,3.2800000000000002,5.61,6.11,
-AAPL,Weighted Average Shares,19821508000.0,18471336000.0,17352119000.0,16701272000.0,16215963000.0,
-AAPL,Weighted Average Shares Diluted,20000436000.0,18595652000.0,17528214000.0,16864919000.0,16325819000.0,
-MSFT,Revenue,,125843000000.0,143015000000.0,168088000000.0,198270000000.0,211915000000.0
-MSFT,Cost of Goods Sold,,42910000000.0,46078000000.0,52232000000.0,62650000000.0,65863000000.0
-MSFT,Gross Profit,,82933000000.0,96937000000.0,115856000000.0,135620000000.0,146052000000.0
-MSFT,Gross Profit Ratio,,0.659019572,0.6778100199,0.6892580077,0.6840167448000001,0.6892008588
-MSFT,Research and Development Expenses,,16876000000.0,19269000000.0,20716000000.0,24512000000.0,27195000000.0
+,index,symbol,income_statement_item,year,value,vendor_name
+0,0,AAC,Revenue,2018,,financial modeling prep
+1,1,AAC,Cost of Goods Sold,2018,,financial modeling prep
+2,2,AAC,Gross Profit,2018,,financial modeling prep
+3,3,AAC,Gross Profit Ratio,2018,,financial modeling prep
+4,4,AAC,Research and Development Expenses,2018,,financial modeling prep
+5,5,AAC,General and Administrative Expenses,2018,,financial modeling prep
+6,6,AAC,Selling and Marketing Expenses,2018,,financial modeling prep
+7,7,AAC,"Selling, General and Administrative Expenses",2018,,financial modeling prep
+8,8,AAC,Other Expenses,2018,,financial modeling prep
+9,9,AAC,Operating Expenses,2018,,financial modeling prep
+10,10,AAC,Cost and Expenses,2018,,financial modeling prep
+11,11,AAC,Interest Income,2018,,financial modeling prep
+12,12,AAC,Interest Expense,2018,,financial modeling prep
+13,13,AAC,Depreciation and Amortization,2018,,financial modeling prep
+14,14,AAC,EBITDA,2018,,financial modeling prep
+15,15,AAC,EBITDA Ratio,2018,,financial modeling prep
+16,16,AAC,Operating Income,2018,,financial modeling prep
+17,17,AAC,Operating Income Ratio,2018,,financial modeling prep
+18,18,AAC,Total Other Income,2018,,financial modeling prep
+19,19,AAC,Income Before Tax,2018,,financial modeling prep
+20,20,AAC,Income Before Tax Ratio,2018,,financial modeling prep
+21,21,AAC,Income Tax Expense,2018,,financial modeling prep
+22,22,AAC,Net Income,2018,,financial modeling prep
+23,23,AAC,Net Income Ratio,2018,,financial modeling prep
+24,24,AAC,EPS,2018,,financial modeling prep
+25,25,AAC,EPS Diluted,2018,,financial modeling prep
+26,26,AAC,Weighted Average Shares,2018,,financial modeling prep
+27,27,AAC,Weighted Average Shares Diluted,2018,,financial modeling prep
+28,28,AAIC,Revenue,2018,130953000.0,financial modeling prep
+29,29,AAIC,Cost of Goods Sold,2018,0.0,financial modeling prep
+30,30,AAIC,Gross Profit,2018,130953000.0,financial modeling prep
+31,31,AAIC,Gross Profit Ratio,2018,1.0,financial modeling prep
+32,32,AAIC,Research and Development Expenses,2018,0.0,financial modeling prep
+33,33,AAIC,General and Administrative Expenses,2018,13370000.0,financial modeling prep
+34,34,AAIC,Selling and Marketing Expenses,2018,0.0,financial modeling prep
+35,35,AAIC,"Selling, General and Administrative Expenses",2018,13370000.0,financial modeling prep
+36,36,AAIC,Other Expenses,2018,-150562000.0,financial modeling prep
+37,37,AAIC,Operating Expenses,2018,-137192000.0,financial modeling prep
+38,38,AAIC,Cost and Expenses,2018,-137192000.0,financial modeling prep
+39,39,AAIC,Interest Income,2018,130953000.0,financial modeling prep
+40,40,AAIC,Interest Expense,2018,84825000.0,financial modeling prep
+41,41,AAIC,Depreciation and Amortization,2018,0.0,financial modeling prep
+42,42,AAIC,EBITDA,2018,-6239000.0,financial modeling prep
+43,43,AAIC,EBITDA Ratio,2018,-0.0476430475,financial modeling prep
+44,44,AAIC,Operating Income,2018,-6239000.0,financial modeling prep
+45,45,AAIC,Operating Income Ratio,2018,-0.0476430475,financial modeling prep
+46,46,AAIC,Total Other Income,2018,-84825000.0,financial modeling prep
+47,47,AAIC,Income Before Tax,2018,-91064000.0,financial modeling prep
+48,48,AAIC,Income Before Tax Ratio,2018,-0.6953945309,financial modeling prep
+49,49,AAIC,Income Tax Expense,2018,733000.0,financial modeling prep
+50,50,AAIC,Net Income,2018,-91797000.0,financial modeling prep
+51,51,AAIC,Net Income Ratio,2018,-0.7009919589,financial modeling prep
+52,52,AAIC,EPS,2018,-3.16,financial modeling prep
+53,53,AAIC,EPS Diluted,2018,-3.16,financial modeling prep
+54,54,AAIC,Weighted Average Shares,2018,29052000.0,financial modeling prep
+55,55,AAIC,Weighted Average Shares Diluted,2018,29052000.0,financial modeling prep
+56,56,AAC,Revenue,2019,,financial modeling prep
+57,57,AAC,Cost of Goods Sold,2019,,financial modeling prep
+58,58,AAC,Gross Profit,2019,,financial modeling prep
+59,59,AAC,Gross Profit Ratio,2019,,financial modeling prep
+60,60,AAC,Research and Development Expenses,2019,,financial modeling prep
+61,61,AAC,General and Administrative Expenses,2019,,financial modeling prep
+62,62,AAC,Selling and Marketing Expenses,2019,,financial modeling prep
+63,63,AAC,"Selling, General and Administrative Expenses",2019,,financial modeling prep
+64,64,AAC,Other Expenses,2019,,financial modeling prep
+65,65,AAC,Operating Expenses,2019,,financial modeling prep
+66,66,AAC,Cost and Expenses,2019,,financial modeling prep
+67,67,AAC,Interest Income,2019,,financial modeling prep
+68,68,AAC,Interest Expense,2019,,financial modeling prep
+69,69,AAC,Depreciation and Amortization,2019,,financial modeling prep
+70,70,AAC,EBITDA,2019,,financial modeling prep
+71,71,AAC,EBITDA Ratio,2019,,financial modeling prep
+72,72,AAC,Operating Income,2019,,financial modeling prep
+73,73,AAC,Operating Income Ratio,2019,,financial modeling prep
+74,74,AAC,Total Other Income,2019,,financial modeling prep
+75,75,AAC,Income Before Tax,2019,,financial modeling prep
+76,76,AAC,Income Before Tax Ratio,2019,,financial modeling prep
+77,77,AAC,Income Tax Expense,2019,,financial modeling prep
+78,78,AAC,Net Income,2019,,financial modeling prep
+79,79,AAC,Net Income Ratio,2019,,financial modeling prep
+80,80,AAC,EPS,2019,,financial modeling prep
+81,81,AAC,EPS Diluted,2019,,financial modeling prep
+82,82,AAC,Weighted Average Shares,2019,,financial modeling prep
+83,83,AAC,Weighted Average Shares Diluted,2019,,financial modeling prep
+84,84,AAIC,Revenue,2019,28757000.0,financial modeling prep
+85,85,AAIC,Cost of Goods Sold,2019,0.0,financial modeling prep
+86,86,AAIC,Gross Profit,2019,28757000.0,financial modeling prep
+87,87,AAIC,Gross Profit Ratio,2019,1.0,financial modeling prep
+88,88,AAIC,Research and Development Expenses,2019,0.0,financial modeling prep
+89,89,AAIC,General and Administrative Expenses,2019,15015000.0,financial modeling prep
+90,90,AAIC,Selling and Marketing Expenses,2019,0.0,financial modeling prep
+91,91,AAIC,"Selling, General and Administrative Expenses",2019,15015000.0,financial modeling prep
+92,92,AAIC,Other Expenses,2019,-30030000.0,financial modeling prep
+93,93,AAIC,Operating Expenses,2019,-15015000.0,financial modeling prep
+94,94,AAIC,Cost and Expenses,2019,-15015000.0,financial modeling prep
+95,95,AAIC,Interest Income,2019,123478000.0,financial modeling prep
+96,96,AAIC,Interest Expense,2019,97250000.0,financial modeling prep
+97,97,AAIC,Depreciation and Amortization,2019,0.0,financial modeling prep
+98,98,AAIC,EBITDA,2019,13742000.0,financial modeling prep
+99,99,AAIC,EBITDA Ratio,2019,0.4778662587,financial modeling prep
+100,100,AAIC,Operating Income,2019,13742000.0,financial modeling prep
+101,101,AAIC,Operating Income Ratio,2019,0.4778662587,financial modeling prep
+102,102,AAIC,Total Other Income,2019,0.0,financial modeling prep
+103,103,AAIC,Income Before Tax,2019,13742000.0,financial modeling prep
+104,104,AAIC,Income Before Tax Ratio,2019,0.4778662587,financial modeling prep
+105,105,AAIC,Income Tax Expense,2019,0.0,financial modeling prep
+106,106,AAIC,Net Income,2019,13742000.0,financial modeling prep
+107,107,AAIC,Net Income Ratio,2019,0.4778662587,financial modeling prep
+108,108,AAIC,EPS,2019,0.31,financial modeling prep
+109,109,AAIC,EPS Diluted,2019,0.31,financial modeling prep
+110,110,AAIC,Weighted Average Shares,2019,35709000.0,financial modeling prep
+111,111,AAIC,Weighted Average Shares Diluted,2019,35833000.0,financial modeling prep
+112,112,AAC,Revenue,2020,,financial modeling prep
+113,113,AAC,Cost of Goods Sold,2020,,financial modeling prep
+114,114,AAC,Gross Profit,2020,,financial modeling prep
+115,115,AAC,Gross Profit Ratio,2020,,financial modeling prep
+116,116,AAC,Research and Development Expenses,2020,,financial modeling prep
+117,117,AAC,General and Administrative Expenses,2020,,financial modeling prep
+118,118,AAC,Selling and Marketing Expenses,2020,,financial modeling prep
+119,119,AAC,"Selling, General and Administrative Expenses",2020,,financial modeling prep
+120,120,AAC,Other Expenses,2020,,financial modeling prep
+121,121,AAC,Operating Expenses,2020,,financial modeling prep
+122,122,AAC,Cost and Expenses,2020,,financial modeling prep
+123,123,AAC,Interest Income,2020,,financial modeling prep
+124,124,AAC,Interest Expense,2020,,financial modeling prep
+125,125,AAC,Depreciation and Amortization,2020,,financial modeling prep
+126,126,AAC,EBITDA,2020,,financial modeling prep
+127,127,AAC,EBITDA Ratio,2020,,financial modeling prep
+128,128,AAC,Operating Income,2020,,financial modeling prep
+129,129,AAC,Operating Income Ratio,2020,,financial modeling prep
+130,130,AAC,Total Other Income,2020,,financial modeling prep
+131,131,AAC,Income Before Tax,2020,,financial modeling prep
+132,132,AAC,Income Before Tax Ratio,2020,,financial modeling prep
+133,133,AAC,Income Tax Expense,2020,,financial modeling prep
+134,134,AAC,Net Income,2020,,financial modeling prep
+135,135,AAC,Net Income Ratio,2020,,financial modeling prep
+136,136,AAC,EPS,2020,,financial modeling prep
+137,137,AAC,EPS Diluted,2020,,financial modeling prep
+138,138,AAC,Weighted Average Shares,2020,,financial modeling prep
+139,139,AAC,Weighted Average Shares Diluted,2020,,financial modeling prep
+140,140,AAIC,Revenue,2020,-55101000.0,financial modeling prep
+141,141,AAIC,Cost of Goods Sold,2020,0.0,financial modeling prep
+142,142,AAIC,Gross Profit,2020,-55101000.0,financial modeling prep
+143,143,AAIC,Gross Profit Ratio,2020,1.0,financial modeling prep
+144,144,AAIC,Research and Development Expenses,2020,0.0,financial modeling prep
+145,145,AAIC,General and Administrative Expenses,2020,12615000.0,financial modeling prep
+146,146,AAIC,Selling and Marketing Expenses,2020,0.0,financial modeling prep
+147,147,AAIC,"Selling, General and Administrative Expenses",2020,12615000.0,financial modeling prep
+148,148,AAIC,Other Expenses,2020,-25230000.0,financial modeling prep
+149,149,AAIC,Operating Expenses,2020,-12615000.0,financial modeling prep
+150,150,AAIC,Cost and Expenses,2020,-12615000.0,financial modeling prep
+151,151,AAIC,Interest Income,2020,46014000.0,financial modeling prep
+152,152,AAIC,Interest Expense,2020,22916000.0,financial modeling prep
+153,153,AAIC,Depreciation and Amortization,2020,0.0,financial modeling prep
+154,154,AAIC,EBITDA,2020,-67716000.0,financial modeling prep
+155,155,AAIC,EBITDA Ratio,2020,1.2289432134,financial modeling prep
+156,156,AAIC,Operating Income,2020,-67716000.0,financial modeling prep
+157,157,AAIC,Operating Income Ratio,2020,1.2289432134,financial modeling prep
+158,158,AAIC,Total Other Income,2020,0.0,financial modeling prep
+159,159,AAIC,Income Before Tax,2020,-67716000.0,financial modeling prep
+160,160,AAIC,Income Before Tax Ratio,2020,1.2289432134,financial modeling prep
+161,161,AAIC,Income Tax Expense,2020,0.0,financial modeling prep
+162,162,AAIC,Net Income,2020,-67716000.0,financial modeling prep
+163,163,AAIC,Net Income Ratio,2020,1.2289432134,financial modeling prep
+164,164,AAIC,EPS,2020,-1.92,financial modeling prep
+165,165,AAIC,EPS Diluted,2020,-1.92,financial modeling prep
+166,166,AAIC,Weighted Average Shares,2020,35343000.0,financial modeling prep
+167,167,AAIC,Weighted Average Shares Diluted,2020,35343000.0,financial modeling prep
+168,168,AAC,Revenue,2021,0.0,financial modeling prep
+169,169,AAC,Cost of Goods Sold,2021,0.0,financial modeling prep
+170,170,AAC,Gross Profit,2021,0.0,financial modeling prep
+171,171,AAC,Gross Profit Ratio,2021,0.0,financial modeling prep
+172,172,AAC,Research and Development Expenses,2021,0.0,financial modeling prep
+173,173,AAC,General and Administrative Expenses,2021,6461616.0,financial modeling prep
+174,174,AAC,Selling and Marketing Expenses,2021,0.0,financial modeling prep
+175,175,AAC,"Selling, General and Administrative Expenses",2021,6461616.0,financial modeling prep
+176,176,AAC,Other Expenses,2021,0.0,financial modeling prep
+177,177,AAC,Operating Expenses,2021,6461616.0,financial modeling prep
+178,178,AAC,Cost and Expenses,2021,6461616.0,financial modeling prep
+179,179,AAC,Interest Income,2021,0.0,financial modeling prep
+180,180,AAC,Interest Expense,2021,0.0,financial modeling prep
+181,181,AAC,Depreciation and Amortization,2021,-23988206.0,financial modeling prep
+182,182,AAC,EBITDA,2021,-30449822.0,financial modeling prep
+183,183,AAC,EBITDA Ratio,2021,0.0,financial modeling prep
+184,184,AAC,Operating Income,2021,-6461616.0,financial modeling prep
+185,185,AAC,Operating Income Ratio,2021,0.0,financial modeling prep
+186,186,AAC,Total Other Income,2021,22310688.0,financial modeling prep
+187,187,AAC,Income Before Tax,2021,15849072.0,financial modeling prep
+188,188,AAC,Income Before Tax Ratio,2021,0.0,financial modeling prep
+189,189,AAC,Income Tax Expense,2021,1677518.0,financial modeling prep
+190,190,AAC,Net Income,2021,15849072.0,financial modeling prep
+191,191,AAC,Net Income Ratio,2021,0.0,financial modeling prep
+192,192,AAC,EPS,2021,0.13,financial modeling prep
+193,193,AAC,EPS Diluted,2021,0.13,financial modeling prep
+194,194,AAC,Weighted Average Shares,2021,125000000.0,financial modeling prep
+195,195,AAC,Weighted Average Shares Diluted,2021,125000000.0,financial modeling prep
+196,196,AAIC,Revenue,2021,4384000.0,financial modeling prep
+197,197,AAIC,Cost of Goods Sold,2021,0.0,financial modeling prep
+198,198,AAIC,Gross Profit,2021,4384000.0,financial modeling prep
+199,199,AAIC,Gross Profit Ratio,2021,1.0,financial modeling prep
+200,200,AAIC,Research and Development Expenses,2021,0.0,financial modeling prep
+201,201,AAIC,General and Administrative Expenses,2021,12333000.0,financial modeling prep
+202,202,AAIC,Selling and Marketing Expenses,2021,0.0,financial modeling prep
+203,203,AAIC,"Selling, General and Administrative Expenses",2021,12333000.0,financial modeling prep
+204,204,AAIC,Other Expenses,2021,-629000.0,financial modeling prep
+205,205,AAIC,Operating Expenses,2021,11704000.0,financial modeling prep
+206,206,AAIC,Cost and Expenses,2021,11704000.0,financial modeling prep
+207,207,AAIC,Interest Income,2021,25530000.0,financial modeling prep
+208,208,AAIC,Interest Expense,2021,8206000.0,financial modeling prep
+209,209,AAIC,Depreciation and Amortization,2021,0.0,financial modeling prep
+210,210,AAIC,EBITDA,2021,-7949000.0,financial modeling prep
+211,211,AAIC,EBITDA Ratio,2021,-1.8131843066000002,financial modeling prep
+212,212,AAIC,Operating Income,2021,-7949000.0,financial modeling prep
+213,213,AAIC,Operating Income Ratio,2021,-1.8131843066000002,financial modeling prep
+214,214,AAIC,Total Other Income,2021,0.0,financial modeling prep
+215,215,AAIC,Income Before Tax,2021,-7949000.0,financial modeling prep
+216,216,AAIC,Income Before Tax Ratio,2021,-1.8131843066000002,financial modeling prep
+217,217,AAIC,Income Tax Expense,2021,1566000.0,financial modeling prep
+218,218,AAIC,Net Income,2021,-9515000.0,financial modeling prep
+219,219,AAIC,Net Income Ratio,2021,-2.1703923358,financial modeling prep
+220,220,AAIC,EPS,2021,-0.29,financial modeling prep
+221,221,AAIC,EPS Diluted,2021,-0.29,financial modeling prep
+222,222,AAIC,Weighted Average Shares,2021,32312000.0,financial modeling prep
+223,223,AAIC,Weighted Average Shares Diluted,2021,32312000.0,financial modeling prep
+224,224,AAC,Revenue,2022,0.0,financial modeling prep
+225,225,AAC,Cost of Goods Sold,2022,0.0,financial modeling prep
+226,226,AAC,Gross Profit,2022,0.0,financial modeling prep
+227,227,AAC,Gross Profit Ratio,2022,0.0,financial modeling prep
+228,228,AAC,Research and Development Expenses,2022,0.0,financial modeling prep
+229,229,AAC,General and Administrative Expenses,2022,7342712.0,financial modeling prep
+230,230,AAC,Selling and Marketing Expenses,2022,0.0,financial modeling prep
+231,231,AAC,"Selling, General and Administrative Expenses",2022,7342712.0,financial modeling prep
+232,232,AAC,Other Expenses,2022,0.0,financial modeling prep
+233,233,AAC,Operating Expenses,2022,7342712.0,financial modeling prep
+234,234,AAC,Cost and Expenses,2022,7342712.0,financial modeling prep
+235,235,AAC,Interest Income,2022,0.0,financial modeling prep
+236,236,AAC,Interest Expense,2022,-28326302.0,financial modeling prep
+237,237,AAC,Depreciation and Amortization,2022,-28326302.0,financial modeling prep
+238,238,AAC,EBITDA,2022,-35669014.0,financial modeling prep
+239,239,AAC,EBITDA Ratio,2022,0.0,financial modeling prep
+240,240,AAC,Operating Income,2022,-7342712.0,financial modeling prep
+241,241,AAC,Operating Income Ratio,2022,0.0,financial modeling prep
+242,242,AAC,Total Other Income,2022,28326302.0,financial modeling prep
+243,243,AAC,Income Before Tax,2022,20983590.0,financial modeling prep
+244,244,AAC,Income Before Tax Ratio,2022,0.0,financial modeling prep
+245,245,AAC,Income Tax Expense,2022,-28326302.0,financial modeling prep
+246,246,AAC,Net Income,2022,49309892.0,financial modeling prep
+247,247,AAC,Net Income Ratio,2022,0.0,financial modeling prep
+248,248,AAC,EPS,2022,0.49,financial modeling prep
+249,249,AAC,EPS Diluted,2022,0.49,financial modeling prep
+250,250,AAC,Weighted Average Shares,2022,100000000.0,financial modeling prep
+251,251,AAC,Weighted Average Shares Diluted,2022,100000000.0,financial modeling prep
+252,252,AAIC,Revenue,2022,30532000.0,financial modeling prep
+253,253,AAIC,Cost of Goods Sold,2022,0.0,financial modeling prep
+254,254,AAIC,Gross Profit,2022,30532000.0,financial modeling prep
+255,255,AAIC,Gross Profit Ratio,2022,1.0,financial modeling prep
+256,256,AAIC,Research and Development Expenses,2022,0.0,financial modeling prep
+257,257,AAIC,General and Administrative Expenses,2022,14915000.0,financial modeling prep
+258,258,AAIC,Selling and Marketing Expenses,2022,0.0,financial modeling prep
+259,259,AAIC,"Selling, General and Administrative Expenses",2022,14915000.0,financial modeling prep
+260,260,AAIC,Other Expenses,2022,-6073000.0,financial modeling prep
+261,261,AAIC,Operating Expenses,2022,8842000.0,financial modeling prep
+262,262,AAIC,Cost and Expenses,2022,8842000.0,financial modeling prep
+263,263,AAIC,Interest Income,2022,43283000.0,financial modeling prep
+264,264,AAIC,Interest Expense,2022,21511000.0,financial modeling prep
+265,265,AAIC,Depreciation and Amortization,2022,-2719000.0,financial modeling prep
+266,266,AAIC,EBITDA,2022,21872000.0,financial modeling prep
+267,267,AAIC,EBITDA Ratio,2022,0.71636316,financial modeling prep
+268,268,AAIC,Operating Income,2022,24591000.0,financial modeling prep
+269,269,AAIC,Operating Income Ratio,2022,0.8054172671000001,financial modeling prep
+270,270,AAIC,Total Other Income,2022,-15047000.0,financial modeling prep
+271,271,AAIC,Income Before Tax,2022,9544000.0,financial modeling prep
+272,272,AAIC,Income Before Tax Ratio,2022,0.3125900694,financial modeling prep
+273,273,AAIC,Income Tax Expense,2022,4118000.0,financial modeling prep
+274,274,AAIC,Net Income,2022,5426000.0,financial modeling prep
+275,275,AAIC,Net Income Ratio,2022,0.1777151841,financial modeling prep
+276,276,AAIC,EPS,2022,0.09,financial modeling prep
+277,277,AAIC,EPS Diluted,2022,0.09,financial modeling prep
+278,278,AAIC,Weighted Average Shares,2022,28717000.0,financial modeling prep
+279,279,AAIC,Weighted Average Shares Diluted,2022,29243000.0,financial modeling prep
