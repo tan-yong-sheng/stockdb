@@ -67,14 +67,15 @@ def insert_db(
         ]
         # Convert a pandas DataFrame into a a list of SQLModel objects.
         sql_model_objs = [sql_model(**row) for row in result_list]
-
-        with Session(engine) as session:
-            for obj in sql_model_objs:
-                session.add(obj)
-                try:
-                    session.commit()
-                except sqlalchemy.exc.IntegrityError as error:
-                    session.rollback()
+        
+        if len(sql_model_objs) > 1:
+            with Session(engine) as session:
+                for obj in sql_model_objs:
+                    session.add(obj)
+                    try:
+                        session.commit()
+                    except sqlalchemy.exc.IntegrityError as error:
+                        session.rollback()
     else:
         raise ValueError("=============== The data type is wrong===========")
 
@@ -83,18 +84,18 @@ def run_db_operation(engine=None):
     if engine is None:
         engine = create_engine(DATABASE_URI, echo=True)
 
-    create_db_and_tables(engine=engine)
+    #create_db_and_tables(engine=engine)
 
-    companies_info = get_company_info(exchange="")
-    insert_db(CountriesDB, get_countries(), engine=engine)
-    insert_db(CompaniesDB, companies_info, engine=engine)
+    #companies_info = get_company_info(exchange="")
+    #insert_db(CountriesDB, get_countries(), engine=engine)
+    #insert_db(CompaniesDB, companies_info, engine=engine)
 
-    data_vendor_df = pandas.read_csv("app/db/input/data_vendor.csv")
-    print(data_vendor_df)
-    insert_db(DataVendorDB,data_vendor_df,engine=engine)
+    #data_vendor_df = pandas.read_csv("app/db/input/data_vendor.csv")
+    #print(data_vendor_df)
+    #insert_db(DataVendorDB,data_vendor_df,engine=engine)
 
     # get stock price
-    tickers = " ".join(companies_info["symbol"].tolist())
+    tickers = " ".join(["A", "AAC","AAIC"]) #companies_info["symbol"].tolist())
     daily_stock_price_df = get_price(tickers, data_source="yahoo finance")
     insert_db(DailyPriceDB, daily_stock_price_df, engine=engine)
     
