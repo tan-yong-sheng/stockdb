@@ -7,6 +7,7 @@ import sqlalchemy
 from sqlmodel import SQLModel, create_engine, Session
 from sqlalchemy.future.engine import Engine
 from typing import Optional
+from tqdm import tqdm
 
 from app.decorators import log_start_end
 from app.db.stocks.stock_model import (
@@ -63,10 +64,10 @@ def insert_db(
     if isinstance(data_frame, pandas.DataFrame):
         result_list = [
             {k: v for k, v in row.items() if v is not None or not numpy.NaN()}
-            for row in data_frame.reset_index().to_dict("records")
+            for row in tqdm(data_frame.reset_index().to_dict("records"))
         ]
         # Convert a pandas DataFrame into a a list of SQLModel objects.
-        sql_model_objs = [sql_model(**row) for row in result_list]
+        sql_model_objs = [sql_model(**row) for row in tqdm(result_list)]
         
         if len(sql_model_objs) > 1:
             with Session(engine) as session:
