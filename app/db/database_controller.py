@@ -4,6 +4,7 @@ import pandas
 import logging
 from dotenv import load_dotenv, find_dotenv
 import sqlalchemy
+import polars
 from sqlmodel import SQLModel, create_engine, Session
 from sqlalchemy.future.engine import Engine
 from typing import Optional
@@ -51,7 +52,7 @@ def create_db_and_tables(engine=None):
 
 ############################# INSERT DATA #################################
 # Reference: https://sqlmodel.tiangolo.com/tutorial/insert/
-
+"""
 @log_start_end(log=logger)
 def insert_db(
     sql_model: SQLModel = NullDB,
@@ -79,15 +80,30 @@ def insert_db(
                         session.rollback()
     else:
         raise ValueError("=============== The data type is wrong===========")
+"""
+
+@log_start_end(log=logger)
+def insert_db(
+    data_frame: pandas.DataFrame = pandas.DataFrame(),
+    table_name: str = SQLModel.__tablename__,
+    #sql_model: SQLModel = NullDB,
+    connection: str = DATABASE_URI,
+    if_exists: str = "append",
+    #engine: str ="sqlalchemy",
+):
+    polars.from_pandas(data_frame).write_database(
+                      table_name=table_name, 
+                      conectionn=connection,
+                      if_exists=if_exists)
 
 
 def run_db_operation(engine=None):
     if engine is None:
         engine = create_engine(DATABASE_URI, echo=True)
 
-    #create_db_and_tables(engine=engine)
+    create_db_and_tables(engine=engine)
 
-    #companies_info = get_company_info(exchange="")
+    #companies_info = get_company_info(exchange="NYQ")
     #insert_db(CountriesDB, get_countries(), engine=engine)
     #insert_db(CompaniesDB, companies_info, engine=engine)
 
@@ -95,8 +111,14 @@ def run_db_operation(engine=None):
     #print(data_vendor_df)
     #insert_db(DataVendorDB,data_vendor_df,engine=engine)
 
+    daily_stock_price_df = get_price("AAPL MSFT GOOGL PLTR", 
+                                     data_source="yahoo finance")
+    print(daily_stock_price_df)
+    insert_db(daily_stock_price_df, table_name=DailyPriceDB.__tablename__)
+
     # get stock price
-    tickers = " ".join(["A", "AAC","AAIC"]) #companies_info["symbol"].tolist())
+    """
+    tickers = " ".join(companies_info["symbol"].tolist())
     daily_stock_price_df = get_price(tickers, data_source="yahoo finance")
     insert_db(DailyPriceDB, daily_stock_price_df, engine=engine)
     
@@ -113,6 +135,7 @@ def run_db_operation(engine=None):
     # news_df = pandas.read_csv("./tests/csv_sample_output/newsdb.csv")
     # news_df = get_news("TSLA") # question: why set to PLTR, it breaks?
     # insert_db(NewsDB, news_df)
+    """
 
 if __name__ == "__main__":
     from app.loggers import setup_logging

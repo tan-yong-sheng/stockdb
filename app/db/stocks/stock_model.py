@@ -353,3 +353,16 @@ if __name__ == "__main__":
     
     df6 = get_financial_ratio(symbols)
     df6.to_csv("financial_ratio.csv")
+
+
+"""import polars
+import pandas
+import yfinance as yf
+stock = yf.download("AAPL")
+stock["symbol"]="AAPL"
+stock = stock.reset_index()
+stock.columns = ["date","open","high","low","close","adj_close", "volume","symbol"]
+# If some collumn have dtype datetime and has None value in some line, to_sql crashes with: 'NoneType' object has no attribute 'to_pydatetime'
+dfarrow = stock.convert_dtypes(dtype_backend="pyarrow")
+
+polars.from_pandas(dfarrow).write_database(table_name="fact_daily_price",connection="mysql://root:root@localhost:3306/stockdb", if_exists="append")"""

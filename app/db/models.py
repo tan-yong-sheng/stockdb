@@ -8,8 +8,8 @@ from typing import List
 
 
 class MasterSQLModel(SQLModel):
-    created_at: datetime = Field(default=datetime.utcnow(), nullable=False)
-    updated_at: datetime = Field(default_factory=datetime.utcnow, nullable=False)
+    created_at: Optional[datetime] = Field(default=datetime.utcnow())
+    updated_at: Optional[datetime] = Field(default_factory=datetime.utcnow())
 
 class PriceDB(MasterSQLModel):
     # id: Optional[int] = Field(default=None, primary_key=True)
