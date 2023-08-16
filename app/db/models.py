@@ -8,21 +8,25 @@ from typing import List
 
 
 class MasterSQLModel(SQLModel):
-    created_at: Optional[datetime] = Field(default=datetime.utcnow())
-    updated_at: Optional[datetime] = Field(default_factory=datetime.utcnow())
+    created_at: datetime = Field(
+                        default=datetime.utcnow(),
+                        nullable=False)
+    updated_at: datetime = Field(
+                        default=datetime.utcnow, 
+                        nullable=False)
+
 
 class PriceDB(MasterSQLModel):
-    # id: Optional[int] = Field(default=None, primary_key=True)
-    vendor_name: Optional[str] = Field(foreign_key="dim_data_vendor.vendor_name")
-    # data_vendor: Optional["DataVendorDB"] = Relationship(back_populates="daily_prices")
-    date: datetime
-    symbol: Optional[str] = Field(foreign_key="dim_companies.symbol", nullable=False)
-    # company: Optional[CompaniesDB] = Relationship(back_populates="daily_prices")
-    open: Optional[float]
-    high: Optional[float]
-    low: Optional[float]
-    close: Optional[float]
-    volume: Optional[int] = Field(sa_column=Field(Column(BIGINT)))
+    vendor_name: str = Field(foreign_key="dim_data_vendor.vendor_name")
+    date: datetime = Field(nullable=False)
+    symbol: Optional[str] = Field(
+        foreign_key="dim_companies.symbol", 
+        nullable=False)
+    open: float = Field(nullable=False)
+    high: float = Field(nullable=False)
+    low: float = Field(nullable=False)
+    close: float = Field(nullable=False)
+    volume: int = Field(sa_column=Column(BIGINT), nullable=False)
 
 
 class DataVendorDB(MasterSQLModel, table=True):
@@ -31,10 +35,10 @@ class DataVendorDB(MasterSQLModel, table=True):
         UniqueConstraint("vendor_name", name="vendor_name"),
         dict(comment="List of data vendor sources"),
     )
-    id: Optional[int] = Field(default=None, primary_key=True)
-    vendor_name: Optional[str] = Field(default=None, index=True, nullable=False)
-    website_url: Optional[str] = Field(default=None)
-    support_email: Optional[str] = Field(default=None)
+    id: int = Field(default=None, primary_key=True)
+    vendor_name: str= Field(index=True, nullable=False)
+    website_url: str
+    support_email: str
     companies: List["CompaniesDB"] = Relationship(back_populates="data_vendor")
     daily_prices: List["DailyPriceDB"] = Relationship(back_populates="data_vendor")
     one_min_prices: List["OneMinPriceDB"] = Relationship(back_populates="data_vendor")
@@ -85,8 +89,8 @@ class DailyPriceDB(PriceDB, table=True):
     __table_args__ = (dict(comment="Daily stock price of public listed companies"),)
     id: Optional[int] = Field(default=None, primary_key=True)
     data_vendor: Optional["DataVendorDB"] = Relationship(back_populates="daily_prices")
-    company: Optional[CompaniesDB] = Relationship(back_populates="daily_prices")
-    adj_close: Optional[float]
+    company: CompaniesDB = Relationship(back_populates="daily_prices")
+    adj_close: float
 
 
 class OneMinPriceDB(PriceDB, table=True):

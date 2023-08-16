@@ -9,6 +9,7 @@ from sqlmodel import SQLModel, create_engine, Session
 from sqlalchemy.future.engine import Engine
 from typing import Optional
 from tqdm import tqdm
+from datetime import datetime
 
 from app.decorators import log_start_end
 from app.db.stocks.stock_model import (
@@ -85,16 +86,24 @@ def insert_db(
 @log_start_end(log=logger)
 def insert_db(
     data_frame: pandas.DataFrame = pandas.DataFrame(),
-    table_name: str = SQLModel.__tablename__,
+    sql_model: str = SQLModel,
     #sql_model: SQLModel = NullDB,
     connection: str = DATABASE_URI,
     if_exists: str = "append",
-    #engine: str ="sqlalchemy",
+    chunksize: str = 1000,
+    index=False,
+    method="multi",
 ):
-    polars.from_pandas(data_frame).write_database(
-                      table_name=table_name, 
-                      conectionn=connection,
-                      if_exists=if_exists)
+    engine = create_engine(connection, echo=True)
+    data_frame["created_at"] = datetime.utcnow()
+    data_frame["updated_at"] = datetime.utcnow()
+    #print(sql_model.__tablename__)
+    data_frame.to_sql(name=sql_model.__tablename__,
+                      con=engine,
+                      if_exists=if_exists,
+                      index=index,
+                      chunksize=chunksize,
+                      method=method)
 
 
 def run_db_operation(engine=None):
@@ -111,10 +120,11 @@ def run_db_operation(engine=None):
     #print(data_vendor_df)
     #insert_db(DataVendorDB,data_vendor_df,engine=engine)
 
-    daily_stock_price_df = get_price("AAPL MSFT GOOGL PLTR", 
+    daily_stock_price_df = get_price("AAPL", 
                                      data_source="yahoo finance")
+
     print(daily_stock_price_df)
-    insert_db(daily_stock_price_df, table_name=DailyPriceDB.__tablename__)
+    insert_db(daily_stock_price_df, sql_model=DailyPriceDB)
 
     # get stock price
     """
