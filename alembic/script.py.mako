@@ -7,7 +7,6 @@ Create Date: ${create_date}
 """
 from alembic import op
 import sqlalchemy as sa
-import sqlmodel
 import logging
 from app.decorators import log_start_end
 ${imports if imports else ""}

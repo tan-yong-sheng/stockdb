@@ -4,7 +4,6 @@ from sqlalchemy import pool
 from alembic import context
 import os
 from dotenv import load_dotenv, find_dotenv
-from sqlmodel import SQLModel
 from app.database.db_models import *
 
 DATABASE_URI = os.getenv("DATABASE_URI", None)
