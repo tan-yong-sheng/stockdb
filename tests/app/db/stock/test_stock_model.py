@@ -1,7 +1,7 @@
 from unittest.mock import patch
 import pytest
 import pandas as pd
-from app.db.stocks.stock_model import (
+from app.database.stocks.stock_model import (
     get_price,
     get_news,
 )

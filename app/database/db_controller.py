@@ -10,23 +10,26 @@ from sqlalchemy import create_engine
 from typing import Optional
 from tqdm import tqdm
 from datetime import datetime
-from app.db.security_model import Base
+from sqlalchemy.orm import DeclarativeBase
+#from app.db.security_model import Base
 from app.decorators import log_start_end
-from app.db.stocks.stock_model import (
+from app.database.stocks.stock_model import (
     get_company_info,
     get_price,
     get_news,
 )
-from app.db.macro.macro_model import (
+from app.database.macro.macro_model import (
     get_economic_calendar,
     get_countries,
     get_macro_parameters,
     get_macro_indicators_data,
 )
-from app.db.security_model import (
+from app.database.db_models import (
     CompanyDB,
     DataVendorDB,
 )
+from app.database.db_models import Base
+
 
 
 _ = load_dotenv(find_dotenv())

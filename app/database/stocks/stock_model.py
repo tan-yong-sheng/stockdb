@@ -32,7 +32,7 @@ from financetoolkit import Toolkit
 
 from app.decorators import log_start_end, check_api_key
 from app.helpers import standardize_dataframe_column
-from app.db.stocks.base.price_module import YFData, FMPData
+from app.database.stocks.base.price_module import YFData, FMPData
 
 logger = logging.getLogger(__name__)
 
