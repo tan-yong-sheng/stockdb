@@ -3,7 +3,6 @@
 
 from datetime import datetime
 from typing import Optional, List
-from sqlalchemy.sql.functions import func
 from sqlalchemy import ForeignKey
 from sqlalchemy.types import (
     Integer,
@@ -11,33 +10,20 @@ from sqlalchemy.types import (
     Float,
     Boolean,
     String,
-    TIMESTAMP,
     Date,
     DateTime,
 )
-from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy import Enum, UniqueConstraint
-from typing_extensions import Annotated
-import enum
 from sqlalchemy.event import listens_for
-
-
-# Creating a base class
-class Base(DeclarativeBase):
-    pass
-
-# float column with double data type
-float_double = Annotated[float, mapped_column(Float)]
-# int column with BigInt data type
-BigInt = Annotated[int, mapped_column("adj_volume", BigInteger)]
-
-
-class TimestampMixin:
-    created_at: Mapped[datetime] = mapped_column(TIMESTAMP, server_default=func.now())
-    updated_at: Mapped[datetime] = mapped_column(
-        TIMESTAMP, server_default=func.now(), onupdate=func.now()
-    )
-
+import enum
+import pandas
+from app.database.setup_db_environment import (Base, 
+                                               TimestampMixin,
+                                               session,
+                                               float_double,
+                                               BigInt,
+                                                )
 
 class PriceFrequency(enum.Enum):
     one_second = "1 second"
@@ -76,11 +62,13 @@ class DataVendorDB(Base, TimestampMixin):
         UniqueConstraint("vendor_name", name="vendor_name"),
         dict(comment="List of data vendor sources"),
     )
-    id: Mapped[int] = mapped_column("data_vendor_id", Integer, default=None, primary_key=True)
+    id: Mapped[int] = mapped_column(
+        "id", Integer, default=None, primary_key=True
+    )
     vendor_name: Mapped[str] = mapped_column(String(50), index=True, nullable=False)
     website_url: Mapped[str] = mapped_column(String(100))
     support_email: Mapped[str] = mapped_column(String(100))
-    securities: Mapped[List["SecurityDB"]] = relationship(back_populates="data_vendor")
+    security: Mapped[List["SecurityDB"]] = relationship(back_populates="data_vendor")
     # daily_prices: Mapped[List["DailyPriceDB"]] = relationship(back_populates="data_vendor")
     # one_min_prices: Mapped[List["OneMinPriceDB"]] = relationship(back_populates="data_vendor")
 
@@ -88,7 +76,7 @@ class DataVendorDB(Base, TimestampMixin):
 class SecurityDB(Base, TimestampMixin):
     __tablename__ = "dim_security"
     id: Mapped[int] = mapped_column(
-        "security_id", Integer, primary_key=True, autoincrement=True
+        "id", Integer, primary_key=True, autoincrement=True
     )
     code: Mapped[str] = mapped_column("code", String(7), nullable=False)
     currency: Mapped[str] = mapped_column("currency", String(3), nullable=False)
@@ -106,26 +94,27 @@ class SecurityDB(Base, TimestampMixin):
     market: Mapped["MarketDB"] = mapped_column("market", Enum(MarketDB), nullable=False)
     exchange_id: Mapped[int] = mapped_column(
         Integer,
-        ForeignKey("dim_exchange.exchange_id", onupdate="CASCADE", ondelete="RESTRICT"),
+        ForeignKey("dim_exchange.id", onupdate="CASCADE", ondelete="RESTRICT"),
     )
     exchange: Mapped["ExchangeDB"] = relationship(back_populates="security")
     vendor_id: Mapped[int] = mapped_column(
         Integer,
-        ForeignKey("dim_data_vendor.data_vendor_id", onupdate="CASCADE", ondelete="RESTRICT"),
+        ForeignKey(
+            "dim_data_vendor.id", onupdate="CASCADE", ondelete="RESTRICT"
+        ),
     )
-    data_vendor: Mapped["DataVendorDB"] = relationship(back_populates="security")
     security_price: Mapped["SecurityPriceDB"] = relationship(back_populates="security")
-    company: Mapped["SecurityDB"] = relationship(back_populates="security")
+    company: Mapped["CompanyDB"] = relationship(back_populates="security")
     stock_adjustment: Mapped["StockAdjustmentDB"] = relationship(
         back_populates="security"
     )
     # active: Mapped[bool] = mapped_column(Boolean, nullable=False, default=True)
-
+    data_vendor: Mapped["DataVendorDB"] = relationship(back_populates="security")
 
 class ExchangeDB(Base, TimestampMixin):
     __tablename__ = "dim_exchange"
     id: Mapped[int] = mapped_column(
-        "exchange_id", Integer, primary_key=True, autoincrement=True
+        "id", Integer, primary_key=True, autoincrement=True
     )
     mic: Mapped[str] = mapped_column("mic", String(10), unique=True, nullable=False)
     acronym: Mapped[str] = mapped_column("acronym", String(20))
@@ -153,7 +142,7 @@ class SecurityPriceDB(Base, TimestampMixin):
     )
     security_id: Mapped[int] = mapped_column(
         Integer,
-        ForeignKey("dim_security.security_id", onupdate="CASCADE", ondelete="CASCADE"),
+        ForeignKey("dim_security.id", onupdate="CASCADE", ondelete="CASCADE"),
         nullable=False,
     )
     security: Mapped["SecurityDB"] = relationship(back_populates="security_price")
@@ -169,7 +158,7 @@ class StockAdjustmentDB(Base, TimestampMixin):
     split_ratio: Mapped[float_double]
     security_id: Mapped["SecurityDB"] = mapped_column(
         Integer,
-        ForeignKey("dim_security.security_id", onupdate="CASCADE", ondelete="CASCADE"),
+        ForeignKey("dim_security.id", onupdate="CASCADE", ondelete="CASCADE"),
         nullable=False,
     )
     security: Mapped["SecurityDB"] = relationship(back_populates="stock_adjustment")
@@ -189,109 +178,150 @@ class CompanyDB(Base, TimestampMixin):
     industry_group: Mapped[str] = mapped_column("industry_group", String(200))
     security_id: Mapped["SecurityDB"] = mapped_column(
         Integer,
-        ForeignKey("dim_security.security_id", onupdate="CASCADE", ondelete="CASCADE"),
+        ForeignKey("dim_security.id", onupdate="CASCADE", ondelete="CASCADE"),
         nullable=False,
     )
     security: Mapped["SecurityDB"] = relationship(back_populates="company")
 
 
+
 class FinancialStatementType(enum.Enum):
-    balance_sheet = 'balance sheet'
-    income_statement = 'income statement'
-    cash_flow_statement = 'cash flow statement'
+    balance_sheet = "balance sheet"
+    income_statement = "income statement"
+    cash_flow_statement = "cash flow statement"
 
 
 class FinancialStatementPeriod(enum.Enum):
-    fy = 'fy'
-    q1 = 'q1'
-    q2 = 'q2'
-    q3 = 'q3'
-    q4 = 'q4'
+    fy = "fy"
+    q1 = "q1"
+    q2 = "q2"
+    q3 = "q3"
+    q4 = "q4"
 
 
 class FinancialStatementDB(Base):
-    __tablename__ = 'dim_financial_statement'
-    id: Mapped[int] = mapped_column(
-        Integer, primary_key=True)
-    name: Mapped[int] = mapped_column(
-        'name', String(100), nullable=False)
+    __tablename__ = "dim_financial_statement"
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    name: Mapped[int] = mapped_column("name", String(100), nullable=False)
 
 
 class FinancialStatementLineDB(Base):
-    __tablename__ = 'dim_financial_statement_line'
-    id: Mapped[int] = mapped_column(
-        Integer, primary_key=True)
-    tag: Mapped[str] = mapped_column(
-        String(50), nullable=False, unique=True)
-    name: Mapped[str] = mapped_column(
-        'name', String(100), nullable=False, unique=True)
-    description: Mapped[str] = mapped_column('description', String(1000))
-    sequences: Mapped["FinancialStatementLineSequenceDB"] = relationship(backref="line")
-    facts: Mapped['FinancialStatementFactDB']= relationship(backref='line')
+    __tablename__ = "dim_financial_statement_line"
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    tag: Mapped[str] = mapped_column(String(50), nullable=False, unique=True)
+    name: Mapped[str] = mapped_column("name", String(100), nullable=False, unique=True)
+    description: Mapped[str] = mapped_column("description", String(1000))
+    sequences: Mapped["FinancialStatementLineSequenceDB"] = relationship(back_populates="financial_statement_line")
+    facts: Mapped["FinancialStatementFactDB"] = relationship(backref="financial_statement_line")
 
 
 class FinancialStatementLineSequenceDB(Base):
-    __tablename__ = 'dim_financial_statement_line_sequence'
+    __tablename__ = "dim_financial_statement_line_sequence"
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
-    sequence: Mapped[int] = mapped_column('sequence', Integer, nullable=False)
-    financial_statement_id: Mapped[int] = mapped_column(Integer,
-                                    ForeignKey('dim_financial_statement.id',
-                                               onupdate='CASCADE',
-                                               ondelete='CASCADE'),
-                                    nullable=False)
-    financial_statement_line_id: Mapped[int] = mapped_column(Integer,
-                                         ForeignKey('dim_financial_statement_line.id',
-                                                    onupdate='CASCADE',
-                                                    ondelete='CASCADE'),
-                                         nullable=False)
-    UniqueConstraint(financial_statement_id,
-                     financial_statement_line_id)
-    financial_statement: Mapped['FinancialStatementDB'] = relationship(backref="sequence")
-    financial_statement_line: Mapped["FinancialStatementLineDB"]= relationship(backref='sequence')
+    sequence: Mapped[int] = mapped_column("sequence", Integer, nullable=False)
+    financial_statement_id: Mapped[int] = mapped_column(
+        Integer,
+        ForeignKey(
+            "dim_financial_statement.id", onupdate="CASCADE", ondelete="CASCADE"
+        ),
+        nullable=False,
+    )
+    financial_statement_line_id: Mapped[int] = mapped_column(
+        Integer,
+        ForeignKey(
+            "dim_financial_statement_line.id", onupdate="CASCADE", ondelete="CASCADE"
+        ),
+        nullable=False,
+    )
+    UniqueConstraint(financial_statement_id, financial_statement_line_id)
+    financial_statement: Mapped["FinancialStatementDB"] = relationship(
+        backref="sequences"
+    )
+    financial_statement_line: Mapped["FinancialStatementLineDB"] = relationship(
+        back_populates="sequences"
+    )
 
 
 class FinancialStatementLineAliasDB(Base):
-    __tablename__ = 'dim_financial_statement_line_alias'
+    __tablename__ = "dim_financial_statement_line_alias"
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     alias: Mapped[str] = mapped_column(String(200), nullable=False, unique=True)
-    financial_statement_line_id: Mapped[int] = mapped_column(Integer,
-                                         ForeignKey('dim_financial_statement_line.id',
-                                                    onupdate='CASCADE',
-                                                    ondelete='CASCADE'),
-                                         nullable=False)
-    financial_statement_line: Mapped['FinancialStatementLineDB'] = relationship(backref="line_alias")
+    financial_statement_line_id: Mapped[int] = mapped_column(
+        Integer,
+        ForeignKey(
+            "dim_financial_statement_line.id", onupdate="CASCADE", ondelete="CASCADE"
+        ),
+        nullable=False,
+    )
+    financial_statement_line: Mapped["FinancialStatementLineDB"] = relationship(
+        backref="line_alias"
+    )
 
 
 class FinancialStatementFactDB(Base):
-    __tablename__ = 'fact_financial_statement_fact'
+    __tablename__ = "fact_financial_statement_fact"
     __table_args__ = tuple(
-        [UniqueConstraint('company_id',
-                          'financial_statement_line_id',
-                          'fiscal_year',
-                          'fiscal_period')])
+        [
+            UniqueConstraint(
+                "company_id",
+                "financial_statement_line_id",
+                "fiscal_year",
+                "fiscal_period",
+            )
+        ]
+    )
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     fiscal_year: Mapped[int] = mapped_column(Integer, nullable=False)
     fiscal_period: Mapped[FinancialStatementPeriod] = mapped_column(
-                            'fiscal_period',
-                           Enum(FinancialStatementPeriod),
-                           nullable=False)
-    filing_date: Mapped[datetime] = mapped_column('filing_date', Date, nullable=False)
-    start_date: Mapped[datetime] = mapped_column('start_date', Date)
-    end_date: Mapped[datetime] = mapped_column('end_date', Date, nullable=False)
-    amount: Mapped[float] = mapped_column('amount', Float, nullable=False)
-    company_id: Mapped[int] = mapped_column(Integer,
-                        ForeignKey('dim_company.id',
-                                   onupdate='CASCADE',
-                                   ondelete='CASCADE'),
-                        nullable=False)
+        "fiscal_period", Enum(FinancialStatementPeriod), nullable=False
+    )
+    filing_date: Mapped[datetime] = mapped_column("filing_date", Date, nullable=False)
+    start_date: Mapped[datetime] = mapped_column("start_date", Date)
+    end_date: Mapped[datetime] = mapped_column("end_date", Date, nullable=False)
+    amount: Mapped[float] = mapped_column("amount", Float, nullable=False)
+    company_id: Mapped[int] = mapped_column(
+        Integer,
+        ForeignKey("dim_company.id", onupdate="CASCADE", ondelete="CASCADE"),
+        nullable=False,
+    )
     financial_statement_line_id: Mapped[int] = mapped_column(
-                                    Integer,
-                                    ForeignKey('dim_financial_statement_line.id',
-                                               onupdate='CASCADE',
-                                               ondelete='CASCADE'),
-                                    nullable=False)
+        Integer,
+        ForeignKey(
+            "dim_financial_statement_line.id", onupdate="CASCADE", ondelete="CASCADE"
+        ),
+        nullable=False,
+    )
+    from app.database.stocks.db_model.security_model import CompanyDB
     company: Mapped["CompanyDB"] = relationship(backref="financial_statement_fact")
 
+
+commercial_income_statement = FinancialStatementDB(name='Commercial Income Statement')
+commercial_balance_sheet = FinancialStatementDB(name='Commercial Balance Sheet Statement')
+commercial_cash_flow_statement = FinancialStatementDB(name='Commercial Cash Flow Statement')
+
+financial_income_statement = FinancialStatementDB(name='Financial Income Statement')
+financial_balance_sheet = FinancialStatementDB(name='Financial Balance Sheet Statement')
+financial_cash_flow_statement = FinancialStatementDB(name='Financial Cash Flow Statement')
+
+
+@listens_for(FinancialStatementDB.__table__, 'after_create')
+def insert_initial_values(*args, **kwargs):
+    session.add(commercial_income_statement)
+    session.add(commercial_balance_sheet)
+    session.add(commercial_cash_flow_statement)
+    session.add(financial_income_statement)
+    session.add(financial_balance_sheet)
+    session.add(financial_cash_flow_statement)
+    session.commit()
+    
+@listens_for(FinancialStatementLineDB.__table__, 'after_create')
+def insert_initial_values(*args, **kwargs):
+    financial_statement_lines = pandas.read_csv('dim_financial_statements_lines.csv')
+    financial_statement_lines = financial_statement_lines[['tag', 'name']].drop_duplicates('tag')
+
+    for index, line in financial_statement_lines.iterrows():
+        session.add(FinancialStatementLineDB(tag=line['tag'], name=line['name']))
+    session.commit()
 
 """
 class PriceDB(MasterSQLModel):

@@ -1,3 +1,6 @@
+"""
+This module contains utility functions and decorators for the application.
+"""
 import logging
 import functools
 import os
@@ -9,6 +12,25 @@ logger = logging.getLogger(__name__)
 
 # Create the decorator
 def log_start_end(func=None, log=None):
+    """
+    A decorator to log the start and end of a function.
+
+    This decorator can be applied to functions to log when they start
+    and finish execution. It takes an optional `log` parameter to specify
+    the logger to be used for logging.
+
+    Parameters
+    ----------
+    func : callable, optional
+        The function to be wrapped.
+    log : logging.Logger, optional
+        The logger to be used for logging.
+
+    Returns
+    -------
+    callable
+        The wrapped function.
+    """
     assert callable(func) or func is None
 
     def decorator(func):

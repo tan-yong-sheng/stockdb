@@ -10,10 +10,8 @@ from sqlalchemy import create_engine
 from typing import Optional
 from tqdm import tqdm
 from datetime import datetime
-from sqlalchemy.orm import DeclarativeBase
-#from app.db.security_model import Base
 from app.decorators import log_start_end
-from app.database.stocks.stock_model import (
+from app.database.stocks.downloader_model.security_model import (
     get_company_info,
     get_price,
     get_news,
@@ -24,27 +22,15 @@ from app.database.macro.macro_model import (
     get_macro_parameters,
     get_macro_indicators_data,
 )
-from app.database.db_models import (
+from app.database.stocks.db_model.security_model import (
     CompanyDB,
     DataVendorDB,
 )
-from app.database.db_models import Base
+from app.database.stocks.db_model.security_model import Base
+from app.database.setup_db_environment import create_db_and_tables
+from app.database.setup_db_environment import engine, DATABASE_URI
 
-
-
-_ = load_dotenv(find_dotenv())
 logger = logging.getLogger(__name__)
-DATABASE_URI = os.getenv("DATABASE_URI", None)
-# set echo=True to view output
-
-
-######################### CREATE DATABASE #################################
-@log_start_end(log=logger)
-def create_db_and_tables(engine=None):
-    if engine is None:
-        engine = create_engine(DATABASE_URI, echo=True)
-    Base.metadata.create_all(engine)
-
 
 ############################# INSERT DATA #################################
 # Reference: https://sqlmodel.tiangolo.com/tutorial/insert/
