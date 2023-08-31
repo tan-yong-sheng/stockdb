@@ -23,7 +23,6 @@ import requests
 from requests.compat import urljoin, quote
 from typing import Optional
 from dotenv import load_dotenv, find_dotenv
-
 from dateutil.relativedelta import relativedelta
 import yfinance
 import newsapi
@@ -33,7 +32,7 @@ from financetoolkit import Toolkit
 
 from app.decorators import log_start_end, check_api_key
 from app.helpers import standardize_dataframe_column
-from app.db.stocks.base.price_module import PriceFetcher
+from app.db.stocks.base.price_module import YFData, FMPData
 
 logger = logging.getLogger(__name__)
 
@@ -45,17 +44,6 @@ FINANCIAL_MODELLING_PREP = os.getenv("FINANCIAL_MODELING_PREP", None)
 ############################# CREATE (OR FETCH) DATA #################################
 
 ## stock price query date
-"""
-end_date = datetime.now().strftime("%Y-%m-%d")
-start_date = (datetime.now() - relativedelta(years=20)).strftime(
-    "%Y-%m-%d"
-)  # 10 years ago
-# news query date
-news_end_date = end_date
-news_start_date = (datetime.now() - relativedelta(months=1)).strftime(
-    "%Y-%m-%d"
-)  # 1 month ago
-"""
 
 
 @log_start_end(log=logger)
@@ -144,15 +132,22 @@ def get_price(
         with columns: ['date', 'symbol', 'open', 'high', 'low', 'close',
                     'adj_close', 'volume'].
     """
-    daily_prices = PriceFetcher._get_price(
-        symbols=symbols,
-        start=start,
-        end=end,
-        interval=interval,
-        data_source=data_source,
-    )
-    daily_prices["date"] = pandas.to_datetime(daily_prices["date"])
-    daily_prices["vendor_name"] = data_source
+    if data_source == "yahoo finance":
+        daily_prices = YFData._get_stock_price(
+            symbols=symbols,
+            start=start,
+            end=end,
+            interval=interval,
+            data_source=data_source,
+        )
+    elif data_source == "financial modeling prep":
+        daily_prices = FMPData._get_stock_price(
+            symbols=symbols,
+            start=start,
+            end=end,
+            interval=interval,
+            data_source=data_source,
+        )
     return daily_prices
 
 
@@ -291,7 +286,7 @@ def get_financial_ratio(
     include_dividends: bool = False,
     diluted: bool = True,
     days: int = 365,
-    data_source="financial modeling prep"
+    data_source="financial modeling prep",
 ) -> pandas.DataFrame:
     if isinstance(symbols, str):
         symbols = symbols.split(" ")
@@ -335,34 +330,3 @@ def get_financial_ratio(
         value_name="value",
     )
     return standardize_dataframe_column(all_ratios)
-
-if __name__ == "__main__":
-    symbols = "AAC AAIC"
-    df1 = get_price(symbols, interval="1d")
-    df1.to_csv("fact_daily_price.csv")
-    
-    df2 = get_price(symbols, interval="1m")
-    df2.to_csv("fact_one_minute_price.csv")
-    
-    df3 = get_financial_statement(symbols,report="income statement")
-    df3.to_csv('income_statement.csv')  
-    df4 = get_financial_statement(symbols,report="balance sheet")
-    df4.to_csv('balance_sheet_statement.csv')
-    df5 = get_financial_statement(symbols, report="cash flow")
-    df5.to_csv('cash_flow_statement.csv')   
-    
-    df6 = get_financial_ratio(symbols)
-    df6.to_csv("financial_ratio.csv")
-
-
-"""import polars
-import pandas
-import yfinance as yf
-stock = yf.download("AAPL")
-stock["symbol"]="AAPL"
-stock = stock.reset_index()
-stock.columns = ["date","open","high","low","close","adj_close", "volume","symbol"]
-# If some collumn have dtype datetime and has None value in some line, to_sql crashes with: 'NoneType' object has no attribute 'to_pydatetime'
-dfarrow = stock.convert_dtypes(dtype_backend="pyarrow")
-
-polars.from_pandas(dfarrow).write_database(table_name="fact_daily_price",connection="mysql://root:root@localhost:3306/stockdb", if_exists="append")"""

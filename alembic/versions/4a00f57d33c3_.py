@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 3fd1f3a518f8
-Revises: a72179fc3faf
-Create Date: 2023-08-16 00:35:55.208077
+Revision ID: 4a00f57d33c3
+Revises: 2600c2b9dfef
+Create Date: 2023-08-28 18:54:40.840656
 
 """
 from alembic import op
@@ -13,8 +13,8 @@ from app.decorators import log_start_end
 
 
 # revision identifiers, used by Alembic.
-revision = "3fd1f3a518f8"
-down_revision = "a72179fc3faf"
+revision = "4a00f57d33c3"
+down_revision = "2600c2b9dfef"
 branch_labels = None
 depends_on = None
 

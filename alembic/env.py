@@ -5,7 +5,7 @@ from alembic import context
 import os
 from dotenv import load_dotenv, find_dotenv
 from sqlmodel import SQLModel
-from app.db.models import *
+from app.db.security_model import *
 
 DATABASE_URI = os.getenv("DATABASE_URI", None)
 _ = load_dotenv(find_dotenv())

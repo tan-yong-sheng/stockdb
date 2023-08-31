@@ -23,7 +23,7 @@ def standardize_dataframe_column(
         pandas.DataFrame: A new DataFrame with standardized column names. If any custom column renames
                           are specified, they will be applied to the new DataFrame.
     """
-    data_frame.reset_index(inplace=True)
+    data_frame = data_frame.reset_index()
     data_frame.rename(columns=replace_mapper, inplace=True)
     data_frame.rename(
         columns={

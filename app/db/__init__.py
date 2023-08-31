@@ -1,3 +1,3 @@
-from app.db import macro, stocks, database_controller, models
+from app.db import macro, security_model, stocks, database_controller
 
-__all__ = ["macro", "stocks", "database_controller", "models"]
+__all__ = ["macro", "stocks", "database_controller", "security_model"]

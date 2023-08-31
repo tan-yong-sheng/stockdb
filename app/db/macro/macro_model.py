@@ -40,7 +40,9 @@ def get_countries() -> pandas.DataFrame:
     countries = pandas.merge(
         countries_code, countries_with_currencies, on="country", how="outer"
     )
-    countries_df = standardize_dataframe_column(countries, drop_columns=["level_0", "index"])
+    countries_df = standardize_dataframe_column(
+        countries, drop_columns=["level_0", "index"]
+    )
     return countries_df
 
 

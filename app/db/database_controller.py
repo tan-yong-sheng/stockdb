@@ -4,41 +4,33 @@ import pandas
 import logging
 from dotenv import load_dotenv, find_dotenv
 import sqlalchemy
-import polars
-from sqlmodel import SQLModel, create_engine, Session
-from sqlalchemy.future.engine import Engine
+from sqlalchemy import create_engine
+
+# from sqlmodel import SQLModel, create_engine, Session
 from typing import Optional
 from tqdm import tqdm
 from datetime import datetime
-
+from app.db.security_model import Base
 from app.decorators import log_start_end
 from app.db.stocks.stock_model import (
     get_company_info,
     get_price,
     get_news,
 )
-
-
 from app.db.macro.macro_model import (
     get_economic_calendar,
     get_countries,
     get_macro_parameters,
     get_macro_indicators_data,
 )
-
-from app.db.models import (
-    CountriesDB,
-    CompaniesDB,
-    DailyPriceDB,
-    OneMinPriceDB,
-    NewsDB,
+from app.db.security_model import (
+    CompanyDB,
     DataVendorDB,
-    NullDB,
 )
+
 
 _ = load_dotenv(find_dotenv())
 logger = logging.getLogger(__name__)
-
 DATABASE_URI = os.getenv("DATABASE_URI", None)
 # set echo=True to view output
 
@@ -48,7 +40,7 @@ DATABASE_URI = os.getenv("DATABASE_URI", None)
 def create_db_and_tables(engine=None):
     if engine is None:
         engine = create_engine(DATABASE_URI, echo=True)
-    SQLModel.metadata.create_all(engine)
+    Base.metadata.create_all(engine)
 
 
 ############################# INSERT DATA #################################
@@ -83,27 +75,33 @@ def insert_db(
         raise ValueError("=============== The data type is wrong===========")
 """
 
+
 @log_start_end(log=logger)
 def insert_db(
     data_frame: pandas.DataFrame = pandas.DataFrame(),
-    sql_model: str = SQLModel,
-    #sql_model: SQLModel = NullDB,
+    sql_model: str = None,
     connection: str = DATABASE_URI,
     if_exists: str = "append",
     chunksize: str = 1000,
     index=False,
     method="multi",
 ):
+    if sql_model == None:
+        raise Exception(
+            "Please choose any sql class model to\
+            input your data"
+        )
     engine = create_engine(connection, echo=True)
     data_frame["created_at"] = datetime.utcnow()
     data_frame["updated_at"] = datetime.utcnow()
-    #print(sql_model.__tablename__)
-    data_frame.to_sql(name=sql_model.__tablename__,
-                      con=engine,
-                      if_exists=if_exists,
-                      index=index,
-                      chunksize=chunksize,
-                      method=method)
+    data_frame.to_sql(
+        name=sql_model.__tablename__,
+        con=engine,
+        if_exists=if_exists,
+        index=index,
+        chunksize=chunksize,
+        method=method,
+    )
 
 
 def run_db_operation(engine=None):
@@ -112,19 +110,18 @@ def run_db_operation(engine=None):
 
     create_db_and_tables(engine=engine)
 
-    #companies_info = get_company_info(exchange="NYQ")
-    #insert_db(CountriesDB, get_countries(), engine=engine)
-    #insert_db(CompaniesDB, companies_info, engine=engine)
+    # companies_info = get_company_info(exchange="NYQ")
+    # insert_db(CountriesDB, get_countries(), engine=engine)
+    # insert_db(CompanyDB, companies_info, engine=engine)
 
-    #data_vendor_df = pandas.read_csv("app/db/input/data_vendor.csv")
-    #print(data_vendor_df)
-    #insert_db(DataVendorDB,data_vendor_df,engine=engine)
+    # data_vendor_df = pandas.read_csv("app/db/input/data_vendor.csv")
+    # print(data_vendor_df)
+    # insert_db(DataVendorDB,data_vendor_df,engine=engine)
 
-    daily_stock_price_df = get_price("AAPL", 
-                                     data_source="yahoo finance")
-
-    print(daily_stock_price_df)
-    insert_db(daily_stock_price_df, sql_model=DailyPriceDB)
+    # daily_stock_price_df = get_price(companies_info["symbol"].tolist(),
+    #                                 data_source="yahoo finance")
+    # for daily_price in daily_stock_price_df:
+    #    insert_db(daily_price, sql_model=DailyPriceDB)
 
     # get stock price
     """
@@ -147,8 +144,10 @@ def run_db_operation(engine=None):
     # insert_db(NewsDB, news_df)
     """
 
+
 if __name__ == "__main__":
     from app.loggers import setup_logging
+
     engine = create_engine(DATABASE_URI, echo=True)
     setup_logging()
     run_db_operation(engine=engine)

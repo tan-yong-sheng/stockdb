@@ -9,9 +9,7 @@ from app.db.stocks.stock_model import (
 
 @pytest.fixture
 def stock_price():
-    result = get_price(
-        "MSFT", start="2023-07-12", end="2023-07-15", interval="1d"
-    )
+    result = get_price("MSFT", start="2023-07-12", end="2023-07-15", interval="1d")
     yield result
 
 
