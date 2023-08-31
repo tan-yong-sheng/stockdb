@@ -1,9 +1,12 @@
 # Reference 1: https://analyzingalpha.com/create-an-equities-database
 # Reference 2: https://analyzingalpha.com/create-price-database-postgresql-sqlalchemy
+# Reference 3: https://analyzingalpha.com/financial-statement-database
 
+import os
 from datetime import datetime
 from typing import Optional, List
-from sqlalchemy import ForeignKey
+from sqlalchemy import ForeignKey, Enum, UniqueConstraint
+from sqlalchemy import select, insert
 from sqlalchemy.types import (
     Integer,
     BigInteger,
@@ -14,7 +17,6 @@ from sqlalchemy.types import (
     DateTime,
 )
 from sqlalchemy.orm import Mapped, mapped_column, relationship
-from sqlalchemy import Enum, UniqueConstraint
 from sqlalchemy.event import listens_for
 import enum
 import pandas
@@ -23,7 +25,7 @@ from app.database.setup_db_environment import (Base,
                                                session,
                                                float_double,
                                                BigInt,
-                                                )
+                                            )
 
 class PriceFrequency(enum.Enum):
     one_second = "1 second"
@@ -69,8 +71,6 @@ class DataVendorDB(Base, TimestampMixin):
     website_url: Mapped[str] = mapped_column(String(100))
     support_email: Mapped[str] = mapped_column(String(100))
     security: Mapped[List["SecurityDB"]] = relationship(back_populates="data_vendor")
-    # daily_prices: Mapped[List["DailyPriceDB"]] = relationship(back_populates="data_vendor")
-    # one_min_prices: Mapped[List["OneMinPriceDB"]] = relationship(back_populates="data_vendor")
 
 
 class SecurityDB(Base, TimestampMixin):
@@ -182,7 +182,6 @@ class CompanyDB(Base, TimestampMixin):
         nullable=False,
     )
     security: Mapped["SecurityDB"] = relationship(back_populates="company")
-
 
 
 class FinancialStatementType(enum.Enum):
@@ -313,15 +312,59 @@ def insert_initial_values(*args, **kwargs):
     session.add(financial_balance_sheet)
     session.add(financial_cash_flow_statement)
     session.commit()
-    
+
+
 @listens_for(FinancialStatementLineDB.__table__, 'after_create')
 def insert_initial_values(*args, **kwargs):
-    financial_statement_lines = pandas.read_csv('dim_financial_statements_lines.csv')
-    financial_statement_lines = financial_statement_lines[['tag', 'name']].drop_duplicates('tag')
+    financial_statement_lines = pandas.read_csv(
+        os.path.join(
+            os.path.dirname(__file__), 'dim_financial_statement_lines.csv'), 
+            usecols=["tag","name","description"])
+    financial_statement_lines = financial_statement_lines.drop_duplicates('tag')
 
-    for index, line in financial_statement_lines.iterrows():
-        session.add(FinancialStatementLineDB(tag=line['tag'], name=line['name']))
+    for _, line in financial_statement_lines.iterrows():
+        insert_stmt = insert(FinancialStatementLineDB).values(tag=line['tag'],
+                                             name=line['name'],
+                                             description=line['description'])
+        session.execute(insert_stmt)
     session.commit()
+
+
+
+""" # buggy
+@listens_for(FinancialStatementLineSequenceDB.__table__, 'after_create')
+def insert_initial_values(*args, **kwargs):
+    financial_statement_lines = pandas.read_csv(
+            os.path.join(
+                os.path.dirname(__file__), 'dim_financial_statement_line_sequence.csv'), 
+            usecols=["tag","name","description"])
+    statement_types = ['commercial', 'financial']
+    statement_codes = ['income_statement', 'balance_sheet_statement', 'cash_flow_statement']
+    
+    for statement_type in statement_types:
+        for statement_code in statement_codes:
+            statement_name = (statement_type.title() + ' ' + statement_code.replace('_',' ')).title()
+            print(statement_name)
+            statement = select(FinancialStatementDB).where(FinancialStatementDB.name == statement_name)
+            statement = session.scalars(statement).all()
+            print("------------------result----------------")
+            print(statement)
+            
+            financial_statement_sequence = financial_statement_lines[
+                financial_statement_lines['name'] == statement_name]
+            print("------------------financial statement sequence----------------")
+            print(financial_statement_sequence)
+
+            for index, row in financial_statement_sequence.iterrows():
+                line = session.query(FinancialStatementLineDB) \
+                    .filter(FinancialStatementLineDB.tag == row['tag']).one()
+                print("------------line---------------------")
+                print(line)
+                session.add(FinancialStatementLineSequenceDB(sequence=row['sequence'],
+                                                        financial_statement_id=statement.id,
+                                                        financial_statement_line_id=line.id))
+    session.commit()
+"""
 
 """
 class PriceDB(MasterSQLModel):

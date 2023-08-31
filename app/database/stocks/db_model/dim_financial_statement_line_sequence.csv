@@ -1,0 +1,279 @@
+﻿id,tag,sequence,statement_type
+1,operatingrevenue,1,Commercial Firm Income Statement 
+2,otherrevenue,2,Commercial Firm Income Statement 
+3,totalrevenue,3,Commercial Firm Income Statement 
+4,operatingcostofrevenue,4,Commercial Firm Income Statement 
+5,othercostofrevenue,5,Commercial Firm Income Statement 
+6,totalcostofrevenue,6,Commercial Firm Income Statement 
+7,totalgrossprofit,7,Commercial Firm Income Statement 
+8,sgaexpense,8,Commercial Firm Income Statement 
+9,marketingexpense,9,Commercial Firm Income Statement 
+10,rdexpense,10,Commercial Firm Income Statement 
+11,explorationexpense,11,Commercial Firm Income Statement 
+12,depreciationexpense,12,Commercial Firm Income Statement 
+13,amortizationexpense,13,Commercial Firm Income Statement 
+14,depletionexpense,14,Commercial Firm Income Statement 
+15,otheroperatingexpenses,15,Commercial Firm Income Statement 
+16,impairmentexpense,16,Commercial Firm Income Statement 
+17,restructuringcharge,17,Commercial Firm Income Statement 
+18,otherspecialcharges,18,Commercial Firm Income Statement 
+19,totaloperatingexpenses,19,Commercial Firm Income Statement 
+20,totaloperatingincome,20,Commercial Firm Income Statement 
+21,totalinterestexpense,21,Commercial Firm Income Statement 
+22,totalinterestincome,22,Commercial Firm Income Statement 
+23,otherincome,23,Commercial Firm Income Statement 
+24,totalotherincome,24,Commercial Firm Income Statement 
+25,totalpretaxincome,25,Commercial Firm Income Statement 
+26,incometaxexpense,26,Commercial Firm Income Statement 
+27,othergains,27,Commercial Firm Income Statement 
+28,netincomecontinuing,28,Commercial Firm Income Statement 
+29,netincomediscontinued,29,Commercial Firm Income Statement 
+30,extraordinaryincome,30,Commercial Firm Income Statement 
+31,otheradjustmentstoconsolidatednetincome,31,Commercial Firm Income Statement 
+32,netincome,32,Commercial Firm Income Statement 
+33,preferreddividends,33,Commercial Firm Income Statement 
+34,netincometononcontrollinginterest,34,Commercial Firm Income Statement 
+35,otheradjustmentstonetincometocommon,35,Commercial Firm Income Statement 
+36,netincometocommon,36,Commercial Firm Income Statement 
+37,weightedavebasicsharesos,37,Commercial Firm Income Statement 
+38,basiceps,38,Commercial Firm Income Statement 
+39,dilutedeps,40,Commercial Firm Income Statement 
+40,weightedavebasicdilutedsharesos,41,Commercial Firm Income Statement 
+41,basicdilutedeps,42,Commercial Firm Income Statement 
+42,cashdividendspershare,43,Commercial Firm Income Statement 
+43,loansandleaseinterestincome,1,Financial Firm Income Statement
+44,investmentsecuritiesinterestincome,2,Financial Firm Income Statement
+45,depositsinterestincome,3,Financial Firm Income Statement
+46,fedfundsandrepointerestincome,4,Financial Firm Income Statement
+47,tradingaccountinterestincome,5,Financial Firm Income Statement
+48,otherinterestincome,6,Financial Firm Income Statement
+49,totalinterestincome,7,Financial Firm Income Statement
+50,depositsinterestexpense,8,Financial Firm Income Statement
+51,shorttermborrowinginterestexpense,9,Financial Firm Income Statement
+52,longtermdebtinterestexpense,10,Financial Firm Income Statement
+53,fedfundsandrepointerestexpense,11,Financial Firm Income Statement
+54,capitalizedleaseobligationinterestexpense,12,Financial Firm Income Statement
+55,otherinterestexpense,13,Financial Firm Income Statement
+56,totalinterestexpense,14,Financial Firm Income Statement
+57,netinterestincome,15,Financial Firm Income Statement
+58,trustfeeincome,16,Financial Firm Income Statement
+59,servicechargesondepositsincome,17,Financial Firm Income Statement
+60,otherservicechargeincome,18,Financial Firm Income Statement
+61,netrealizedcapitalgains,19,Financial Firm Income Statement
+62,premiumsearned,20,Financial Firm Income Statement
+63,investmentbankingincome,21,Financial Firm Income Statement
+64,othernoninterestincome,22,Financial Firm Income Statement
+65,totalnoninterestincome,23,Financial Firm Income Statement
+66,totalrevenue,24,Financial Firm Income Statement
+67,provisionforcreditlosses,25,Financial Firm Income Statement
+68,salariesandemployeebenefitsexpense,26,Financial Firm Income Statement
+69,netoccupancyequipmentexpense,27,Financial Firm Income Statement
+70,marketingexpense,28,Financial Firm Income Statement
+71,propertyliabilityinsuranceclaims,29,Financial Firm Income Statement
+72,policyacquisitioncosts,30,Financial Firm Income Statement
+73,amortizationofdeferredpolicyacquisitioncosts,31,Financial Firm Income Statement
+74,currentandfuturebenefits,32,Financial Firm Income Statement
+75,otheroperatingexpenses,33,Financial Firm Income Statement
+76,depreciationexpense,34,Financial Firm Income Statement
+77,amortizationexpense,35,Financial Firm Income Statement
+78,impairmentexpense,36,Financial Firm Income Statement
+79,restructuringcharge,37,Financial Firm Income Statement
+80,otherspecialcharges,38,Financial Firm Income Statement
+81,totalnoninterestexpense,39,Financial Firm Income Statement
+82,nonoperatingincome,40,Financial Firm Income Statement
+83,totalpretaxincome,41,Financial Firm Income Statement
+84,incometaxexpense,42,Financial Firm Income Statement
+85,othergains,43,Financial Firm Income Statement
+86,netincomecontinuing,44,Financial Firm Income Statement
+87,netincomediscontinued,45,Financial Firm Income Statement
+88,extraordinaryincome,46,Financial Firm Income Statement
+89,otheradjustmentstoconsolidatednetincome,47,Financial Firm Income Statement
+90,netincome,48,Financial Firm Income Statement
+91,preferreddividends,49,Financial Firm Income Statement
+92,netincometononcontrollinginterest,50,Financial Firm Income Statement
+93,otheradjustmentstonetincometocommon,51,Financial Firm Income Statement
+94,netincometocommon,52,Financial Firm Income Statement
+95,weightedavebasicsharesos,53,Financial Firm Income Statement
+96,basiceps,54,Financial Firm Income Statement
+97,dilutedeps,56,Financial Firm Income Statement
+98,weightedavebasicdilutedsharesos,57,Financial Firm Income Statement
+99,basicdilutedeps,58,Financial Firm Income Statement
+100,cashdividendspershare,59,Financial Firm Income Statement
+101,cashandequivalents,1,Commercial Firm Balance Sheet
+102,restrictedcash,2,Commercial Firm Balance Sheet
+103,shortterminvestments,3,Commercial Firm Balance Sheet
+104,notereceivable,4,Commercial Firm Balance Sheet
+105,accountsreceivable,5,Commercial Firm Balance Sheet
+106,netinventory,6,Commercial Firm Balance Sheet
+107,prepaidexpenses,7,Commercial Firm Balance Sheet
+108,currentdeferredtaxassets,8,Commercial Firm Balance Sheet
+109,othercurrentassets,9,Commercial Firm Balance Sheet
+110,othercurrentnonoperatingassets,10,Commercial Firm Balance Sheet
+111,totalcurrentassets,11,Commercial Firm Balance Sheet
+112,grossppe,12,Commercial Firm Balance Sheet
+113,accumulateddepreciation,13,Commercial Firm Balance Sheet
+114,netppe,14,Commercial Firm Balance Sheet
+115,longterminvestments,15,Commercial Firm Balance Sheet
+116,noncurrentnotereceivables,16,Commercial Firm Balance Sheet
+117,goodwill,17,Commercial Firm Balance Sheet
+118,intangibleassets,18,Commercial Firm Balance Sheet
+119,noncurrentdeferredtaxassets,19,Commercial Firm Balance Sheet
+120,employeebenefitassets,20,Commercial Firm Balance Sheet
+121,othernoncurrentassets,21,Commercial Firm Balance Sheet
+122,othernoncurrentnonoperatingassets,22,Commercial Firm Balance Sheet
+123,totalassets,24,Commercial Firm Balance Sheet
+124,shorttermdebt,25,Commercial Firm Balance Sheet
+125,accountspayable,26,Commercial Firm Balance Sheet
+126,accruedexpenses,27,Commercial Firm Balance Sheet
+127,customerdeposits,28,Commercial Firm Balance Sheet
+128,dividendspayable,29,Commercial Firm Balance Sheet
+129,currentdeferredrevenue,30,Commercial Firm Balance Sheet
+130,currentdeferredtaxliabilities,31,Commercial Firm Balance Sheet
+131,currentemployeebenefitliabilities,32,Commercial Firm Balance Sheet
+132,othertaxespayable,33,Commercial Firm Balance Sheet
+133,othercurrentliabilities,34,Commercial Firm Balance Sheet
+134,othercurrentnonoperatingliabilities,35,Commercial Firm Balance Sheet
+135,totalcurrentliabilities,36,Commercial Firm Balance Sheet
+136,longtermdebt,37,Commercial Firm Balance Sheet
+137,capitalleaseobligations,38,Commercial Firm Balance Sheet
+138,assetretirementandlitigationobligation,39,Commercial Firm Balance Sheet
+139,noncurrentdeferredrevenue,40,Commercial Firm Balance Sheet
+140,noncurrentdeferredtaxliabilities,41,Commercial Firm Balance Sheet
+141,noncurrentemployeebenefitliabilities,42,Commercial Firm Balance Sheet
+142,othernoncurrentliabilities,43,Commercial Firm Balance Sheet
+143,othernoncurrentnonoperatingliabilities,44,Commercial Firm Balance Sheet
+144,totalliabilities,46,Commercial Firm Balance Sheet
+145,commitmentsandcontingencies,47,Commercial Firm Balance Sheet
+146,redeemablenoncontrollinginterest,48,Commercial Firm Balance Sheet
+147,commonequity,50,Commercial Firm Balance Sheet
+148,retainedearnings,51,Commercial Firm Balance Sheet
+149,aoci,53,Commercial Firm Balance Sheet
+150,otherequity,54,Commercial Firm Balance Sheet
+151,totalcommonequity,55,Commercial Firm Balance Sheet
+152,totalequity,56,Commercial Firm Balance Sheet
+153,noncontrollinginterests,57,Commercial Firm Balance Sheet
+154,totalequityandnoncontrollinginterests,58,Commercial Firm Balance Sheet
+155,totalliabilitiesandequity,59,Commercial Firm Balance Sheet
+156,cashandequivalents,1,Financial Firm Balance Sheet
+157,restrictedcash,2,Financial Firm Balance Sheet
+158,fedfundssold,3,Financial Firm Balance Sheet
+159,interestbearingdepositsatotherbanks,4,Financial Firm Balance Sheet
+160,timedepositsplaced,5,Financial Firm Balance Sheet
+161,loansandleases,7,Financial Firm Balance Sheet
+162,allowanceforloanandleaselosses,8,Financial Firm Balance Sheet
+163,netloansandleases,9,Financial Firm Balance Sheet
+164,loansheldforsale,10,Financial Firm Balance Sheet
+165,accruedinvestmentincome,11,Financial Firm Balance Sheet
+166,customerandotherreceivables,12,Financial Firm Balance Sheet
+167,netpremisesandequipment,13,Financial Firm Balance Sheet
+168,mortgageservicingrights,14,Financial Firm Balance Sheet
+169,deferredacquisitioncost,16,Financial Firm Balance Sheet
+170,separateaccountbusinessassets,17,Financial Firm Balance Sheet
+171,goodwill,18,Financial Firm Balance Sheet
+172,intangibleassets,19,Financial Firm Balance Sheet
+173,otherassets,20,Financial Firm Balance Sheet
+174,totalassets,21,Financial Firm Balance Sheet
+175,noninterestbearingdeposits,22,Financial Firm Balance Sheet
+176,interestbearingdeposits,23,Financial Firm Balance Sheet
+177,fedfundspurchased,24,Financial Firm Balance Sheet
+178,shorttermdebt,25,Financial Firm Balance Sheet
+179,bankersacceptances,26,Financial Firm Balance Sheet
+180,accruedinterestpayable,27,Financial Firm Balance Sheet
+181,othershorttermpayables,28,Financial Firm Balance Sheet
+182,longtermdebt,29,Financial Firm Balance Sheet
+183,capitalleaseobligations,30,Financial Firm Balance Sheet
+184,claimsandclaimexpenses,31,Financial Firm Balance Sheet
+185,futurepolicybenefits,32,Financial Firm Balance Sheet
+186,policyholderfunds,34,Financial Firm Balance Sheet
+187,participatingpolicyholderequity,35,Financial Firm Balance Sheet
+188,separateaccountbusinessliabilities,36,Financial Firm Balance Sheet
+189,otherlongtermliabilities,37,Financial Firm Balance Sheet
+190,totalliabilities,38,Financial Firm Balance Sheet
+191,commitmentsandcontingencies,39,Financial Firm Balance Sheet
+192,redeemablenoncontrollinginterest,40,Financial Firm Balance Sheet
+193,commonequity,42,Financial Firm Balance Sheet
+194,retainedearnings,43,Financial Firm Balance Sheet
+195,aoci,45,Financial Firm Balance Sheet
+196,otherequity,46,Financial Firm Balance Sheet
+197,totalcommonequity,47,Financial Firm Balance Sheet
+198,totalequity,48,Financial Firm Balance Sheet
+199,noncontrollinginterests,49,Financial Firm Balance Sheet
+200,totalequityandnoncontrollinginterests,50,Financial Firm Balance Sheet
+201,netincome,1,Commercial Firm Cash Flow Statement
+202,netincomediscontinued,2,Commercial Firm Cash Flow Statement
+203,netincomecontinuing,3,Commercial Firm Cash Flow Statement
+204,depreciationexpense,4,Commercial Firm Cash Flow Statement
+205,amortizationexpense,5,Commercial Firm Cash Flow Statement
+206,noncashadjustmentstonetincome,6,Commercial Firm Cash Flow Statement
+207,increasedecreaseinoperatingcapital,7,Commercial Firm Cash Flow Statement
+208,netcashfromcontinuingoperatingactivities,8,Commercial Firm Cash Flow Statement
+209,netcashfromdiscontinuedoperatingactivities,9,Commercial Firm Cash Flow Statement
+210,netcashfromoperatingactivities,10,Commercial Firm Cash Flow Statement
+211,purchaseofplantpropertyandequipment,11,Commercial Firm Cash Flow Statement
+212,acquisitions,12,Commercial Firm Cash Flow Statement
+213,purchaseofinvestments,13,Commercial Firm Cash Flow Statement
+214,saleofplantpropertyandequipment,14,Commercial Firm Cash Flow Statement
+215,divestitures,15,Commercial Firm Cash Flow Statement
+216,saleofinvestments,16,Commercial Firm Cash Flow Statement
+217,otherinvestingactivitiesnet,17,Commercial Firm Cash Flow Statement
+218,netcashfromcontinuinginvestingactivities,18,Commercial Firm Cash Flow Statement
+219,netcashfromdiscontinuedinvestingactivities,19,Commercial Firm Cash Flow Statement
+220,netcashfrominvestingactivities,20,Commercial Firm Cash Flow Statement
+221,repaymentofdebt,21,Commercial Firm Cash Flow Statement
+222,repurchaseofpreferredequity,22,Commercial Firm Cash Flow Statement
+223,repurchaseofcommonequity,23,Commercial Firm Cash Flow Statement
+224,paymentofdividends,24,Commercial Firm Cash Flow Statement
+225,issuanceofdebt,25,Commercial Firm Cash Flow Statement
+226,issuanceofpreferredequity,26,Commercial Firm Cash Flow Statement
+227,issuanceofcommonequity,27,Commercial Firm Cash Flow Statement
+228,otherfinancingactivitiesnet,28,Commercial Firm Cash Flow Statement
+229,netcashfromcontinuingfinancingactivities,29,Commercial Firm Cash Flow Statement
+230,netcashfromdiscontinuedfinancingactivities,30,Commercial Firm Cash Flow Statement
+231,netcashfromfinancingactivities,31,Commercial Firm Cash Flow Statement
+232,effectofexchangeratechanges,32,Commercial Firm Cash Flow Statement
+233,othernetchangesincash,33,Commercial Firm Cash Flow Statement
+234,netchangeincash,34,Commercial Firm Cash Flow Statement
+235,cashinterestpaid,35,Commercial Firm Cash Flow Statement
+236,cashinterestreceived,36,Commercial Firm Cash Flow Statement
+237,cashincometaxespaid,37,Commercial Firm Cash Flow Statement
+238,netincome,1,Financial Firm Cash Flow Statement
+239,netincomediscontinued,2,Financial Firm Cash Flow Statement
+240,netincomecontinuing,3,Financial Firm Cash Flow Statement
+241,provisionforloanlosses,4,Financial Firm Cash Flow Statement
+242,depreciationexpense,5,Financial Firm Cash Flow Statement
+243,amortizationexpense,6,Financial Firm Cash Flow Statement
+244,noncashadjustmentstonetincome,7,Financial Firm Cash Flow Statement
+245,increasedecreaseinoperatingcapital,8,Financial Firm Cash Flow Statement
+246,netcashfromcontinuingoperatingactivities,9,Financial Firm Cash Flow Statement
+247,netcashfromdiscontinuedoperatingactivities,10,Financial Firm Cash Flow Statement
+248,netcashfromoperatingactivities,11,Financial Firm Cash Flow Statement
+249,purchaseofplantpropertyandequipment,12,Financial Firm Cash Flow Statement
+250,acquisitions,13,Financial Firm Cash Flow Statement
+251,purchaseofinvestments,14,Financial Firm Cash Flow Statement
+252,saleofplantpropertyandequipment,15,Financial Firm Cash Flow Statement
+253,divestitures,16,Financial Firm Cash Flow Statement
+254,saleofinvestments,17,Financial Firm Cash Flow Statement
+255,netincreaseinfedfundssold,18,Financial Firm Cash Flow Statement
+256,loansheldforsalenet,19,Financial Firm Cash Flow Statement
+257,otherinvestingactivitiesnet,20,Financial Firm Cash Flow Statement
+258,netcashfromcontinuinginvestingactivities,21,Financial Firm Cash Flow Statement
+259,netcashfromdiscontinuedinvestingactivities,22,Financial Firm Cash Flow Statement
+260,netcashfrominvestingactivities,23,Financial Firm Cash Flow Statement
+261,netchangeindeposits,24,Financial Firm Cash Flow Statement
+262,issuanceofdebt,25,Financial Firm Cash Flow Statement
+263,issuanceofpreferredequity,26,Financial Firm Cash Flow Statement
+264,issuanceofcommonequity,27,Financial Firm Cash Flow Statement
+265,repaymentofdebt,28,Financial Firm Cash Flow Statement
+266,repurchaseofpreferredequity,29,Financial Firm Cash Flow Statement
+267,repurchaseofcommonequity,30,Financial Firm Cash Flow Statement
+268,paymentofdividends,31,Financial Firm Cash Flow Statement
+269,otherfinancingactivitiesnet,32,Financial Firm Cash Flow Statement
+270,netcashfromcontinuingfinancingactivities,33,Financial Firm Cash Flow Statement
+271,netcashfromdiscontinuedfinancingactivities,34,Financial Firm Cash Flow Statement
+272,netcashfromfinancingactivities,35,Financial Firm Cash Flow Statement
+273,effectofexchangeratechanges,36,Financial Firm Cash Flow Statement
+274,othernetchangesincash,37,Financial Firm Cash Flow Statement
+275,netchangeincash,38,Financial Firm Cash Flow Statement
+276,cashinterestpaid,39,Financial Firm Cash Flow Statement
+277,cashinterestreceived,40,Financial Firm Cash Flow Statement
+278,cashincometaxespaid,41,Financial Firm Cash Flow Statement

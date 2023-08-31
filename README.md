@@ -5,6 +5,7 @@
 1. use intrinio as a baseline for database design of macro economics data: 
 https://docs.intrinio.com/documentation/web_api/get_all_economic_indices_v2
 2. use schedule + threading to repeat scraping process at any interval: https://www.geeksforgeeks.org/python-schedule-library/ & https://schedule.readthedocs.io/en/stable/parallel-execution.html
+3. use numba + numpy to replace pandas for faster iteration
 
 # Objective:
 Build a MySQL database which scrape historical stock price data, news data, and macroeconomics data.
