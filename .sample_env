@@ -1,0 +1,5 @@
+# rename this file from .sample_env to .env
+DATABASE_URI=<fill in here>
+NEWSAPI_API_KEY=<fill in here>
+FINANCIAL_MODELING_PREP=<fill in here>
+FRED_API=<fill in here>
