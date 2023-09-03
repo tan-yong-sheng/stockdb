@@ -2,10 +2,14 @@
 - please resume working on : app\db\financial_statement_model.py - half done, haven't yet finished
 
 # Plans:
+0. CSV file for FinancialStatementLineSequenceDB: https://github.com/leosmigel/analyzingalpha/tree/master/2020-02-28-financial-statement-database 
 1. use intrinio as a baseline for database design of macro economics data: 
 https://docs.intrinio.com/documentation/web_api/get_all_economic_indices_v2
 2. use schedule + threading to repeat scraping process at any interval: https://www.geeksforgeeks.org/python-schedule-library/ & https://schedule.readthedocs.io/en/stable/parallel-execution.html
 3. use numba + numpy to replace pandas for faster iteration
+4. learn pytest for unit testing and Integration testing: 
+- (i) Unit testing: https://github.com/OpenBB-finance/OpenBBTerminal/blob/develop/tests/README.md
+- (ii) Integration testing: https://github.com/OpenBB-finance/OpenBBTerminal/blob/develop/openbb_terminal/miscellaneous/integration_tests_scripts/README.MD
 
 # Objective:
 Build a MySQL database which scrape historical stock price data, news data, and macroeconomics data.

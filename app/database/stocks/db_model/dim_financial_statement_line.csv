@@ -1,0 +1,279 @@
+﻿,tag,name,statement_code,statement_type,sequence
+0,accountspayable,Accounts Payable,balance_sheet_statement,commercial,26
+1,accountsreceivable,Accounts Receivable,balance_sheet_statement,commercial,5
+2,accruedexpenses,Accrued Expenses,balance_sheet_statement,commercial,27
+3,accruedinterestpayable,Accrued Interest Payable,balance_sheet_statement,financial,27
+4,accruedinvestmentincome,Accrued Investment Income,balance_sheet_statement,financial,11
+5,accumulateddepreciation,Accumulated Depreciation,balance_sheet_statement,commercial,13
+6,allowanceforloanandleaselosses,Allowance for Loan and Lease Losses,balance_sheet_statement,financial,8
+7,aoci,Accumulated Other Comprehensive Income / (Loss),balance_sheet_statement,commercial,53
+8,aoci,Accumulated Other Comprehensive Income / (Loss),balance_sheet_statement,financial,45
+9,assetretirementandlitigationobligation,Asset Retirement Reserve & Litigation Obligation,balance_sheet_statement,commercial,39
+10,bankersacceptances,Bankers Acceptance Outstanding,balance_sheet_statement,financial,26
+11,capitalleaseobligations,Capital Lease Obligations,balance_sheet_statement,commercial,38
+12,capitalleaseobligations,Capital Lease Obligations,balance_sheet_statement,financial,30
+13,cashandequivalents,Cash & Equivalents,balance_sheet_statement,commercial,1
+14,cashandequivalents,Cash and Due from Banks,balance_sheet_statement,financial,1
+15,claimsandclaimexpenses,Claims and Claim Expense,balance_sheet_statement,financial,31
+16,commitmentsandcontingencies,Commitments & Contingencies,balance_sheet_statement,commercial,47
+17,commitmentsandcontingencies,Commitments & Contingencies,balance_sheet_statement,financial,39
+18,commonequity,Common Stock,balance_sheet_statement,commercial,50
+19,commonequity,Common Stock,balance_sheet_statement,financial,42
+20,currentdeferredrevenue,Current Deferred Revenue,balance_sheet_statement,commercial,30
+21,currentdeferredtaxassets,Current Deferred & Refundable Income Taxes,balance_sheet_statement,commercial,8
+22,currentdeferredtaxliabilities,Current Deferred & Payable Income Tax Liabilities,balance_sheet_statement,commercial,31
+23,currentemployeebenefitliabilities,Current Employee Benefit Liabilities,balance_sheet_statement,commercial,32
+24,customerandotherreceivables,Customer and Other Receivables,balance_sheet_statement,financial,12
+25,customerdeposits,Customer Deposits,balance_sheet_statement,commercial,28
+26,deferredacquisitioncost,Deferred Acquisition Cost,balance_sheet_statement,financial,16
+27,dividendspayable,Dividends Payable,balance_sheet_statement,commercial,29
+28,employeebenefitassets,Employee Benefit Assets,balance_sheet_statement,commercial,20
+29,fedfundspurchased,Federal Funds Purchased and Securities Sold,balance_sheet_statement,financial,24
+30,fedfundssold,Federal Funds Sold,balance_sheet_statement,financial,3
+31,futurepolicybenefits,Future Policy Benefits,balance_sheet_statement,financial,32
+32,goodwill,Goodwill,balance_sheet_statement,commercial,17
+33,goodwill,Goodwill,balance_sheet_statement,financial,18
+34,grossppe,"Plant, Property & Equipment, gross",balance_sheet_statement,commercial,12
+35,intangibleassets,Intangible Assets,balance_sheet_statement,commercial,18
+36,intangibleassets,Intangible Assets,balance_sheet_statement,financial,19
+37,interestbearingdeposits,Interest Bearing Deposits,balance_sheet_statement,financial,23
+38,interestbearingdepositsatotherbanks,Interest Bearing Deposits at Other Banks,balance_sheet_statement,financial,4
+39,loansandleases,Loans and Leases,balance_sheet_statement,financial,7
+40,loansheldforsale,Loans Held for Sale,balance_sheet_statement,financial,10
+41,longtermdebt,Long-Term Debt,balance_sheet_statement,commercial,37
+42,longtermdebt,Long-Term Debt,balance_sheet_statement,financial,29
+43,longterminvestments,Long-Term Investments,balance_sheet_statement,commercial,15
+44,mortgageservicingrights,Mortgage Servicing Rights,balance_sheet_statement,financial,14
+45,netinventory,"Inventories, net",balance_sheet_statement,commercial,6
+46,netloansandleases,"Loans and Leases, Net of Allowance",balance_sheet_statement,financial,9
+47,netppe,"Plant, Property, & Equipment, net",balance_sheet_statement,commercial,14
+48,netpremisesandequipment,"Premises and Equipment, Net",balance_sheet_statement,financial,13
+49,noncontrollinginterests,Noncontrolling Interest,balance_sheet_statement,commercial,57
+50,noncontrollinginterests,Noncontrolling Interest,balance_sheet_statement,financial,49
+51,noncurrentdeferredrevenue,Noncurrent Deferred Revenue,balance_sheet_statement,commercial,40
+52,noncurrentdeferredtaxassets,Noncurrent Deferred & Refundable Income Taxes,balance_sheet_statement,commercial,19
+53,noncurrentdeferredtaxliabilities,Noncurrent Deferred & Payable Income Tax Liabilities,balance_sheet_statement,commercial,41
+54,noncurrentemployeebenefitliabilities,Noncurrent Employee Benefit Liabilities,balance_sheet_statement,commercial,42
+55,noncurrentnotereceivables,Noncurrent Note & Lease Receivables,balance_sheet_statement,commercial,16
+56,noninterestbearingdeposits,Non-Interest Bearing Deposits,balance_sheet_statement,financial,22
+57,notereceivable,Note & Lease Receivable,balance_sheet_statement,commercial,4
+58,otherassets,Other Assets,balance_sheet_statement,financial,20
+59,othercurrentassets,Other Current Assets,balance_sheet_statement,commercial,9
+60,othercurrentliabilities,Other Current Liabilities,balance_sheet_statement,commercial,34
+61,othercurrentnonoperatingassets,Other Current Nonoperating Assets,balance_sheet_statement,commercial,10
+62,othercurrentnonoperatingliabilities,Other Current Nonoperating Liabilities,balance_sheet_statement,commercial,35
+63,otherequity,Other Equity Adjustments,balance_sheet_statement,commercial,54
+64,otherequity,Other Equity Adjustments,balance_sheet_statement,financial,46
+65,otherlongtermliabilities,Other Long-Term Liabilities,balance_sheet_statement,financial,37
+66,othernoncurrentassets,Other Noncurrent Operating Assets,balance_sheet_statement,commercial,21
+67,othernoncurrentliabilities,Other Noncurrent Operating Liabilities,balance_sheet_statement,commercial,43
+68,othernoncurrentnonoperatingassets,Other Noncurrent Nonoperating Assets,balance_sheet_statement,commercial,22
+69,othernoncurrentnonoperatingliabilities,Other Noncurrent Nonoperating Liabilities,balance_sheet_statement,commercial,44
+70,othershorttermpayables,Other Short-Term Payables,balance_sheet_statement,financial,28
+71,othertaxespayable,Other Taxes Payable,balance_sheet_statement,commercial,33
+72,participatingpolicyholderequity,Participating Policy Holder Equity,balance_sheet_statement,financial,35
+73,policyholderfunds,Policy Holder Funds,balance_sheet_statement,financial,34
+74,prepaidexpenses,Prepaid Expenses,balance_sheet_statement,commercial,7
+75,redeemablenoncontrollinginterest,Redeemable Noncontrolling Interest,balance_sheet_statement,commercial,48
+76,redeemablenoncontrollinginterest,Redeemable Noncontrolling Interest,balance_sheet_statement,financial,40
+77,restrictedcash,Restricted Cash,balance_sheet_statement,commercial,2
+78,restrictedcash,Restricted Cash,balance_sheet_statement,financial,2
+79,retainedearnings,Retained Earnings,balance_sheet_statement,commercial,51
+80,retainedearnings,Retained Earnings,balance_sheet_statement,financial,43
+81,separateaccountbusinessassets,Separate Account Business Assets,balance_sheet_statement,financial,17
+82,separateaccountbusinessliabilities,Separate Account Business Liabilities,balance_sheet_statement,financial,36
+83,shorttermdebt,Short-Term Debt,balance_sheet_statement,commercial,25
+84,shorttermdebt,Short-Term Debt,balance_sheet_statement,financial,25
+85,shortterminvestments,Short-Term Investments,balance_sheet_statement,commercial,3
+86,timedepositsplaced,Time Deposits Placed and Other Short-Term Investments,balance_sheet_statement,financial,5
+87,totalassets,Total Assets,balance_sheet_statement,commercial,24
+88,totalassets,Total Assets,balance_sheet_statement,financial,21
+89,totalcommonequity,Total Common Equity,balance_sheet_statement,commercial,55
+90,totalcommonequity,Total Common Equity,balance_sheet_statement,financial,47
+91,totalcurrentassets,Total Current Assets,balance_sheet_statement,commercial,11
+92,totalcurrentliabilities,Total Current Liabilities,balance_sheet_statement,commercial,36
+93,totalequity,Total Preferred & Common Equity,balance_sheet_statement,commercial,56
+94,totalequity,Total Preferred & Common Equity,balance_sheet_statement,financial,48
+95,totalequityandnoncontrollinginterests,Total Equity & Noncontrolling Interests,balance_sheet_statement,commercial,58
+96,totalequityandnoncontrollinginterests,Total Equity & Noncontrolling Interests,balance_sheet_statement,financial,50
+97,totalliabilities,Total Liabilities,balance_sheet_statement,commercial,46
+98,totalliabilities,Total Liabilities,balance_sheet_statement,financial,38
+99,totalliabilitiesandequity,Total Liabilities & Shareholders' Equity,balance_sheet_statement,commercial,59
+0,amortizationexpense,Amortization Expense,income_statement,commercial,13
+1,amortizationexpense,Amortization Expense,income_statement,financial,35
+2,amortizationofdeferredpolicyacquisitioncosts,Amortization of Deferred Policy Acquisition Costs,income_statement,financial,31
+3,basicdilutedeps,Basic & Diluted Earnings per Share,income_statement,commercial,42
+4,basicdilutedeps,Basic & Diluted Earnings per Share,income_statement,financial,58
+5,basiceps,Basic Earnings per Share,income_statement,commercial,38
+6,basiceps,Basic Earnings per Share,income_statement,financial,54
+7,capitalizedleaseobligationinterestexpense,Capitalized Lease Obligations Interest Expense,income_statement,financial,12
+8,cashdividendspershare,Cash Dividends to Common per Share,income_statement,commercial,43
+9,cashdividendspershare,Cash Dividends to Common per Share,income_statement,financial,59
+10,currentandfuturebenefits,Current and Future Benefits,income_statement,financial,32
+11,depletionexpense,Depletion Expense,income_statement,commercial,14
+12,depositsinterestexpense,Deposits Interest Expense,income_statement,financial,8
+13,depositsinterestincome,Deposits and Money Market Investments Interest Income,income_statement,financial,3
+14,depreciationexpense,Depreciation Expense,income_statement,commercial,12
+15,depreciationexpense,Depreciation Expense,income_statement,financial,34
+16,dilutedeps,Diluted Earnings per Share,income_statement,commercial,40
+17,dilutedeps,Diluted Earnings per Share,income_statement,financial,56
+18,explorationexpense,Exploration Expense,income_statement,commercial,11
+19,extraordinaryincome,"Extraordinary Income / (Loss), net",income_statement,commercial,30
+20,extraordinaryincome,"Extraordinary Income / (Loss), net",income_statement,financial,46
+21,fedfundsandrepointerestexpense,Federal Funds Purchased and Securities Sold Interest Expense,income_statement,financial,11
+22,fedfundsandrepointerestincome,Federal Funds Sold and Securities Borrowed Interest Income,income_statement,financial,4
+23,impairmentexpense,Impairment Charge,income_statement,commercial,16
+24,impairmentexpense,Impairment Charge,income_statement,financial,36
+25,incometaxexpense,Income Tax Expense,income_statement,commercial,26
+26,incometaxexpense,Income Tax Expense,income_statement,financial,42
+27,investmentbankingincome,Investment Banking Income,income_statement,financial,21
+28,investmentsecuritiesinterestincome,Investment Securities Interest Income,income_statement,financial,2
+29,loansandleaseinterestincome,Loans and Leases Interest Income,income_statement,financial,1
+30,longtermdebtinterestexpense,Long-Term Debt Interest Expense,income_statement,financial,10
+31,marketingexpense,Marketing Expense,income_statement,commercial,9
+32,marketingexpense,Marketing Expense,income_statement,financial,28
+33,netincome,Consolidated Net Income / (Loss),income_statement,commercial,32
+34,netincome,Consolidated Net Income / (Loss),income_statement,financial,48
+35,netincomecontinuing,Net Income / (Loss) Continuing Operations,income_statement,commercial,28
+36,netincomecontinuing,Net Income / (Loss) Continuing Operations,income_statement,financial,44
+37,netincomediscontinued,Net Income / (Loss) Discontinued Operations,income_statement,commercial,29
+38,netincomediscontinued,Net Income / (Loss) Discontinued Operations,income_statement,financial,45
+39,netincometocommon,Net Income / (Loss) Attributable to Common Shareholders,income_statement,commercial,36
+40,netincometocommon,Net Income / (Loss) Attributable to Common Shareholders,income_statement,financial,52
+41,netincometononcontrollinginterest,Net Income / (Loss) Attributable to Noncontrolling Interest,income_statement,commercial,34
+42,netincometononcontrollinginterest,Net Income / (Loss) Attributable to Noncontrolling Interest,income_statement,financial,50
+43,netinterestincome,Net Interest Income / (Expense),income_statement,financial,15
+44,netoccupancyequipmentexpense,Net Occupancy & Equipment Expense,income_statement,financial,27
+45,netrealizedcapitalgains,Net Realized & Unrealized Capital Gains on Investments,income_statement,financial,19
+46,nonoperatingincome,"Nonoperating Income / (Expense), net",income_statement,financial,40
+47,operatingcostofrevenue,Operating Cost of Revenue,income_statement,commercial,4
+48,operatingrevenue,Operating Revenue,income_statement,commercial,1
+49,otheradjustmentstoconsolidatednetincome,Other Adjustments to Consolidated Net Income / (Loss),income_statement,commercial,31
+50,otheradjustmentstoconsolidatednetincome,Other Adjustments to Consolidated Net Income / (Loss),income_statement,financial,47
+51,otheradjustmentstonetincometocommon,Other Adjustments to Net Income / (Loss) Attributable to Common Shareholders),income_statement,commercial,35
+52,otheradjustmentstonetincometocommon,Other Adjustment to Net Income / (Loss) Attributable to Common Shareholders),income_statement,financial,51
+53,othercostofrevenue,Other Cost of Revenue,income_statement,commercial,5
+54,othergains,"Other Gains / (Losses), net",income_statement,commercial,27
+55,othergains,"Other Gains / (Losses), net",income_statement,financial,43
+56,otherincome,"Other Income / (Expense), net",income_statement,commercial,23
+57,otherinterestexpense,Other Interest Expense,income_statement,financial,13
+58,otherinterestincome,Other Interest Income,income_statement,financial,6
+59,othernoninterestincome,Other Non-Interest Income,income_statement,financial,22
+60,otheroperatingexpenses,Other Operating Expenses / (Income),income_statement,commercial,15
+61,otheroperatingexpenses,Other Operating Expenses,income_statement,financial,33
+62,otherrevenue,Other Revenue,income_statement,commercial,2
+63,otherservicechargeincome,Other Service Charges,income_statement,financial,18
+64,otherspecialcharges,Other Special Charges / (Income),income_statement,commercial,18
+65,otherspecialcharges,Other Special Charges,income_statement,financial,38
+66,policyacquisitioncosts,Insurance Policy Acquisition Costs,income_statement,financial,30
+67,preferreddividends,Preferred Stock Dividends Declared,income_statement,commercial,33
+68,preferreddividends,Preferred Stock Dividends Declared,income_statement,financial,49
+69,premiumsearned,Premiums Earned,income_statement,financial,20
+70,propertyliabilityinsuranceclaims,Property & Liability Insurance Claims,income_statement,financial,29
+71,provisionforcreditlosses,Provision for Credit Losses,income_statement,financial,25
+72,rdexpense,Research & Development Expense,income_statement,commercial,10
+73,restructuringcharge,Restructuring Charge,income_statement,commercial,17
+74,restructuringcharge,Restructuring Charge,income_statement,financial,37
+75,salariesandemployeebenefitsexpense,Salaries and Employee Benefits,income_statement,financial,26
+76,servicechargesondepositsincome,Service Charges on Deposit Accounts,income_statement,financial,17
+77,sgaexpense,"Selling, General & Admin Expense",income_statement,commercial,8
+78,shorttermborrowinginterestexpense,Short-Term Borrowings Interest Expense,income_statement,financial,9
+79,totalcostofrevenue,Total Cost of Revenue,income_statement,commercial,6
+80,totalgrossprofit,Total Gross Profit,income_statement,commercial,7
+81,totalinterestexpense,Interest Expense,income_statement,commercial,21
+82,totalinterestexpense,Total Interest Expense,income_statement,financial,14
+83,totalinterestincome,Interest & Investment Income,income_statement,commercial,22
+84,totalinterestincome,Total Interest Income,income_statement,financial,7
+85,totalnoninterestexpense,Total Non-Interest Expense,income_statement,financial,39
+86,totalnoninterestincome,Total Non-Interest Income,income_statement,financial,23
+87,totaloperatingexpenses,Total Operating Expenses,income_statement,commercial,19
+88,totaloperatingincome,Total Operating Income,income_statement,commercial,20
+89,totalotherincome,"Total Other Income / (Expense), net",income_statement,commercial,24
+90,totalpretaxincome,Total Pre-Tax Income ,income_statement,commercial,25
+91,totalpretaxincome,Total Pre-Tax Income ,income_statement,financial,41
+92,totalrevenue,Total Revenue,income_statement,commercial,3
+93,totalrevenue,Total Revenue,income_statement,financial,24
+94,tradingaccountinterestincome,Trading Account Interest Income,income_statement,financial,5
+95,trustfeeincome,Trust Fees by Commissions,income_statement,financial,16
+96,weightedavebasicdilutedsharesos,Weighted Average Basic & Diluted Shares Outstanding,income_statement,commercial,41
+97,weightedavebasicdilutedsharesos,Weighted Average Basic & Diluted Shares Outstanding,income_statement,financial,57
+98,weightedavebasicsharesos,Weighted Average Basic Shares Outstanding,income_statement,commercial,37
+99,weightedavebasicsharesos,Weighted Average Basic Shares Outstanding,income_statement,financial,53
+0,acquisitions,Acquisitions,cash_flow_statement,commercial,12
+1,acquisitions,Acquisitions,cash_flow_statement,financial,13
+2,amortizationexpense,Amortization Expense,cash_flow_statement,commercial,5
+3,amortizationexpense,Amortization Expense,cash_flow_statement,financial,6
+4,cashincometaxespaid,Cash Income Taxes Paid,cash_flow_statement,commercial,37
+5,cashincometaxespaid,Cash Income Taxes Paid,cash_flow_statement,financial,41
+6,cashinterestpaid,Cash Interest Paid,cash_flow_statement,commercial,35
+7,cashinterestpaid,Cash Interest Paid,cash_flow_statement,financial,39
+8,cashinterestreceived,Cash Interest Received,cash_flow_statement,commercial,36
+9,cashinterestreceived,Cash Interest Received,cash_flow_statement,financial,40
+10,depreciationexpense,Depreciation Expense,cash_flow_statement,commercial,4
+11,depreciationexpense,Depreciation Expense,cash_flow_statement,financial,5
+12,divestitures,Divestitures,cash_flow_statement,commercial,15
+13,divestitures,Divestitures,cash_flow_statement,financial,16
+14,effectofexchangeratechanges,Effect of Exchange Rate Changes,cash_flow_statement,commercial,32
+15,effectofexchangeratechanges,Effect of Exchange Rate Changes,cash_flow_statement,financial,36
+16,increasedecreaseinoperatingcapital,"Changes in Operating Assets and Liabilities, net",cash_flow_statement,commercial,7
+17,increasedecreaseinoperatingcapital,"Changes in Operating Assets and Liabilities, net",cash_flow_statement,financial,8
+18,issuanceofcommonequity,Issuance of Common Equity,cash_flow_statement,commercial,27
+19,issuanceofcommonequity,Issuance of Common Equity,cash_flow_statement,financial,27
+20,issuanceofdebt,Issuance of Debt,cash_flow_statement,commercial,25
+21,issuanceofdebt,Issuance of Debt,cash_flow_statement,financial,25
+22,issuanceofpreferredequity,Issuance of Preferred Equity,cash_flow_statement,commercial,26
+23,issuanceofpreferredequity,Issuance of Preferred Equity,cash_flow_statement,financial,26
+24,loansheldforsalenet,"Loans Held for Sale, Net",cash_flow_statement,financial,19
+25,netcashfromcontinuingfinancingactivities,Net Cash From Continuing Financing Activities,cash_flow_statement,commercial,29
+26,netcashfromcontinuingfinancingactivities,Net Cash From Continuing Financing Activities,cash_flow_statement,financial,33
+27,netcashfromcontinuinginvestingactivities,Net Cash From Continuing Investing Activities,cash_flow_statement,commercial,18
+28,netcashfromcontinuinginvestingactivities,Net Cash From Continuing Investing Activities,cash_flow_statement,financial,21
+29,netcashfromcontinuingoperatingactivities,Net Cash From Continuing Operating Activities,cash_flow_statement,commercial,8
+30,netcashfromcontinuingoperatingactivities,Net Cash From Continuing Operating Activities,cash_flow_statement,financial,9
+31,netcashfromdiscontinuedfinancingactivities,Net Cash From Discontinued Financing Activities,cash_flow_statement,commercial,30
+32,netcashfromdiscontinuedfinancingactivities,Net Cash From Discontinued Financing Activities,cash_flow_statement,financial,34
+33,netcashfromdiscontinuedinvestingactivities,Net Cash From Discontinued Investing Activities,cash_flow_statement,commercial,19
+34,netcashfromdiscontinuedinvestingactivities,Net Cash From Discontinued Investing Activities,cash_flow_statement,financial,22
+35,netcashfromdiscontinuedoperatingactivities,Net Cash From Discontinued Operating Activities,cash_flow_statement,commercial,9
+36,netcashfromdiscontinuedoperatingactivities,Net Cash From Discontinued Operating Activities,cash_flow_statement,financial,10
+37,netcashfromfinancingactivities,Net Cash From Financing Activities,cash_flow_statement,commercial,31
+38,netcashfromfinancingactivities,Net Cash From Financing Activities,cash_flow_statement,financial,35
+39,netcashfrominvestingactivities,Net Cash From Investing Activities,cash_flow_statement,commercial,20
+40,netcashfrominvestingactivities,Net Cash From Investing Activities,cash_flow_statement,financial,23
+41,netcashfromoperatingactivities,Net Cash From Operating Activities,cash_flow_statement,commercial,10
+42,netcashfromoperatingactivities,Net Cash From Operating Activities,cash_flow_statement,financial,11
+43,netchangeincash,Net Change in Cash & Equivalents,cash_flow_statement,commercial,34
+44,netchangeincash,Net Change in Cash & Equivalents,cash_flow_statement,financial,38
+45,netchangeindeposits,Net Change in Deposits,cash_flow_statement,financial,24
+46,netincome,Consolidated Net Income / (Loss),cash_flow_statement,commercial,1
+47,netincome,Consolidated Net Income / (Loss),cash_flow_statement,financial,1
+48,netincomecontinuing,Net Income / (Loss) Continuing Operations,cash_flow_statement,commercial,3
+49,netincomecontinuing,Net Income / (Loss) Continuing Operations,cash_flow_statement,financial,3
+50,netincomediscontinued,Net Income / (Loss) Discontinued Operations,cash_flow_statement,commercial,2
+51,netincomediscontinued,Net Income / (Loss) Discontinued Operations,cash_flow_statement,financial,2
+52,netincreaseinfedfundssold,Net Increase in Fed Funds Sold,cash_flow_statement,financial,18
+53,noncashadjustmentstonetincome,Non-Cash Adjustments To Reconcile Net Income,cash_flow_statement,commercial,6
+54,noncashadjustmentstonetincome,Non-Cash Adjustments to Reconcile Net Income,cash_flow_statement,financial,7
+55,otherfinancingactivitiesnet,"Other Financing Activities, net",cash_flow_statement,commercial,28
+56,otherfinancingactivitiesnet,"Other Financing Activities, Net",cash_flow_statement,financial,32
+57,otherinvestingactivitiesnet,"Other Investing Activities, net",cash_flow_statement,commercial,17
+58,otherinvestingactivitiesnet,"Other Investing Activities, net",cash_flow_statement,financial,20
+59,othernetchangesincash,Other Net Changes in Cash,cash_flow_statement,commercial,33
+60,othernetchangesincash,Other Net Changes in Cash,cash_flow_statement,financial,37
+61,paymentofdividends,Payment of Dividends,cash_flow_statement,commercial,24
+62,paymentofdividends,Payment of Dividends,cash_flow_statement,financial,31
+63,provisionforloanlosses,Provision For Loan Losses,cash_flow_statement,financial,4
+64,purchaseofinvestments,Purchase of Investments,cash_flow_statement,commercial,13
+65,purchaseofinvestments,Purchase of Investment Securities,cash_flow_statement,financial,14
+66,purchaseofplantpropertyandequipment,"Purchase of Property, Plant & Equipment",cash_flow_statement,commercial,11
+67,purchaseofplantpropertyandequipment,"Purchase of Property, Leasehold Improvements and Equipment",cash_flow_statement,financial,12
+68,repaymentofdebt,Repayment of Debt,cash_flow_statement,commercial,21
+69,repaymentofdebt,Repayment of Debt,cash_flow_statement,financial,28
+70,repurchaseofcommonequity,Repurchase of Common Equity,cash_flow_statement,commercial,23
+71,repurchaseofcommonequity,Repurchase of Common Equity,cash_flow_statement,financial,30
+72,repurchaseofpreferredequity,Repurchase of Preferred Equity,cash_flow_statement,commercial,22
+73,repurchaseofpreferredequity,Repurchase of Preferred Equity,cash_flow_statement,financial,29
+74,saleofinvestments,Sale and/or Maturity of Investments,cash_flow_statement,commercial,16
+75,saleofinvestments,Sale and/or Maturity of Investments,cash_flow_statement,financial,17
+76,saleofplantpropertyandequipment,"Sale of Property, Plant & Equipment",cash_flow_statement,commercial,14
+77,saleofplantpropertyandequipment,"Sale of Property, Leasehold Improvements and Equipment",cash_flow_statement,financial,15

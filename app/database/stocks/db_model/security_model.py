@@ -209,7 +209,7 @@ class FinancialStatementLineDB(Base):
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     tag: Mapped[str] = mapped_column(String(50), nullable=False, unique=True)
     name: Mapped[str] = mapped_column("name", String(100), nullable=False, unique=True)
-    description: Mapped[str] = mapped_column("description", String(1000))
+    description: Mapped[Optional[str]] = mapped_column("description", String(1000), nullable=True)
     sequences: Mapped["FinancialStatementLineSequenceDB"] = relationship(back_populates="financial_statement_line")
     facts: Mapped["FinancialStatementFactDB"] = relationship(backref="financial_statement_line")
 
@@ -318,53 +318,43 @@ def insert_initial_values(*args, **kwargs):
 def insert_initial_values(*args, **kwargs):
     financial_statement_lines = pandas.read_csv(
         os.path.join(
-            os.path.dirname(__file__), 'dim_financial_statement_lines.csv'), 
-            usecols=["tag","name","description"])
+            os.path.dirname(__file__), 'dim_financial_statement_line.csv'), 
+            usecols=["tag","name"]) #,"description"])
     financial_statement_lines = financial_statement_lines.drop_duplicates('tag')
 
     for _, line in financial_statement_lines.iterrows():
         insert_stmt = insert(FinancialStatementLineDB).values(tag=line['tag'],
-                                             name=line['name'],
-                                             description=line['description'])
+                                             name=line['name'])
+                                             #description=line['description'])
         session.execute(insert_stmt)
     session.commit()
 
 
-
-""" # buggy
 @listens_for(FinancialStatementLineSequenceDB.__table__, 'after_create')
 def insert_initial_values(*args, **kwargs):
     financial_statement_lines = pandas.read_csv(
-            os.path.join(
-                os.path.dirname(__file__), 'dim_financial_statement_line_sequence.csv'), 
-            usecols=["tag","name","description"])
+        os.path.join(
+            os.path.dirname(__file__), 'dim_financial_statement_line.csv'), 
+            usecols=["tag","statement_type","statement_code","sequence"])
     statement_types = ['commercial', 'financial']
     statement_codes = ['income_statement', 'balance_sheet_statement', 'cash_flow_statement']
-    
     for statement_type in statement_types:
         for statement_code in statement_codes:
-            statement_name = (statement_type.title() + ' ' + statement_code.replace('_',' ')).title()
-            print(statement_name)
-            statement = select(FinancialStatementDB).where(FinancialStatementDB.name == statement_name)
-            statement = session.scalars(statement).all()
-            print("------------------result----------------")
-            print(statement)
-            
+            statement_name = (statement_type + ' ' + statement_code.replace('_',' ')).title()
+            statement = session.query(FinancialStatementDB) \
+                .filter(FinancialStatementDB.name == statement_name).one()
             financial_statement_sequence = financial_statement_lines[
-                financial_statement_lines['name'] == statement_name]
-            print("------------------financial statement sequence----------------")
-            print(financial_statement_sequence)
+                (financial_statement_lines['statement_type'] == statement_type) & \
+                (financial_statement_lines['statement_code'] == statement_code)]
 
             for index, row in financial_statement_sequence.iterrows():
                 line = session.query(FinancialStatementLineDB) \
                     .filter(FinancialStatementLineDB.tag == row['tag']).one()
-                print("------------line---------------------")
-                print(line)
                 session.add(FinancialStatementLineSequenceDB(sequence=row['sequence'],
                                                         financial_statement_id=statement.id,
                                                         financial_statement_line_id=line.id))
     session.commit()
-"""
+
 
 """
 class PriceDB(MasterSQLModel):
