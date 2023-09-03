@@ -1,6 +1,14 @@
 # Currently, this is a Work in progress:
 - please resume working on : app\db\financial_statement_model.py - half done, haven't yet finished
 
+# Prerequisite:
+- python + mysql database
+
+# steps to run: 
+1. rename .sample_env to .env, and then rep
+2. open terminal, and then type `python -m app.database.db_controller`
+3. check back your mysql gui to see if the database is created
+
 # Plans:
 0. CSV file for FinancialStatementLineSequenceDB: https://github.com/leosmigel/analyzingalpha/tree/master/2020-02-28-financial-statement-database 
 1. use intrinio as a baseline for database design of macro economics data: 

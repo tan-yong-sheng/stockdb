@@ -16,6 +16,7 @@ from sqlalchemy.types import (
     Date,
     DateTime,
 )
+from sqlalchemy import insert, select
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy.event import listens_for
 import enum
@@ -323,10 +324,9 @@ def insert_initial_values(*args, **kwargs):
     financial_statement_lines = financial_statement_lines.drop_duplicates('tag')
 
     for _, line in financial_statement_lines.iterrows():
-        insert_stmt = insert(FinancialStatementLineDB).values(tag=line['tag'],
-                                             name=line['name'])
+        session.execute(insert(FinancialStatementLineDB).values(tag=line['tag'],
+                                             name=line['name']))
                                              #description=line['description'])
-        session.execute(insert_stmt)
     session.commit()
 
 
@@ -341,20 +341,20 @@ def insert_initial_values(*args, **kwargs):
     for statement_type in statement_types:
         for statement_code in statement_codes:
             statement_name = (statement_type + ' ' + statement_code.replace('_',' ')).title()
-            statement = session.query(FinancialStatementDB) \
-                .filter(FinancialStatementDB.name == statement_name).one()
+            statement = session.execute(select(FinancialStatementDB)\
+                        .where(FinancialStatementDB.name == statement_name)).scalars().one()
             financial_statement_sequence = financial_statement_lines[
                 (financial_statement_lines['statement_type'] == statement_type) & \
                 (financial_statement_lines['statement_code'] == statement_code)]
 
-            for index, row in financial_statement_sequence.iterrows():
-                line = session.query(FinancialStatementLineDB) \
-                    .filter(FinancialStatementLineDB.tag == row['tag']).one()
-                session.add(FinancialStatementLineSequenceDB(sequence=row['sequence'],
-                                                        financial_statement_id=statement.id,
-                                                        financial_statement_line_id=line.id))
+            for _, row in financial_statement_sequence.iterrows():
+                line = session.execute(select(FinancialStatementLineDB)\
+                        .where(FinancialStatementLineDB.tag == row['tag'])).scalars().one()
+                session.execute(insert(FinancialStatementLineSequenceDB)\
+                    .values(sequence=row['sequence'],
+                            financial_statement_id=statement.id,
+                            financial_statement_line_id=line.id))   
     session.commit()
-
 
 """
 class PriceDB(MasterSQLModel):
