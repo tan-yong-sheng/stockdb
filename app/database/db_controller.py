@@ -96,7 +96,6 @@ def insert_db(
 def run_db_operation(engine=None):
     if engine is None:
         engine = create_engine(DATABASE_URI, echo=True)
-
     create_db_and_tables(engine=engine)
 
     # companies_info = get_company_info(exchange="NYQ")
