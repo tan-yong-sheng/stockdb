@@ -1,5 +1,10 @@
+
 # Currently, this is a Work in progress:
 - please resume working on : app\db\financial_statement_model.py - half done, haven't yet finished
+
+Below is the ER Diagram of this database project: 
+
+![image](img/er-diagram.svg)
 
 # Prerequisite:
 - python + mysql database
