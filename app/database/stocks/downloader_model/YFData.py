@@ -10,7 +10,6 @@ import requests
 from requests.compat import urljoin, quote
 from app.helpers import standardize_dataframe_column
 
-_ = load_dotenv(find_dotenv())
 FINANCIAL_MODELING_PREP = os.getenv("FINANCIAL_MODELING_PREP", None)
 
 

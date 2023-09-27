@@ -21,11 +21,11 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy.event import listens_for
 import enum
 import pandas
-from app.database.setup_db_environment import (Base, 
-                                               TimestampMixin,
-                                               session,
-                                               float_double,
-                                               BigInt,
+from app.database.setup_db_environment import (SESSION as session,
+                                                Base, 
+                                                TimestampMixin,
+                                                float_double,
+                                                BigInt,
                                             )
 
 class PriceFrequency(enum.Enum):

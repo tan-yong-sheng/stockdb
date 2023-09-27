@@ -2,33 +2,35 @@ import os
 import numpy
 import pandas
 import logging
-from dotenv import load_dotenv, find_dotenv
 import sqlalchemy
-from sqlalchemy import create_engine
+from app.database.setup_db_environment import ENGINE
 
 # from sqlmodel import SQLModel, create_engine, Session
 from typing import Optional
 from tqdm import tqdm
 from datetime import datetime
 from app.decorators import log_start_end
-from app.database.stocks.downloader_model.security_model import (
+from app.database.stocks.downloader_model.FDData import (
     get_company_info,
     get_price,
     get_news,
 )
-from app.database.macro.macro_model import (
-    get_economic_calendar,
-    get_countries,
-    get_macro_parameters,
-    get_macro_indicators_data,
-)
+#from app.database.macro.macro_model import (
+#    get_economic_calendar,
+#    get_countries,
+#    get_macro_parameters,
+#    get_macro_indicators_data,
+#) # don't want use openbb
 from app.database.stocks.db_model.security_model import (
+    SecurityPriceDB,
     CompanyDB,
     DataVendorDB,
 )
 from app.database.stocks.db_model.security_model import Base
-from app.database.setup_db_environment import create_db_and_tables
-from app.database.setup_db_environment import engine, DATABASE_URI
+from app.database.setup_db_environment import (create_db_and_tables, 
+                                               insert_db, 
+                                               ENGINE)
+
 
 logger = logging.getLogger(__name__)
 
@@ -37,12 +39,11 @@ logger = logging.getLogger(__name__)
 """
 @log_start_end(log=logger)
 def insert_db(
-    sql_model: SQLModel = NullDB,
     data_frame: pandas.DataFrame = pandas.DataFrame(),
-    engine: Optional[Engine]=None,
+    engine: Optional[ENGINE]=None,
 ):
     if engine is None:
-        engine = create_engine(DATABASE_URI, echo=True)
+        engine = ENGINE
     # remove null values in the dictionary
     if isinstance(data_frame, pandas.DataFrame):
         result_list = [
@@ -61,15 +62,12 @@ def insert_db(
                     except sqlalchemy.exc.IntegrityError as error:
                         session.rollback()
     else:
-        raise ValueError("=============== The data type is wrong===========")
-"""
-
+        raise ValueError("=============== The data type is wrong===========")   
 
 @log_start_end(log=logger)
 def insert_db(
     data_frame: pandas.DataFrame = pandas.DataFrame(),
     sql_model: str = None,
-    connection: str = DATABASE_URI,
     if_exists: str = "append",
     chunksize: str = 1000,
     index=False,
@@ -80,25 +78,25 @@ def insert_db(
             "Please choose any sql class model to\
             input your data"
         )
-    engine = create_engine(connection, echo=True)
+    
     data_frame["created_at"] = datetime.utcnow()
     data_frame["updated_at"] = datetime.utcnow()
     data_frame.to_sql(
         name=sql_model.__tablename__,
-        con=engine,
+        con=ENGINE,
         if_exists=if_exists,
         index=index,
         chunksize=chunksize,
         method=method,
     )
+"""
+
 
 
 def run_db_operation(engine=None):
-    if engine is None:
-        engine = create_engine(DATABASE_URI, echo=True)
-    create_db_and_tables(engine=engine)
+    create_db_and_tables(engine=ENGINE)
 
-    # companies_info = get_company_info(exchange="NYQ")
+    companies_info = get_company_info(exchange="NYQ")[:10]
     # insert_db(CountriesDB, get_countries(), engine=engine)
     # insert_db(CompanyDB, companies_info, engine=engine)
 
@@ -106,10 +104,10 @@ def run_db_operation(engine=None):
     # print(data_vendor_df)
     # insert_db(DataVendorDB,data_vendor_df,engine=engine)
 
-    # daily_stock_price_df = get_price(companies_info["symbol"].tolist(),
-    #                                 data_source="yahoo finance")
-    # for daily_price in daily_stock_price_df:
-    #    insert_db(daily_price, sql_model=DailyPriceDB)
+    daily_stock_price_df = get_price(companies_info["symbol"].tolist(),
+                                     data_source="yahoo finance")
+    for daily_price in daily_stock_price_df:
+        insert_db(daily_price, sql_model=SecurityPriceDB)
 
     # get stock price
     """
@@ -135,7 +133,5 @@ def run_db_operation(engine=None):
 
 if __name__ == "__main__":
     from app.loggers import setup_logging
-
-    engine = create_engine(DATABASE_URI, echo=True)
     setup_logging()
-    run_db_operation(engine=engine)
+    run_db_operation(engine=ENGINE)

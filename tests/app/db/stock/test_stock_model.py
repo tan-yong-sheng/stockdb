@@ -1,7 +1,7 @@
 from unittest.mock import patch
 import pytest
 import pandas as pd
-from app.database.stocks.downloader_model.security_model import (
+from app.database.stocks.downloader_model.FDData import (
     get_price,
     get_news,
 )

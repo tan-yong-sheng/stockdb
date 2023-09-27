@@ -17,14 +17,9 @@ __docformat__ = "numpy"
 import os
 import logging
 from typing import Union
-from datetime import datetime
 import pandas
 import requests
-from requests.compat import urljoin, quote
 from typing import Optional
-from dotenv import load_dotenv, find_dotenv
-from dateutil.relativedelta import relativedelta
-import yfinance
 import newsapi
 from newsapi import NewsApiClient
 import financedatabase as fd
@@ -32,11 +27,10 @@ from financetoolkit import Toolkit
 
 from app.decorators import log_start_end, check_api_key
 from app.helpers import standardize_dataframe_column
-from app.database.stocks.downloader_model.price_module import YFData, FMPData
+from app.database.stocks.downloader_model.YFData import YFData, FMPData
 
 logger = logging.getLogger(__name__)
 
-_ = load_dotenv(find_dotenv())
 NEWSAPI_API_KEY = os.getenv("NEWSAPI_API_KEY", None)
 DATABASE_URI = os.getenv("DATABASE_URI", None)
 FINANCIAL_MODELLING_PREP = os.getenv("FINANCIAL_MODELING_PREP", None)

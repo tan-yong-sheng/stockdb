@@ -6,10 +6,9 @@ from app.database.stocks.db_model.security_model import Base
 from alembic import context
 
 import os
-from dotenv import load_dotenv, find_dotenv
 
 DATABASE_URI = os.getenv("DATABASE_URI", None)
-_ = load_dotenv(find_dotenv())
+
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.

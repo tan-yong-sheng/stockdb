@@ -1,7 +1,5 @@
 import pandas
 import numpy
-import polars
-
 
 def standardize_dataframe_column(
     data_frame: pandas.DataFrame, replace_mapper: dict = {}, drop_columns: list = []
