@@ -1,7 +1,9 @@
+(Remark: Currently, this is a Work in progress)
 
-# Currently, this is a Work in progress:
-- please resume working on : app\db\financial_statement_model.py - half done, haven't yet finished
+# Objective:
+I wish to create a stock database that scrape the price and finanncial statement data to the MySQL database.
 
+# Metadata
 Below is the ER Diagram of this database project: 
 
 ![image](img/er-diagram.svg)
@@ -14,7 +16,7 @@ Below is the ER Diagram of this database project:
 2. open terminal, and then type `python -m app.database.db_controller`
 3. check back your mysql gui to see if the database is created
 
-# Plans:
+# Plans
 0. CSV file for FinancialStatementLineSequenceDB: https://github.com/leosmigel/analyzingalpha/tree/master/2020-02-28-financial-statement-database 
 1. use intrinio as a baseline for database design of macro economics data: 
 https://docs.intrinio.com/documentation/web_api/get_all_economic_indices_v2
